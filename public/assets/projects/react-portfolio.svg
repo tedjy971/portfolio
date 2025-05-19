@@ -1,0 +1,63 @@
+<svg viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="reactPortfolioGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#61dafb;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#21d3ee;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="400" height="300" fill="#f0f9ff"/>
+  
+  <!-- Browser window -->
+  <rect x="50" y="60" width="300" height="180" rx="8" fill="#374151" opacity="0.9"/>
+  <rect x="50" y="60" width="300" height="25" rx="8" fill="#1f2937"/>
+  <circle cx="70" cy="72" r="4" fill="#ef4444"/>
+  <circle cx="85" cy="72" r="4" fill="#f59e0b"/>
+  <circle cx="100" cy="72" r="4" fill="#10b981"/>
+  
+  <!-- Website content -->
+  <rect x="60" y="95" width="280" height="135" rx="4" fill="white"/>
+  
+  <!-- Header -->
+  <rect x="70" y="105" width="260" height="20" rx="2" fill="#61dafb" opacity="0.2"/>
+  <text x="200" y="118" text-anchor="middle" fill="#0369a1" font-family="Arial" font-size="10" font-weight="bold">Portfolio Header</text>
+  
+  <!-- Hero section -->
+  <rect x="70" y="135" width="120" height="40" rx="4" fill="#dbeafe" opacity="0.8"/>
+  <text x="130" y="150" text-anchor="middle" fill="#1e40af" font-family="Arial" font-size="8" font-weight="bold">Hero Section</text>
+  <text x="130" y="160" text-anchor="middle" fill="#3730a3" font-family="Arial" font-size="6">React Components</text>
+  
+  <!-- Projects grid -->
+  <rect x="200" y="135" width="50" height="30" rx="2" fill="#fecaca" opacity="0.8"/>
+  <text x="225" y="153" text-anchor="middle" fill="#dc2626" font-family="Arial" font-size="6" font-weight="bold">Projects</text>
+  
+  <rect x="260" y="135" width="50" height="30" rx="2" fill="#d1fae5" opacity="0.8"/>
+  <text x="285" y="153" text-anchor="middle" fill="#059669" font-family="Arial" font-size="6" font-weight="bold">Skills</text>
+  
+  <!-- Contact section -->
+  <rect x="70" y="185" width="240" height="30" rx="2" fill="#e0e7ff" opacity="0.8"/>
+  <text x="190" y="203" text-anchor="middle" fill="#4338ca" font-family="Arial" font-size="8" font-weight="bold">Contact Form</text>
+  
+  <!-- React logo -->
+  <circle cx="100" cy="250" r="20" fill="url(#reactPortfolioGrad)" opacity="0.9"/>
+  <!-- React atom -->
+  <ellipse cx="100" cy="250" rx="15" ry="5" fill="none" stroke="white" stroke-width="1.5"/>
+  <ellipse cx="100" cy="250" rx="15" ry="5" fill="none" stroke="white" stroke-width="1.5" transform="rotate(60 100 250)"/>
+  <ellipse cx="100" cy="250" rx="15" ry="5" fill="none" stroke="white" stroke-width="1.5" transform="rotate(-60 100 250)"/>
+  <circle cx="100" cy="250" r="2" fill="white"/>
+  
+  <!-- Tech stack -->
+  <rect x="140" y="240" width="40" height="15" rx="2" fill="#f59e0b" opacity="0.8"/>
+  <text x="160" y="250" text-anchor="middle" fill="white" font-family="Arial" font-size="7" font-weight="bold">JavaScript</text>
+  
+  <rect x="190" y="240" width="40" height="15" rx="2" fill="#8b5cf6" opacity="0.8"/>
+  <text x="210" y="250" text-anchor="middle" fill="white" font-family="Arial" font-size="7" font-weight="bold">Hooks</text>
+  
+  <rect x="240" y="240" width="40" height="15" rx="2" fill="#10b981" opacity="0.8"/>
+  <text x="260" y="250" text-anchor="middle" fill="white" font-family="Arial" font-size="7" font-weight="bold">Modern</text>
+  
+  <!-- Title -->
+  <text x="200" y="35" text-anchor="middle" fill="#1f2937" font-family="Arial" font-size="18" font-weight="bold">React Portfolio Workshop</text>
+  <text x="200" y="50" text-anchor="middle" fill="#0369a1" font-family="Arial" font-size="10">Formation BeginReact.dev</text>
+</svg>

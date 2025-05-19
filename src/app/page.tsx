@@ -1,23 +1,24 @@
-"use client";
+'use client';
 
-import { motion } from "framer-motion";
-import { useEffect, useState } from "react";
-import About from "../components/About";
-import AnimatedDivider from "../components/AnimatedDivider";
-import Contact from "../components/Contact";
-import CustomCursor from "../components/CustomCursor";
-import Footer from "../components/Footer";
-import Header from "../components/Header";
-import Hero from "../components/Hero";
-import IntroAnimation from "../components/IntroAnimation";
-import Projects from "../components/Projects";
-import Skills from "../components/Skills";
-import SportAnimation from "../components/SportAnimation";
+import About from '../components/About';
+import AnimatedDivider from '../components/AnimatedDivider';
+import Contact from '../components/Contact';
+import CustomCursor from '../components/CustomCursor';
+import DumbbellImage from '../components/DumbbellImage';
+import Footer from '../components/Footer';
+import Header from '../components/Header';
+import Hero from '../components/Hero';
+import IntroAnimation from '../components/IntroAnimation';
+import Projects from '../components/Projects';
+import Skills from '../components/Skills';
+import SportAnimation from '../components/SportAnimation';
+import { useState, useEffect } from 'react';
+import { motion } from 'framer-motion';
 
 export default function Home() {
-  // État pour contrôler quelle animation afficher
-  const [showGsapIntro, setShowGsapIntro] = useState(true);
-  
+  // État pour contrôler si l'animation GSAP est visible
+  const [showGsapIntro, setShowGsapIntro] = useState(false);
+
   // Animation pour le chargement de la page
   const pageVariants = {
     initial: { opacity: 0, y: 20 },
@@ -26,7 +27,7 @@ export default function Home() {
       y: 0,
       transition: {
         duration: 0.8,
-        ease: "easeOut",
+        ease: 'easeOut',
       },
     },
     exit: {
@@ -41,18 +42,17 @@ export default function Home() {
   // Effet pour initialiser les animations avec amélioration des performances
   useEffect(() => {
     // Ajouter une classe au body pour permettre les transitions CSS
-    document.body.classList.add("has-animations");
+    document.body.classList.add('has-animations');
 
     // Effet de révélation des sections lors du défilement avec paramètres optimisés
-    const sections = document.querySelectorAll("section");
+    const sections = document.querySelectorAll('section');
 
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            // Delay minime pour éviter de surcharger le thread principal
             setTimeout(() => {
-              entry.target.classList.add("in-view");
+              entry.target.classList.add('in-view');
             }, 10);
           }
         });
@@ -61,7 +61,7 @@ export default function Home() {
         // Réduire le threshold pour déclencher les animations plus tôt
         threshold: 0.05,
         // Ajouter une marge pour pré-charger les animations
-        rootMargin: "50px",
+        rootMargin: '50px',
       }
     );
 
@@ -82,7 +82,7 @@ export default function Home() {
     animationFrameId = requestAnimationFrame(animateBackground);
 
     return () => {
-      document.body.classList.remove("has-animations");
+      document.body.classList.remove('has-animations');
       sections.forEach((section) => {
         observer.unobserve(section);
       });
@@ -98,38 +98,65 @@ export default function Home() {
       exit="exit"
       variants={pageVariants}
     >
+      <CustomCursor />
       <Header />
       <main>
-        {showGsapIntro ? (
-          <>
+        {/* Affichage de l'animation GSAP en overlay si activée */}
+        {showGsapIntro && (
+          <div className="fixed inset-0 z-50 bg-black bg-opacity-90">
             <IntroAnimation />
             <div className="fixed bottom-10 right-10 z-50">
-              <button 
+              <button
                 onClick={() => setShowGsapIntro(false)}
                 className="bg-white dark:bg-gray-800 shadow-lg rounded-full p-3 flex items-center justify-center hover:shadow-xl transition-all"
-                title="Basculer vers l'affichage standard"
+                title="Fermer l'animation GSAP"
               >
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M9 15 3 9m0 0 6-6M3 9h12a6 6 0 0 1 0 12h-3" />
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  strokeWidth={1.5}
+                  stroke="currentColor"
+                  className="w-6 h-6"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    d="M6 18L18 6M6 6l12 12"
+                  />
                 </svg>
               </button>
             </div>
-          </>
-        ) : (
-          <>
-            <Hero />
-            <div className="fixed bottom-10 right-10 z-50">
-              <button 
-                onClick={() => setShowGsapIntro(true)}
-                className="bg-white dark:bg-gray-800 shadow-lg rounded-full p-3 flex items-center justify-center hover:shadow-xl transition-all"
-                title="Voir l'animation GSAP"
+          </div>
+        )}
+
+        {/* Contenu principal toujours visible */}
+        <Hero />
+        
+        {/* Bouton pour afficher l'animation GSAP */}
+        {!showGsapIntro && (
+          <div className="fixed bottom-10 right-10 z-50">
+            <button
+              onClick={() => setShowGsapIntro(true)}
+              className="bg-white dark:bg-gray-800 shadow-lg rounded-full p-3 flex items-center justify-center hover:shadow-xl transition-all"
+              title="Voir l'animation GSAP"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                strokeWidth={1.5}
+                stroke="currentColor"
+                className="w-6 h-6"
               >
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
-                  <path strokeLinecap="round" strokeLinejoin="round" d="m3.75 13.5 10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75Z" />
-                </svg>
-              </button>
-            </div>
-          </>
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  d="m3.75 13.5 10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75Z"
+                />
+              </svg>
+            </button>
+          </div>
         )}
 
         <AnimatedDivider color="blue" direction="up" height={120} />
@@ -152,12 +179,15 @@ export default function Home() {
         <div className="relative">
           <Skills />
           <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
-            <SportAnimation
-              position="bottom-left"
-              theme="runner"
-              color="green"
-              size="large"
-            />
+            {/* Intégration de l'haltère image dans la section skills */}
+            <div className="absolute bottom-20 right-40">
+              <DumbbellImage
+                width={200}
+                height={200}
+                className="transform-gpu"
+                position="right"
+              />
+            </div>
           </div>
         </div>
 
@@ -166,15 +196,19 @@ export default function Home() {
         <div className="relative">
           <About />
           <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
-            <SportAnimation
-              position="top-left"
-              theme="energy"
-              color="purple"
-              size="small"
-            />
+            {/* Haltère image dans la section About */}
+            <div className="absolute top-20 left-40">
+              <DumbbellImage
+                width={150}
+                height={150}
+                className="transform-gpu"
+                position="left"
+              />
+            </div>
+            {/* Conserver une animation sportive */}
             <SportAnimation
               position="bottom-right"
-              theme="ball"
+              theme="energy"
               color="orange"
               size="small"
             />
@@ -196,9 +230,6 @@ export default function Home() {
         </div>
       </main>
       <Footer />
-
-      {/* Curseur personnalisé avec animation */}
-      <CustomCursor />
 
       {/* Élément de fond pour animation sportive */}
       <div className="fixed inset-0 pointer-events-none -z-10 opacity-5 overflow-hidden">
