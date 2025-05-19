@@ -1,0 +1,53 @@
+<svg viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="rayGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#8b5cf6;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#a855f7;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#c084fc;stop-opacity:1" />
+    </linearGradient>
+    <radialGradient id="sphereGrad" cx="40%" cy="30%">
+      <stop offset="0%" style="stop-color:#fbbf24;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#f59e0b;stop-opacity:1" />
+    </radialGradient>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="400" height="300" fill="#0f0f23"/>
+  
+  <!-- 3D Scene representation -->
+  <!-- Sphere with ray tracing -->
+  <circle cx="200" cy="150" r="50" fill="url(#sphereGrad)"/>
+  
+  <!-- Light rays -->
+  <line x1="100" y1="50" x2="150" y2="100" stroke="#fbbf24" stroke-width="2" opacity="0.8"/>
+  <line x1="110" y1="60" x2="160" y2="110" stroke="#fbbf24" stroke-width="2" opacity="0.6"/>
+  <line x1="120" y1="70" x2="170" y2="120" stroke="#fbbf24" stroke-width="2" opacity="0.4"/>
+  
+  <!-- Reflected rays -->
+  <line x1="250" y1="100" x2="320" y2="60" stroke="#a855f7" stroke-width="2" opacity="0.8"/>
+  <line x1="240" y1="110" x2="310" y2="70" stroke="#a855f7" stroke-width="2" opacity="0.6"/>
+  <line x1="230" y1="120" x2="300" y2="80" stroke="#a855f7" stroke-width="2" opacity="0.4"/>
+  
+  <!-- Ground plane -->
+  <rect x="0" y="250" width="400" height="50" fill="#1f2937" opacity="0.5"/>
+  
+  <!-- C++ Code representation -->
+  <rect x="20" y="20" width="100" height="60" rx="4" fill="#374151" opacity="0.9"/>
+  <rect x="25" y="25" width="90" height="8" rx="2" fill="#10b981" opacity="0.8"/>
+  <rect x="25" y="38" width="70" height="6" rx="1" fill="#3b82f6" opacity="0.6"/>
+  <rect x="25" y="48" width="80" height="6" rx="1" fill="#f59e0b" opacity="0.6"/>
+  <rect x="25" y="58" width="60" height="6" rx="1" fill="#ef4444" opacity="0.6"/>
+  <text x="70" y="75" text-anchor="middle" fill="#10b981" font-family="Courier" font-size="8" font-weight="bold">C++</text>
+  
+  <!-- Performance indicator -->
+  <rect x="280" y="20" width="100" height="60" rx="4" fill="#374151" opacity="0.9"/>
+  <rect x="290" y="30" width="80" height="4" rx="2" fill="#10b981"/>
+  <rect x="290" y="40" width="70" height="4" rx="2" fill="#10b981"/>
+  <rect x="290" y="50" width="75" height="4" rx="2" fill="#f59e0b"/>
+  <rect x="290" y="60" width="65" height="4" rx="2" fill="#ef4444"/>
+  <text x="330" y="75" text-anchor="middle" fill="#10b981" font-family="Arial" font-size="8" font-weight="bold">OPTIMIZED</text>
+  
+  <!-- Title -->
+  <text x="200" y="260" text-anchor="middle" fill="#ffffff" font-family="Arial" font-size="18" font-weight="bold">Raytracing Engine</text>
+  <text x="200" y="275" text-anchor="middle" fill="#a855f7" font-family="Arial" font-size="10">C++ Performance Optimization</text>
+</svg>

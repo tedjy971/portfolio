@@ -6,6 +6,7 @@ import About from "../components/About";
 import AnimatedDivider from "../components/AnimatedDivider";
 import Contact from "../components/Contact";
 import CustomCursor from "../components/CustomCursor";
+import DumbbellImage from "../components/DumbbellImage";
 import Footer from "../components/Footer";
 import Header from "../components/Header";
 import Hero from "../components/Hero";
@@ -17,7 +18,7 @@ import SportAnimation from "../components/SportAnimation";
 export default function Home() {
   // État pour contrôler quelle animation afficher
   const [showGsapIntro, setShowGsapIntro] = useState(true);
-  
+
   // Animation pour le chargement de la page
   const pageVariants = {
     initial: { opacity: 0, y: 20 },
@@ -104,13 +105,24 @@ export default function Home() {
           <>
             <IntroAnimation />
             <div className="fixed bottom-10 right-10 z-50">
-              <button 
+              <button
                 onClick={() => setShowGsapIntro(false)}
                 className="bg-white dark:bg-gray-800 shadow-lg rounded-full p-3 flex items-center justify-center hover:shadow-xl transition-all"
                 title="Basculer vers l'affichage standard"
               >
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M9 15 3 9m0 0 6-6M3 9h12a6 6 0 0 1 0 12h-3" />
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  strokeWidth={1.5}
+                  stroke="currentColor"
+                  className="w-6 h-6"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    d="M9 15 3 9m0 0 6-6M3 9h12a6 6 0 0 1 0 12h-3"
+                  />
                 </svg>
               </button>
             </div>
@@ -119,13 +131,24 @@ export default function Home() {
           <>
             <Hero />
             <div className="fixed bottom-10 right-10 z-50">
-              <button 
+              <button
                 onClick={() => setShowGsapIntro(true)}
                 className="bg-white dark:bg-gray-800 shadow-lg rounded-full p-3 flex items-center justify-center hover:shadow-xl transition-all"
                 title="Voir l'animation GSAP"
               >
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
-                  <path strokeLinecap="round" strokeLinejoin="round" d="m3.75 13.5 10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75Z" />
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  strokeWidth={1.5}
+                  stroke="currentColor"
+                  className="w-6 h-6"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    d="m3.75 13.5 10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75Z"
+                  />
                 </svg>
               </button>
             </div>
@@ -152,12 +175,15 @@ export default function Home() {
         <div className="relative">
           <Skills />
           <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
-            <SportAnimation
-              position="bottom-left"
-              theme="runner"
-              color="green"
-              size="large"
-            />
+            {/* Intégration de l'haltère image dans la section skills */}
+            <div className="absolute bottom-20 right-40">
+              <DumbbellImage
+                width={200}
+                height={200}
+                className="transform-gpu"
+                position="right"
+              />
+            </div>
           </div>
         </div>
 
@@ -166,15 +192,19 @@ export default function Home() {
         <div className="relative">
           <About />
           <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
-            <SportAnimation
-              position="top-left"
-              theme="energy"
-              color="purple"
-              size="small"
-            />
+            {/* Haltère image dans la section About */}
+            <div className="absolute top-20 left-40">
+              <DumbbellImage
+                width={150}
+                height={150}
+                className="transform-gpu"
+                position="left"
+              />
+            </div>
+            {/* Conserver une animation sportive */}
             <SportAnimation
               position="bottom-right"
-              theme="ball"
+              theme="energy"
               color="orange"
               size="small"
             />

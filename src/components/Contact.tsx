@@ -1,6 +1,6 @@
-import { motion } from "framer-motion";
-import { useState } from "react";
-import { useInView } from "react-intersection-observer";
+import { motion } from 'framer-motion';
+import { useState } from 'react';
+import { useInView } from 'react-intersection-observer';
 
 const Contact = () => {
   const [ref, inView] = useInView({
@@ -9,22 +9,22 @@ const Contact = () => {
   });
 
   const [formState, setFormState] = useState({
-    name: "",
-    email: "",
-    message: "",
+    name: '',
+    email: '',
+    message: '',
   });
 
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
 
-  const handleChange = (e) => {
+  const handleChange = (e: { target: { name: any; value: any } }) => {
     setFormState({
       ...formState,
       [e.target.name]: e.target.value,
     });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = (e: { preventDefault: () => void }) => {
     e.preventDefault();
     setIsSubmitting(true);
 
@@ -32,7 +32,7 @@ const Contact = () => {
     setTimeout(() => {
       setIsSubmitting(false);
       setIsSubmitted(true);
-      setFormState({ name: "", email: "", message: "" });
+      setFormState({ name: '', email: '', message: '' });
 
       // Réinitialiser le message de succès après 5 secondes
       setTimeout(() => setIsSubmitted(false), 5000);
@@ -55,7 +55,7 @@ const Contact = () => {
       y: 0,
       opacity: 1,
       transition: {
-        type: "spring",
+        type: 'spring',
         stiffness: 100,
         damping: 12,
       },
@@ -65,7 +65,7 @@ const Contact = () => {
   const buttonVariants = {
     hover: {
       scale: 1.05,
-      boxShadow: "0px 10px 20px rgba(37, 99, 235, 0.2)",
+      boxShadow: '0px 10px 20px rgba(37, 99, 235, 0.2)',
       transition: { duration: 0.3 },
     },
     tap: { scale: 0.95 },
@@ -77,28 +77,28 @@ const Contact = () => {
 
   const contactDetails = [
     {
-      icon: "📧",
-      title: "Email",
-      detail: "gamiette.Teddy@gmail.com",
-      link: "mailto:gamiette.Teddy@gmail.com",
+      icon: '📧',
+      title: 'Email',
+      detail: 'gamiette.Teddy@gmail.com',
+      link: 'mailto:gamiette.Teddy@gmail.com',
     },
     {
-      icon: "🔗",
-      title: "LinkedIn",
-      detail: "linkedin.com/in/teddygamiette",
-      link: "https://www.linkedin.com/in/teddy-gamiette-9a1a9613a/",
+      icon: '🔗',
+      title: 'LinkedIn',
+      detail: 'linkedin.com/in/teddygamiette',
+      link: 'https://www.linkedin.com/in/teddy-gamiette-9a1a9613a/',
     },
     {
-      icon: "📱",
-      title: "Téléphone",
-      detail: "+33 7 81 9X XX XX",
-      link: "tel:+3378195XXXX",
+      icon: '📱',
+      title: 'Téléphone',
+      detail: '+33 7 81 9X XX XX',
+      link: 'tel:+3378195XXXX',
     },
     {
-      icon: "💻",
-      title: "GitHub",
-      detail: "github.com",
-      link: "https://github.com/tedjy971",
+      icon: '💻',
+      title: 'GitHub',
+      detail: 'github.com',
+      link: 'https://github.com/tedjy971',
     },
   ];
 
@@ -136,8 +136,7 @@ const Contact = () => {
             animate={inView ? { opacity: 1 } : { opacity: 0 }}
             transition={{ duration: 0.5, delay: 0.3 }}
           >
-            Vous avez un projet en tête ou une question ? N'hésitez pas à me
-            contacter !
+            Vous avez un projet en tête ou une question ? N&apos;hésitez pas à me contacter !
           </motion.p>
         </div>
 
@@ -146,15 +145,13 @@ const Contact = () => {
             className="lg:col-span-2 space-y-6"
             variants={containerVariants}
             initial="hidden"
-            animate={inView ? "visible" : "hidden"}
+            animate={inView ? 'visible' : 'hidden'}
           >
             <motion.div variants={itemVariants}>
-              <h3 className="text-xl font-bold mb-4 text-gray-900 dark:text-white">
-                Coordonnées
-              </h3>
+              <h3 className="text-xl font-bold mb-4 text-gray-900 dark:text-white">Coordonnées</h3>
               <p className="text-gray-600 dark:text-gray-400 mb-6">
-                Vous pouvez me contacter directement via ces moyens ou en
-                utilisant le formulaire ci-contre.
+                Vous pouvez me contacter directement via ces moyens ou en utilisant le formulaire
+                ci-contre.
               </p>
             </motion.div>
 
@@ -168,12 +165,8 @@ const Contact = () => {
               >
                 <div className="text-3xl mr-4">{item.icon}</div>
                 <div>
-                  <h4 className="font-bold text-gray-800 dark:text-white">
-                    {item.title}
-                  </h4>
-                  <p className="text-gray-600 dark:text-gray-300">
-                    {item.detail}
-                  </p>
+                  <h4 className="font-bold text-gray-800 dark:text-white">{item.title}</h4>
+                  <p className="text-gray-600 dark:text-gray-300">{item.detail}</p>
                 </div>
               </motion.a>
             ))}
@@ -187,21 +180,18 @@ const Contact = () => {
                 className="absolute w-full h-full"
                 animate={{
                   background: [
-                    "radial-gradient(circle at 20% 30%, rgba(255, 255, 255, 0.2) 0%, transparent 50%)",
-                    "radial-gradient(circle at 80% 70%, rgba(255, 255, 255, 0.2) 0%, transparent 50%)",
-                    "radial-gradient(circle at 20% 30%, rgba(255, 255, 255, 0.2) 0%, transparent 50%)",
+                    'radial-gradient(circle at 20% 30%, rgba(255, 255, 255, 0.2) 0%, transparent 50%)',
+                    'radial-gradient(circle at 80% 70%, rgba(255, 255, 255, 0.2) 0%, transparent 50%)',
+                    'radial-gradient(circle at 20% 30%, rgba(255, 255, 255, 0.2) 0%, transparent 50%)',
                   ],
                 }}
                 transition={{ duration: 8, repeat: Infinity }}
               />
 
               <div className="relative z-10 h-full flex flex-col items-center justify-center text-white p-4">
-                <h4 className="font-bold text-xl mb-2">
-                  Disponible pour collaborer
-                </h4>
+                <h4 className="font-bold text-xl mb-2">Disponible pour collaborer</h4>
                 <p className="text-center">
-                  Je suis toujours intéressé par de nouveaux défis et projets
-                  passionnants.
+                  Je suis toujours intéressé par de nouveaux défis et projets passionnants.
                 </p>
               </div>
             </motion.div>
@@ -225,8 +215,7 @@ const Contact = () => {
                   Message envoyé !
                 </h3>
                 <p className="text-gray-600 dark:text-gray-300">
-                  Merci pour votre message. Je vous répondrai dans les plus
-                  brefs délais.
+                  Merci pour votre message. Je vous répondrai dans les plus brefs délais.
                 </p>
               </motion.div>
             ) : (
@@ -234,7 +223,7 @@ const Contact = () => {
                 onSubmit={handleSubmit}
                 variants={containerVariants}
                 initial="hidden"
-                animate={inView ? "visible" : "hidden"}
+                animate={inView ? 'visible' : 'hidden'}
               >
                 <div className="space-y-6">
                   <motion.div variants={itemVariants}>
@@ -297,7 +286,7 @@ const Contact = () => {
                     variants={buttonVariants}
                     whileHover="hover"
                     whileTap="tap"
-                    animate={isSubmitting ? "disabled" : "visible"}
+                    animate={isSubmitting ? 'disabled' : 'visible'}
                     disabled={isSubmitting}
                   >
                     {isSubmitting ? (
@@ -325,7 +314,7 @@ const Contact = () => {
                         Envoi en cours...
                       </>
                     ) : (
-                      "Envoyer le message"
+                      'Envoyer le message'
                     )}
                   </motion.button>
                 </div>

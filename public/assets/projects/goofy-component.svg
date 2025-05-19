@@ -1,0 +1,85 @@
+<svg viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="svelteGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#ff3e00;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#ff6900;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="componentGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#40e0d0;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#48d1cc;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="400" height="300" fill="#fff5f5"/>
+  
+  <!-- Component blocks -->
+  <rect x="50" y="80" width="80" height="60" rx="8" fill="url(#svelteGrad)" opacity="0.2"/>
+  <rect x="60" y="90" width="60" height="15" rx="3" fill="url(#svelteGrad)" opacity="0.8"/>
+  <text x="90" y="102" text-anchor="middle" fill="white" font-family="Arial" font-size="8" font-weight="bold">Button</text>
+  <rect x="60" y="115" width="40" height="10" rx="2" fill="#ff3e00" opacity="0.6"/>
+  <text x="80" y="123" text-anchor="middle" fill="white" font-family="Arial" font-size="6">Props</text>
+  
+  <rect x="160" y="80" width="80" height="60" rx="8" fill="url(#svelteGrad)" opacity="0.2"/>
+  <rect x="170" y="90" width="60" height="15" rx="3" fill="url(#svelteGrad)" opacity="0.8"/>
+  <text x="200" y="102" text-anchor="middle" fill="white" font-family="Arial" font-size="8" font-weight="bold">Input</text>
+  <rect x="170" y="115" width="40" height="10" rx="2" fill="#ff3e00" opacity="0.6"/>
+  <text x="190" y="123" text-anchor="middle" fill="white" font-family="Arial" font-size="6">Events</text>
+  
+  <rect x="270" y="80" width="80" height="60" rx="8" fill="url(#svelteGrad)" opacity="0.2"/>
+  <rect x="280" y="90" width="60" height="15" rx="3" fill="url(#svelteGrad)" opacity="0.8"/>
+  <text x="310" y="102" text-anchor="middle" fill="white" font-family="Arial" font-size="8" font-weight="bold">Modal</text>
+  <rect x="280" y="115" width="40" height="10" rx="2" fill="#ff3e00" opacity="0.6"/>
+  <text x="300" y="123" text-anchor="middle" fill="white" font-family="Arial" font-size="6">Slots</text>
+  
+  <!-- Documentation site mockup -->
+  <rect x="80" y="170" width="240" height="80" rx="8" fill="white" stroke="#e5e7eb" stroke-width="2"/>
+  <!-- Browser header -->
+  <rect x="80" y="170" width="240" height="20" rx="8" fill="#f3f4f6"/>
+  <circle cx="95" cy="180" r="3" fill="#ef4444"/>
+  <circle cx="105" cy="180" r="3" fill="#f59e0b"/>
+  <circle cx="115" cy="180" r="3" fill="#10b981"/>
+  <text x="200" y="185" text-anchor="middle" fill="#6b7280" font-family="Arial" font-size="8">goofycomponents.netlify.app</text>
+  
+  <!-- Documentation content -->
+  <rect x="90" y="200" width="60" height="40" rx="4" fill="#fef3c7"/>
+  <text x="120" y="215" text-anchor="middle" fill="#92400e" font-family="Arial" font-size="8" font-weight="bold">Live</text>
+  <text x="120" y="225" text-anchor="middle" fill="#92400e" font-family="Arial" font-size="8" font-weight="bold">Examples</text>
+  
+  <rect x="160" y="200" width="60" height="40" rx="4" fill="#dbeafe"/>
+  <text x="190" y="215" text-anchor="middle" fill="#1e40af" font-family="Arial" font-size="8" font-weight="bold">API</text>
+  <text x="190" y="225" text-anchor="middle" fill="#1e40af" font-family="Arial" font-size="8" font-weight="bold">Reference</text>
+  
+  <rect x="230" y="200" width="80" height="40" rx="4" fill="#dcfce7"/>
+  <text x="270" y="215" text-anchor="middle" fill="#166534" font-family="Arial" font-size="8" font-weight="bold">Component</text>
+  <text x="270" y="225" text-anchor="middle" fill="#166534" font-family="Arial" font-size="8" font-weight="bold">Gallery</text>
+  
+  <!-- Svelte logo -->
+  <circle cx="50" cy="200" r="20" fill="url(#svelteGrad)"/>
+  <!-- Svelte symbol -->
+  <path d="M 45 190 Q 35 200 45 210 Q 55 200 45 190" fill="white"/>
+  <path d="M 55 190 Q 65 200 55 210 Q 45 200 55 190" fill="white"/>
+  
+  <!-- NPM package indicator -->
+  <rect x="320" y="180" width="60" height="25" rx="4" fill="#cb3837"/>
+  <text x="350" y="195" text-anchor="middle" fill="white" font-family="Arial" font-size="8" font-weight="bold">npm</text>
+  <text x="350" y="205" text-anchor="middle" fill="white" font-family="Arial" font-size="6">package</text>
+  
+  <!-- Features -->
+  <circle cx="80" cy="260" r="12" fill="#10b981"/>
+  <text x="80" y="265" text-anchor="middle" fill="white" font-family="Arial" font-size="6" font-weight="bold">✓</text>
+  <text x="100" y="265" fill="#374151" font-family="Arial" font-size="8">TypeScript</text>
+  
+  <circle cx="180" cy="260" r="12" fill="#10b981"/>
+  <text x="180" y="265" text-anchor="middle" fill="white" font-family="Arial" font-size="6" font-weight="bold">✓</text>
+  <text x="200" y="265" fill="#374151" font-family="Arial" font-size="8">Accessibility</text>
+  
+  <circle cx="300" cy="260" r="12" fill="#10b981"/>
+  <text x="300" y="265" text-anchor="middle" fill="white" font-family="Arial" font-size="6" font-weight="bold">✓</text>
+  <text x="320" y="265" fill="#374151" font-family="Arial" font-size="8">Themeable</text>
+  
+  <!-- Title -->
+  <text x="200" y="35" text-anchor="middle" fill="#1f2937" font-family="Arial" font-size="18" font-weight="bold">GoofyComponent</text>
+  <text x="200" y="50" text-anchor="middle" fill="#ff3e00" font-family="Arial" font-size="10">Svelte Component Library</text>
+  <text x="200" y="65" text-anchor="middle" fill="#6b7280" font-family="Arial" font-size="8">"AUUUGGHHHH" Library</text>
+</svg>
