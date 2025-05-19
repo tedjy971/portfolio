@@ -1,0 +1,84 @@
+<svg viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="musicGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#8b5cf6;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#a855f7;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="reactLaravelGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#61dafb;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#ffffff;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#ff2d20;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="400" height="300" fill="#faf5ff"/>
+  
+  <!-- Musical notes -->
+  <circle cx="60" cy="60" r="8" fill="url(#musicGrad)"/>
+  <rect x="68" y="40" width="2" height="20" fill="url(#musicGrad)"/>
+  <circle cx="90" cy="50" r="6" fill="#a855f7" opacity="0.8"/>
+  <rect x="96" y="35" width="2" height="15" fill="#a855f7"/>
+  
+  <circle cx="320" cy="70" r="8" fill="url(#musicGrad)"/>
+  <rect x="312" y="50" width="2" height="20" fill="url(#musicGrad)"/>
+  <circle cx="350" cy="60" r="6" fill="#a855f7" opacity="0.8"/>
+  <rect x="344" y="45" width="2" height="15" fill="#a855f7"/>
+  
+  <!-- Academy building -->
+  <rect x="150" y="80" width="100" height="80" fill="#e0e7ff" stroke="#6366f1" stroke-width="2"/>
+  <polygon points="150,80 200,50 250,80" fill="#6366f1"/>
+  <rect x="175" y="120" width="15" height="20" fill="#92400e"/>
+  <rect x="175" y="140" width="50" height="20" fill="#f3f4f6"/>
+  
+  <!-- Course management interface -->
+  <rect x="80" y="180" width="240" height="90" rx="8" fill="white" stroke="#e5e7eb" stroke-width="2"/>
+  <!-- Header -->
+  <rect x="80" y="180" width="240" height="25" rx="8" fill="#8b5cf6"/>
+  <text x="200" y="195" text-anchor="middle" fill="white" font-family="Arial" font-size="10" font-weight="bold">Saline Royale Academy</text>
+  <text x="200" y="205" text-anchor="middle" fill="white" font-family="Arial" font-size="7">Course Management</text>
+  
+  <!-- Course cards -->
+  <rect x="90" y="215" width="65" height="45" rx="4" fill="#f0f9ff" stroke="#0ea5e9" stroke-width="1"/>
+  <text x="122" y="225" text-anchor="middle" fill="#0c4a6e" font-family="Arial" font-size="7" font-weight="bold">Piano Course</text>
+  <text x="122" y="235" text-anchor="middle" fill="#0c4a6e" font-family="Arial" font-size="6">Online</text>
+  <rect x="95" y="245" width="55" height="8" rx="2" fill="#10b981"/>
+  <text x="122" y="251" text-anchor="middle" fill="white" font-family="Arial" font-size="6" font-weight="bold">Active</text>
+  
+  <rect x="165" y="215" width="65" height="45" rx="4" fill="#fef3c7" stroke="#f59e0b" stroke-width="1"/>
+  <text x="197" y="225" text-anchor="middle" fill="#92400e" font-family="Arial" font-size="7" font-weight="bold">Violin Course</text>
+  <text x="197" y="235" text-anchor="middle" fill="#92400e" font-family="Arial" font-size="6">Hybrid</text>
+  <rect x="170" y="245" width="55" height="8" rx="2" fill="#f59e0b"/>
+  <text x="197" y="251" text-anchor="middle" fill="white" font-family="Arial" font-size="6" font-weight="bold">Scheduled</text>
+  
+  <rect x="240" y="215" width="65" height="45" rx="4" fill="#fef2f2" stroke="#ef4444" stroke-width="1"/>
+  <text x="272" y="225" text-anchor="middle" fill="#7f1d1d" font-family="Arial" font-size="7" font-weight="bold">Cello Course</text>
+  <text x="272" y="235" text-anchor="middle" fill="#7f1d1d" font-family="Arial" font-size="6">In-Person</text>
+  <rect x="245" y="245" width="55" height="8" rx="2" fill="#ef4444"/>
+  <text x="272" y="251" text-anchor="middle" fill="white" font-family="Arial" font-size="6" font-weight="bold">Full</text>
+  
+  <!-- Technology stack -->
+  <circle cx="50" cy="130" r="20" fill="#61dafb" opacity="0.9"/>
+  <text x="50" y="135" text-anchor="middle" fill="#1e40af" font-family="Arial" font-size="8" font-weight="bold">React</text>
+  <text x="50" y="155" text-anchor="middle" fill="#1e40af" font-family="Arial" font-size="6">Frontend</text>
+  
+  <circle cx="350" cy="130" r="20" fill="#ff2d20" opacity="0.9"/>
+  <text x="350" y="135" text-anchor="middle" fill="white" font-family="Arial" font-size="8" font-weight="bold">Laravel</text>
+  <text x="350" y="155" text-anchor="middle" fill="#dc2626" font-family="Arial" font-size="6">Backend</text>
+  
+  <!-- Docker container -->
+  <rect x="270" y="100" width="40" height="25" rx="4" fill="#2496ed" opacity="0.9"/>
+  <text x="290" y="113" text-anchor="middle" fill="white" font-family="Arial" font-size="7" font-weight="bold">Docker</text>
+  <text x="290" y="140" text-anchor="middle" fill="#1e40af" font-family="Arial" font-size="6">Container</text>
+  
+  <!-- Management features -->
+  <rect x="80" y="100" width="30" height="20" rx="2" fill="#10b981" opacity="0.8"/>
+  <text x="95" y="112" text-anchor="middle" fill="white" font-family="Arial" font-size="6" font-weight="bold">✓ Schedule</text>
+  
+  <rect x="320" y="100" width="30" height="20" rx="2" fill="#8b5cf6" opacity="0.8"/>
+  <text x="335" y="112" text-anchor="middle" fill="white" font-family="Arial" font-size="6" font-weight="bold">♪ Manage</text>
+  
+  <!-- Title -->
+  <text x="200" y="25" text-anchor="middle" fill="#1f2937" font-family="Arial" font-size="18" font-weight="bold">GoofySeRA</text>
+  <text x="200" y="40" text-anchor="middle" fill="#8b5cf6" font-family="Arial" font-size="10">Saline Royale Academy Management</text>
+</svg>

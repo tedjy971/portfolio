@@ -1,3 +1,4 @@
+'use client';
 import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
 import { useInView } from "react-intersection-observer";
@@ -158,7 +159,16 @@ const Skills = () => {
     },
   };
 
-  const [stars, setStars] = useState([]);
+  // Définir l'interface pour les étoiles
+  interface Star {
+    id: number;
+    x: number;
+    y: number;
+    size: number;
+    duration: number;
+  }
+
+  const [stars, setStars] = useState<Star[]>([]);
   useEffect(() => {
     if (inView) {
       // Création d'étoiles aléatoires pour l'animation de fond

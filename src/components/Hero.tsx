@@ -36,7 +36,7 @@ const Hero = () => {
   return (
     <motion.div
       ref={heroRef}
-      className="min-h-screen pt-24 flex flex-col justify-center relative overflow-hidden bg-gradient-to-br from-blue-100 to-green-50 dark:from-blue-950 dark:to-green-950 bg-size-200 transition-all duration-500"
+      className="min-h-screen pt-24 flex flex-col justify-center relative overflow-hidden bg-gradient-to-br from-blue-100 to-green-50 dark:from-gray-800 dark:to-gray-900 bg-size-200 transition-all duration-500"
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 0.8 }}

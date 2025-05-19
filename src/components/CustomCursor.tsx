@@ -1,3 +1,5 @@
+'use client';
+
 import { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 
@@ -52,7 +54,7 @@ const CustomCursor = () => {
       y: position.y - 16,
       backgroundColor: 'rgba(255, 255, 255, 0)',
       border: '2px solid #3B82F6',
-      mixBlendMode: 'difference'
+      mixBlendMode: 'difference' as const
     },
     clicked: {
       width: 28,
@@ -60,7 +62,7 @@ const CustomCursor = () => {
       x: position.x - 14,
       y: position.y - 14,
       backgroundColor: 'rgba(59, 130, 246, 0.2)',
-      mixBlendMode: 'difference'
+      mixBlendMode: 'difference' as const
     },
     hovered: {
       width: 40,
@@ -68,7 +70,7 @@ const CustomCursor = () => {
       x: position.x - 20,
       y: position.y - 20,
       backgroundColor: 'rgba(59, 130, 246, 0.1)',
-      mixBlendMode: 'difference'
+      mixBlendMode: 'difference' as const
     }
   };
 
