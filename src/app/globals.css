@@ -1,26 +1,139 @@
-@import "tailwindcss";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --foreground-rgb: 0, 0, 0;
+  --background-rgb: 255, 255, 255;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --foreground-rgb: 255, 255, 255;
+    --background-rgb: 10, 10, 10;
   }
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  color: rgb(var(--foreground-rgb));
+  background: rgb(var(--background-rgb));
+  overflow-x: hidden;
+  overscroll-behavior-y: none; /* Évite le rebond sur certains navigateurs */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.bg-size-200 {
+  background-size: 200% 200%;
+}
+
+.animate-pulse {
+  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+@keyframes pulse {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+/* Styles personnalisés pour les animations */
+.text-gradient {
+  @apply bg-gradient-to-r from-blue-600 to-green-400 bg-clip-text text-transparent;
+}
+
+/* Styles pour la transition de la page */
+.page-transition-enter {
+  opacity: 0;
+}
+
+.page-transition-enter-active {
+  opacity: 1;
+  transition: opacity 300ms;
+}
+
+.page-transition-exit {
+  opacity: 1;
+}
+
+.page-transition-exit-active {
+  opacity: 0;
+  transition: opacity 300ms;
+}
+
+/* Optimization des animations */
+.sport-animation.paused {
+  animation-play-state: paused !important;
+}
+
+/* Optimisation du rendu */
+.will-change-transform {
+  will-change: transform;
+  backface-visibility: hidden;
+  perspective: 1000px;
+  transform: translateZ(0);
+}
+
+/* Styles pour améliorer le défilement */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Amélioration des performances pour les animations */
+.smooth-performance {
+  transform: translate3d(0, 0, 0);
+}
+
+/* Animations pour le slider de logos */
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(calc(-220px * 12));
+  }
+}
+
+.tech-slider {
+  position: relative;
+  overflow: hidden;
+  padding: 1.5rem 0;
+}
+
+.tech-slider:before, .tech-slider:after {
+  content: '';
+  position: absolute;
+  top: 0;
+  width: 100px;
+  height: 100%;
+  z-index: 2;
+}
+
+.tech-slider:before {
+  left: 0;
+  background: linear-gradient(to right, rgb(var(--background-rgb)), transparent);
+}
+
+.tech-slider:after {
+  right: 0;
+  background: linear-gradient(to left, rgb(var(--background-rgb)), transparent);
+}
+
+.animate-scroll {
+  animation: scroll 40s linear infinite;
+  display: inline-flex;
+  gap: 2rem;
 }
