@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
+import { trackSportInteraction } from "../utils/analytics";
 
 interface SportAnimationProps {
   position?:
@@ -30,6 +31,9 @@ const SportAnimation: React.FC<SportAnimationProps> = ({
       y: Math.random() * 10 - 5,
     });
 
+    // Track when the sport animation is rendered
+    trackSportInteraction(theme, 'render');
+
     // Désactiver les animations quand la page n'est pas visible pour économiser les ressources
     const handleVisibilityChange = () => {
       const isHidden = document.hidden;
@@ -48,7 +52,7 @@ const SportAnimation: React.FC<SportAnimationProps> = ({
     return () => {
       document.removeEventListener("visibilitychange", handleVisibilityChange);
     };
-  }, []);
+  }, [theme]);
 
   // Définir les tailles
   const sizeMap = {
@@ -99,6 +103,8 @@ const SportAnimation: React.FC<SportAnimationProps> = ({
             // Utiliser un délai animé plus simple
             delay: 0.2,
           }}
+          onClick={() => trackSportInteraction('ball', 'click')}
+          onMouseEnter={() => trackSportInteraction('ball', 'hover')}
         >
           {/* Lignes de ballon */}
           <div className="absolute inset-0 rounded-full border-2 border-white opacity-40"></div>
@@ -115,6 +121,8 @@ const SportAnimation: React.FC<SportAnimationProps> = ({
             width: sizeMap[size].width * 2,
             height: sizeMap[size].height,
           }}
+          onClick={() => trackSportInteraction('runner', 'click')}
+          onMouseEnter={() => trackSportInteraction('runner', 'hover')}
         >
           <motion.div
             className={`${colorMap[color]} w-1/3 h-full rounded-full relative sport-animation`}
@@ -157,6 +165,8 @@ const SportAnimation: React.FC<SportAnimationProps> = ({
         <motion.div
           className={`absolute ${positionMap[position]} z-10`}
           style={{ width: sizeMap[size].width, height: sizeMap[size].height }}
+          onClick={() => trackSportInteraction('energy', 'click')}
+          onMouseEnter={() => trackSportInteraction('energy', 'hover')}
         >
           {/* Pulse d'énergie - optimisé */}
           <motion.div

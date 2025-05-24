@@ -1,7 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { Key, ReactNode } from 'react';
+import { Key, ReactNode, useEffect } from 'react';
 import { useInView } from 'react-intersection-observer';
 // Import Swiper et styles
 import 'swiper/css';
@@ -9,6 +9,7 @@ import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import { Navigation, Pagination } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
+import { trackProjectView, trackSectionView, trackExternalLinkClick } from '../utils/analytics';
 
 interface Project {
   id: Key | null | undefined;
@@ -26,6 +27,13 @@ const Projects = () => {
     triggerOnce: false,
     threshold: 0.1,
   });
+
+  useEffect(() => {
+    if (inView) {
+      // Track when the projects section comes into view
+      trackSectionView('projects');
+    }
+  }, [inView]);
 
   const projects: Project[] = [
     {
@@ -236,6 +244,9 @@ const Projects = () => {
                       initial={{ opacity: 0, y: 30 }}
                       whileInView={{ opacity: 1, y: 0 }}
                       viewport={{ once: true }}
+                      onClick={() =>
+                        trackProjectView(typeof project.title === 'string' ? project.title : String(project.title))
+                      }
                     >
                       {/* Remplacer <img> par <Image /> plus tard pour optimisation Next.js */}
                       {/* <img src={project.image} alt={project.title} className="w-full h-48 object-contain p-6 rounded-t-xl bg-gradient-to-tr" style={{background: project.color}}/> */}
@@ -243,7 +254,7 @@ const Projects = () => {
                         src={project.image}
                         alt={typeof project.title === 'string' ? project.title : ''}
                         className="w-full h-48 object-contain p-6 rounded-t-xl bg-gradient-to-tr"
-                        style={{ background: undefined }}
+                        style={{ background: project.color }}
                       />
                       <div className="p-6 flex flex-col flex-1">
                         <h3 className="text-xl font-semibold mb-2 text-zinc-900 dark:text-white">
@@ -267,29 +278,23 @@ const Projects = () => {
                             ? 'Projet personnel'
                             : 'Projet d&apos;équipe'}
                         </span>
-                        <motion.a
+                        <a
                           href={project.githubLink}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="text-gray-500 hover:text-gray-700 dark:hover:text-gray-300 transition-colors"
-                          whileHover={{ scale: 1.1 }}
-                          aria-label="Voir sur GitHub"
+                          className="mt-4 inline-flex items-center text-sm font-medium text-blue-600 hover:text-blue-800 dark:text-blue-400 dark:hover:text-blue-300 transition-colors"
+                          onClick={() => trackExternalLinkClick('github', project.githubLink || '')}
                         >
                           <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            fill="none"
+                            className="w-5 h-5 mr-1"
+                            fill="currentColor"
                             viewBox="0 0 24 24"
-                            strokeWidth={1.5}
-                            stroke="currentColor"
-                            className="w-6 h-6"
+                            xmlns="http://www.w3.org/2000/svg"
                           >
-                            <path
-                              strokeLinecap="round"
-                              strokeLinejoin="round"
-                              d="M12 3C7.03 3 3 7.03 3 12c0 3.87 2.69 7.16 6.41 7.97.47.09.64-.2.64-.44 0-.22-.01-.8-.01-1.57-2.61.57-3.16-1.26-3.16-1.26-.43-1.1-1.05-1.39-1.05-1.39-.86-.59.07-.58.07-.58.95.07 1.45.98 1.45.98.84 1.44 2.2 1.03 2.74.79.09-.61.33-1.03.6-1.27-2.09-.24-4.29-1.04-4.29-4.62 0-1.02.36-1.86.95-2.52-.1-.24-.41-1.21.09-2.52 0 0 .78-.25 2.55.96A8.93 8.93 0 0112 6.84c.79.004 1.59.11 2.33.32 1.76-1.21 2.54-.96 2.54-.96.5 1.31.19 2.28.09 2.52.59.66.95 1.5.95 2.52 0 3.59-2.2 4.38-4.29 4.62.34.29.64.86.64 1.74 0 1.26-.01 2.28-.01 2.59 0 .24.17.53.65.44A9.004 9.004 0 0021 12c0-4.97-4.03-9-9-9z"
-                            />
+                            <path d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.438 9.8 8.205 11.387.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61-.546-1.387-1.333-1.756-1.333-1.756-1.09-.745.083-.73.083-.73 1.205.085 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 21.795 24 17.295 24 12c0-6.63-5.37-12-12-12" />
                           </svg>
-                        </motion.a>
+                          Voir sur GitHub
+                        </a>
                       </div>
                     </motion.div>
                   ))}

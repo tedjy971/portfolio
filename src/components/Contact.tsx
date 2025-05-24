@@ -1,7 +1,8 @@
 'use client';
 import { motion } from 'framer-motion';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useInView } from 'react-intersection-observer';
+import { trackContactFormSubmission, trackSectionView, trackExternalLinkClick } from '../utils/analytics';
 
 const Contact = () => {
   const [ref, inView] = useInView({
@@ -18,6 +19,13 @@ const Contact = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
 
+  useEffect(() => {
+    if (inView) {
+      // Track when the contact section comes into view
+      trackSectionView('contact');
+    }
+  }, [inView]);
+
   const handleChange = (e: { target: { name: string; value: string } }) => {
     setFormState({
       ...formState,
@@ -28,6 +36,9 @@ const Contact = () => {
   const handleSubmit = (e: { preventDefault: () => void }) => {
     e.preventDefault();
     setIsSubmitting(true);
+
+    // Track form submission
+    trackContactFormSubmission();
 
     // Simuler une soumission de formulaire
     setTimeout(() => {
@@ -163,6 +174,7 @@ const Contact = () => {
                 className="flex items-start p-4 rounded-lg bg-white dark:bg-gray-700 shadow-md hover:shadow-lg transition-all"
                 variants={itemVariants}
                 whileHover={{ y: -5, x: 0 }}
+                onClick={() => trackExternalLinkClick(item.title.toLowerCase(), item.link)}
               >
                 <div className="text-3xl mr-4">{item.icon}</div>
                 <div>
