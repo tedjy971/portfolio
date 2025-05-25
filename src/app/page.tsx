@@ -4,7 +4,6 @@ import About from '../components/About';
 import AnimatedDivider from '../components/AnimatedDivider';
 import Contact from '../components/Contact';
 import CustomCursor from '../components/CustomCursor';
-import DumbbellImage from '../components/DumbbellImage';
 import Footer from '../components/Footer';
 import Header from '../components/Header';
 import Hero from '../components/Hero';
@@ -179,13 +178,13 @@ export default function Home() {
         <div className="relative">
           <Skills />
           <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
-            {/* Intégration de l'haltère image dans la section skills */}
+            {/* Remplacer l'haltère par une animation sportive plus légère */}
             <div className="absolute bottom-20 right-40">
-              <DumbbellImage
-                width={200}
-                height={200}
-                className="transform-gpu"
-                position="right"
+              <SportAnimation
+                position="bottom-right"
+                theme="ball"
+                color="green"
+                size="large"
               />
             </div>
           </div>
@@ -196,13 +195,13 @@ export default function Home() {
         <div className="relative">
           <About />
           <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
-            {/* Haltère image dans la section About */}
+            {/* Remplacer l'haltère par une animation sportive plus légère */}
             <div className="absolute top-20 left-40">
-              <DumbbellImage
-                width={150}
-                height={150}
-                className="transform-gpu"
-                position="left"
+              <SportAnimation
+                position="top-left"
+                theme="energy"
+                color="purple"
+                size="medium"
               />
             </div>
             {/* Conserver une animation sportive */}

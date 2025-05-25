@@ -1,7 +1,7 @@
 "use client";
 
 import { motion, useScroll, useTransform } from "framer-motion";
-import { useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 
 interface AnimatedDividerProps {
   color?: "blue" | "green" | "purple" | "orange";
@@ -15,20 +15,28 @@ const AnimatedDivider: React.FC<AnimatedDividerProps> = ({
   height = 120,
 }) => {
   const dividerRef = useRef<HTMLDivElement>(null);
+  const [isMobile, setIsMobile] = useState(false);
+  
+  // Détection des appareils mobiles
+  useEffect(() => {
+    const checkIfMobile = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+    
+    checkIfMobile();
+    window.addEventListener('resize', checkIfMobile);
+    
+    return () => {
+      window.removeEventListener('resize', checkIfMobile);
+    };
+  }, []);
 
   const { scrollYProgress } = useScroll({
     target: dividerRef,
     offset: ["start end", "end start"],
   });
 
-  // Transformation optimisée basée sur le défilement pour créer un effet d'onde plus léger
-  // const translateY = useTransform(
-  //   scrollYProgress,
-  //   [0, 1],
-  //   direction === "up" ? [height / 4, -height / 4] : [-height / 4, height / 4]
-  // );
-
-  // Animation de la ligne centrale
+  // Animation de la ligne centrale - optimisée pour mobile
   const lineWidth = useTransform(
     scrollYProgress,
     [0, 0.5, 1],
@@ -49,6 +57,45 @@ const AnimatedDivider: React.FC<AnimatedDividerProps> = ({
     orange: "bg-orange-400",
   };
 
+  // Version simplifiée pour mobile
+  if (isMobile) {
+    return (
+      <div
+        ref={dividerRef}
+        className="w-full overflow-hidden relative z-10 flex flex-col items-center justify-center"
+        style={{ height: `${height * 0.7}px` }} // Réduire la hauteur sur mobile
+      >
+        <div className="relative w-full max-w-6xl mx-auto px-4 flex flex-col items-center justify-center h-full">
+          {/* Ligne simplifiée pour mobile */}
+          <motion.div
+            className={`h-0.5 ${accentColorMap[color]}`}
+            style={{ 
+              width: lineWidth,
+              opacity: 0.9,
+              willChange: "width" // Optimisation des performances
+            }}
+            transition={{ duration: 0.1 }} // Animation plus rapide sur mobile
+          />
+          
+          {/* Icône simplifiée */}
+          <div
+            className={`w-6 h-6 mt-2 rounded-full ${accentColorMap[color]} flex items-center justify-center`}
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              className="h-3 w-3 text-white"
+              viewBox="0 0 20 20"
+              fill="currentColor"
+            >
+              <path d="M10 3.5a1.5 1.5 0 013 0V4a1 1 0 001 1h3a1 1 0 011 1v3a1 1 0 01-1 1h-.5a1.5 1.5 0 000 3h.5a1 1 0 011 1v3a1 1 0 01-1 1h-3a1 1 0 01-1-1v-.5a1.5 1.5 0 00-3 0v.5a1 1 0 01-1 1H6a1 1 0 01-1-1v-3a1 1 0 00-1-1h-.5a1.5 1.5 0 010-3H4a1 1 0 001-1V6a1 1 0 011-1h3a1 1 0 001-1v-.5z" />
+            </svg>
+          </div>
+        </div>
+      </div>
+    );
+  }
+
+  // Version complète pour desktop
   return (
     <div
       ref={dividerRef}
@@ -124,7 +171,7 @@ const AnimatedDivider: React.FC<AnimatedDividerProps> = ({
         </motion.div>
       </div>
 
-      {/* Effet de vague subtil en arrière-plan */}
+      {/* Effet de vague subtil en arrière-plan - uniquement sur desktop */}
       <motion.div
         className={`absolute w-full h-1/2 bottom-0 ${
           direction === "up" ? "" : "top-0 bottom-auto"

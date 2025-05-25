@@ -1,6 +1,6 @@
 import gsap from "gsap";
 import { TextPlugin } from "gsap/dist/TextPlugin";
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 
 // Enregistrer les plugins GSAP
 if (typeof window !== "undefined") {
@@ -12,7 +12,28 @@ const IntroAnimation: React.FC = () => {
   const nameCharsRef = useRef<HTMLSpanElement[]>([]);
   const titleCharsRef = useRef<HTMLSpanElement[]>([]);
   const specialtiesRef = useRef<HTMLDivElement>(null);
+  const typingTextRef = useRef<HTMLSpanElement | null>(null);
+  const cursorRef = useRef<HTMLSpanElement | null>(null);
+  const separatorLineRef = useRef<HTMLDivElement | null>(null);
   const ctaRef = useRef<HTMLButtonElement>(null);
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    // Détection des appareils mobiles
+    const checkIfMobile = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+    
+    // Vérifier au chargement
+    checkIfMobile();
+    
+    // Vérifier au redimensionnement
+    window.addEventListener('resize', checkIfMobile);
+    
+    return () => {
+      window.removeEventListener('resize', checkIfMobile);
+    };
+  }, []);
 
   useEffect(() => {
     // Créer une timeline principale
@@ -52,16 +73,45 @@ const IntroAnimation: React.FC = () => {
       "-=0.4"
     );
 
-    // Animation de la barre de séparation
-    tl.fromTo(
-      ".separator-line",
-      { width: "0%" },
-      { width: "100%", duration: 1, ease: "power2.inOut" },
-      "-=0.2"
-    );
+    // Animation de la ligne de séparation
+    const animateSeparatorLine = () => {
+      if (!separatorLineRef.current) return;
+
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              // Animation optimisée pour mobile
+              if (isMobile) {
+                gsap.to(separatorLineRef.current, {
+                  width: "80%", // Largeur réduite sur mobile
+                  duration: 0.6, // Animation plus rapide
+                  ease: "power2.out",
+                  overwrite: true,
+                });
+              } else {
+                gsap.to(separatorLineRef.current, {
+                  width: "100%",
+                  duration: 1,
+                  ease: "power2.out",
+                });
+              }
+              observer.disconnect();
+            }
+          });
+        },
+        { threshold: 0.5 }
+      );
+
+      observer.observe(separatorLineRef.current);
+    };
+
+    animateSeparatorLine();
 
     // Animation du texte de spécialités avec effet de machine à écrire
-    const specialties = ["Symfony", "Next.js", "NestJS", "DevOps"];
+    const specialties = isMobile 
+      ? ["Symfony", "Next.js", "NestJS"] // Liste réduite pour mobile
+      : ["Symfony", "Next.js", "NestJS", "DevOps"];
 
     specialties.forEach((specialty, index) => {
       // L'indice détermine à quelle position il apparaît
@@ -143,7 +193,7 @@ const IntroAnimation: React.FC = () => {
     return () => {
       tl.kill();
     };
-  }, []);
+  }, [isMobile]);
 
   // Diviser le nom en lettres individuelles
   const nameLetters = "TEDDY GAMIETTE".split("").map((letter, index) =>
@@ -195,7 +245,10 @@ const IntroAnimation: React.FC = () => {
           <h2 className="text-xl md:text-3xl font-medium bg-gradient-to-r from-blue-400 to-green-400 bg-clip-text text-transparent">
             {titleLetters}
           </h2>
-          <div className="separator-line h-0.5 bg-gradient-to-r from-blue-500 to-green-400 mt-2 mx-auto w-0"></div>
+          <div 
+            className="separator-line h-0.5 bg-gradient-to-r from-blue-500 to-green-400 mt-2 mx-auto w-0"
+            style={{ willChange: "width" }} // Optimisation des performances
+          ></div>
         </div>
 
         <div
@@ -218,8 +271,11 @@ const IntroAnimation: React.FC = () => {
               >
                 <path
                   fillRule="evenodd"
-                  d="M14.447 3.027a.75.75 0 01.527.92l-4.5 16.5a.75.75 0 01-1.448-.394l4.5-16.5a.75.75 0 01.921-.526zM16.72 6.22a.75.75 0 011.06 0l5.25 5.25a.75.75 0 010 1.06l-5.25 5.25a.75.75 0 11-1.06-1.06L21.44 12l-4.72-4.72a.75.75 0 010-1.06zm-9.44 0a.75.75 0 010 1.06L2.56 12l4.72 4.72a.75.75 0 11-1.06 1.06L.97 12.53a.75.75 0 010-1.06l5.25-5.25a.75.75 0 011.06 0z"
+                  d="M14.447 3.027a.75.75 0 011.06 0l8.69 8.69a.75.75 0 101.06-1.06l-8.689-8.69a2.25 2.25 0 00-3.182 0l-8.69 8.69a.75.75 0 001.061 1.06l8.69-8.69z"
                   clipRule="evenodd"
+                />
+                <path
+                  d="M12 5.432l8.159 8.159c.03.03.06.058.091.086v6.198c0 1.035-.84 1.875-1.875 1.875H15a.75.75 0 01-.75-.75v-4.5a.75.75 0 00-.75-.75h-3a.75.75 0 00-.75.75V21a.75.75 0 01-.75.75H5.625a1.875 1.875 0 01-1.875-1.875v-6.198a2.29 2.29 0 00.091-.086L12 5.43z"
                 />
               </svg>
             </div>

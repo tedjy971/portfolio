@@ -23,12 +23,28 @@ const SportAnimation: React.FC<SportAnimationProps> = ({
   size = "medium",
 }) => {
   const [randomOffset, setRandomOffset] = useState({ x: 0, y: 0 });
+  const [isMobile, setIsMobile] = useState(false);
+  const [reducedMotion, setReducedMotion] = useState(false);
 
   useEffect(() => {
+    // Détection des appareils mobiles
+    const checkIfMobile = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+    
+    // Vérifier les préférences de réduction de mouvement
+    const checkReducedMotion = () => {
+      setReducedMotion(window.matchMedia('(prefers-reduced-motion: reduce)').matches);
+    };
+    
+    // Vérifier au chargement
+    checkIfMobile();
+    checkReducedMotion();
+    
     // Générer un décalage aléatoire plus léger pour de meilleures performances
     setRandomOffset({
-      x: Math.random() * 10 - 5,
-      y: Math.random() * 10 - 5,
+      x: Math.random() * (isMobile ? 5 : 10) - (isMobile ? 2.5 : 5),
+      y: Math.random() * (isMobile ? 5 : 10) - (isMobile ? 2.5 : 5),
     });
 
     // Track when the sport animation is rendered
@@ -48,21 +64,83 @@ const SportAnimation: React.FC<SportAnimationProps> = ({
     };
 
     document.addEventListener("visibilitychange", handleVisibilityChange);
+    window.addEventListener('resize', checkIfMobile);
 
     return () => {
       document.removeEventListener("visibilitychange", handleVisibilityChange);
+      window.removeEventListener('resize', checkIfMobile);
     };
-  }, [theme]);
+  }, [theme, isMobile]);
 
-  // Définir les tailles
+  // Déterminer la taille en fonction du paramètre et de l'appareil
   const sizeMap = {
-    small: { width: 30, height: 30 },
-    medium: { width: 60, height: 60 },
-    large: { width: 100, height: 100 },
+    small: isMobile ? 40 : 60,
+    medium: isMobile ? 60 : 100,
+    large: isMobile ? 80 : 140,
   };
 
-  // Définir les couleurs
-  const colorMap = {
+  const animationSize = sizeMap[size];
+
+  // Réduire la complexité des animations sur mobile
+  const getAnimationVariants = () => {
+    // Version simplifiée pour les appareils avec préférence de réduction de mouvement
+    if (reducedMotion) {
+      return {
+        initial: { opacity: 0 },
+        animate: { opacity: 0.8 },
+      };
+    }
+    
+    // Version simplifiée pour mobile
+    if (isMobile) {
+      return {
+        initial: { 
+          opacity: 0,
+          scale: 0.8,
+        },
+        animate: { 
+          opacity: 0.8,
+          scale: 1,
+          transition: {
+            duration: 0.8,
+            repeat: Infinity,
+            repeatType: "reverse" as const,
+            ease: "easeInOut",
+          }
+        },
+      };
+    }
+    
+    // Version complète pour desktop
+    return {
+      initial: { 
+        opacity: 0,
+        scale: 0.8,
+      },
+      animate: { 
+        opacity: 0.8,
+        scale: 1,
+        transition: {
+          duration: 2,
+          repeat: Infinity,
+          repeatType: "reverse" as const,
+          ease: "easeInOut",
+        }
+      },
+    };
+  };
+
+  // Positionnement en fonction du paramètre
+  const positionStyles = {
+    "top-right": "top-0 right-0",
+    "top-left": "top-0 left-0",
+    "bottom-right": "bottom-0 right-0",
+    "bottom-left": "bottom-0 left-0",
+    center: "top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2",
+  };
+
+  // Couleurs en fonction du paramètre
+  const colorStyles = {
     blue: "bg-blue-500",
     green: "bg-green-500",
     red: "bg-red-500",
@@ -70,160 +148,122 @@ const SportAnimation: React.FC<SportAnimationProps> = ({
     purple: "bg-purple-500",
   };
 
-  // Définir les positions
-  const positionMap = {
-    "top-right": "top-10 right-10",
-    "top-left": "top-10 left-10",
-    "bottom-right": "bottom-10 right-10",
-    "bottom-left": "bottom-10 left-10",
-    center: "top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2",
+  // Rendu conditionnel en fonction du thème
+  const renderTheme = () => {
+    switch (theme) {
+      case "ball":
+        return (
+          <motion.div
+            className={`rounded-full ${colorStyles[color]} sport-animation`}
+            style={{
+              width: `${animationSize}px`,
+              height: `${animationSize}px`,
+              willChange: "transform, opacity", // Optimisation des performances
+            }}
+            variants={getAnimationVariants()}
+            initial="initial"
+            animate="animate"
+            onClick={() => trackSportInteraction('ball', 'click')}
+            onMouseEnter={() => trackSportInteraction('ball', 'hover')}
+          />
+        );
+      case "runner":
+        // Remplacer l'animation du coureur par une image statique
+        return (
+          <div
+            className={`sport-animation static-runner`}
+            style={{
+              width: `${animationSize}px`,
+              height: `${animationSize}px`,
+              opacity: 0.8,
+            }}
+            onClick={() => trackSportInteraction('runner', 'click')}
+            onMouseEnter={() => trackSportInteraction('runner', 'hover')}
+          >
+            <svg
+              viewBox="0 0 24 24"
+              fill="none"
+              className={`w-full h-full ${
+                color === "blue"
+                  ? "text-blue-500"
+                  : color === "green"
+                  ? "text-green-500"
+                  : color === "red"
+                  ? "text-red-500"
+                  : color === "orange"
+                  ? "text-orange-500"
+                  : "text-purple-500"
+              }`}
+            >
+              <path
+                d="M15 5C16.1046 5 17 4.10457 17 3C17 1.89543 16.1046 1 15 1C13.8954 1 13 1.89543 13 3C13 4.10457 13.8954 5 15 5Z"
+                fill="currentColor"
+              />
+              <path
+                d="M13.0824 15.9231L13.2403 18.2799L10.9771 17.0132L9.19139 13.3554L6.99829 15.7422L8.77898 22.5L6.60205 23L4.5 15.5L9.87654 9.64588L7.22396 7.12573L8.91045 5.26544L13.7603 9.80438C14.1068 10.1335 14.3367 10.5673 14.4135 11.0429C14.4903 11.5184 14.4095 12.0044 14.1837 12.4281L13.0824 15.9231Z"
+                fill="currentColor"
+              />
+              <path
+                d="M18.4005 7.61611L20.8846 13.2845L19.9148 14.3374C19.6097 14.6735 19.1683 14.8518 18.7131 14.8244C18.2579 14.797 17.8399 14.5664 17.5736 14.1932L14.2581 9.44287L18.4005 7.61611Z"
+                fill="currentColor"
+              />
+            </svg>
+          </div>
+        );
+      case "energy":
+        // Remplacer l'animation d'énergie par une image statique
+        return (
+          <div
+            className={`sport-animation static-energy`}
+            style={{
+              width: `${animationSize}px`,
+              height: `${animationSize}px`,
+              opacity: 0.8,
+            }}
+            onClick={() => trackSportInteraction('energy', 'click')}
+            onMouseEnter={() => trackSportInteraction('energy', 'hover')}
+          >
+            <svg
+              viewBox="0 0 24 24"
+              fill="none"
+              className={`w-full h-full ${
+                color === "blue"
+                  ? "text-blue-500"
+                  : color === "green"
+                  ? "text-green-500"
+                  : color === "red"
+                  ? "text-red-500"
+                  : color === "orange"
+                  ? "text-orange-500"
+                  : "text-purple-500"
+              }`}
+            >
+              <path
+                d="M13 10H20L11 23V14H4L13 1V10Z"
+                fill="currentColor"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              />
+            </svg>
+          </div>
+        );
+      default:
+        return null;
+    }
   };
 
-  // Différentes animations selon le thème
-  switch (theme) {
-    case "ball":
-      return (
-        <motion.div
-          className={`absolute ${positionMap[position]} rounded-full ${colorMap[color]} shadow-lg z-10 sport-animation`}
-          style={{ width: sizeMap[size].width, height: sizeMap[size].height }}
-          animate={{
-            y: [0, -20 + randomOffset.y, 0],
-            x: [0, 10 + randomOffset.x, 0],
-            rotate: [0, 360], // Animation plus légère
-            boxShadow: [
-              "0 4px 8px rgba(0,0,0,0.1)",
-              "0 8px 16px rgba(0,0,0,0.2)",
-            ],
-          }}
-          transition={{
-            duration: 3,
-            repeat: Infinity,
-            repeatType: "loop",
-            ease: "linear", // Easing linéaire pour de meilleures performances
-            // Utiliser un délai animé plus simple
-            delay: 0.2,
-          }}
-          onClick={() => trackSportInteraction('ball', 'click')}
-          onMouseEnter={() => trackSportInteraction('ball', 'hover')}
-        >
-          {/* Lignes de ballon */}
-          <div className="absolute inset-0 rounded-full border-2 border-white opacity-40"></div>
-          <div className="absolute inset-0 rounded-full border-t-2 border-white opacity-30 rotate-45"></div>
-          <div className="absolute inset-0 rounded-full border-b-2 border-white opacity-30 rotate-45"></div>
-        </motion.div>
-      );
-
-    case "runner":
-      return (
-        <motion.div
-          className={`absolute ${positionMap[position]} z-10 flex items-center justify-center overflow-hidden`}
-          style={{
-            width: sizeMap[size].width * 2,
-            height: sizeMap[size].height,
-          }}
-          onClick={() => trackSportInteraction('runner', 'click')}
-          onMouseEnter={() => trackSportInteraction('runner', 'hover')}
-        >
-          <motion.div
-            className={`${colorMap[color]} w-1/3 h-full rounded-full relative sport-animation`}
-            animate={{
-              x: [
-                -sizeMap[size].width,
-                sizeMap[size].width,
-                -sizeMap[size].width,
-              ],
-              scaleY: [1, 0.8, 1],
-            }}
-            transition={{
-              duration: 4,
-              repeat: Infinity,
-              repeatType: "loop",
-              ease: "linear",
-            }}
-          />
-
-          {/* Traînée d'énergie */}
-          <motion.div
-            className={`absolute top-0 h-full bg-opacity-30 ${colorMap[color]} rounded-full sport-animation`}
-            style={{ left: "30%", width: "70%" }}
-            animate={{
-              width: ["0%", "70%", "0%"],
-              opacity: [0, 0.2, 0],
-            }}
-            transition={{
-              duration: 4,
-              repeat: Infinity,
-              repeatType: "loop",
-              ease: "linear",
-            }}
-          />
-        </motion.div>
-      );
-
-    case "energy":
-      return (
-        <motion.div
-          className={`absolute ${positionMap[position]} z-10`}
-          style={{ width: sizeMap[size].width, height: sizeMap[size].height }}
-          onClick={() => trackSportInteraction('energy', 'click')}
-          onMouseEnter={() => trackSportInteraction('energy', 'hover')}
-        >
-          {/* Pulse d'énergie - optimisé */}
-          <motion.div
-            className={`absolute inset-0 rounded-full ${colorMap[color]} opacity-70 sport-animation`}
-            animate={{
-              scale: [1, 1.3, 1],
-              opacity: [0.5, 0.2, 0.5],
-            }}
-            transition={{
-              duration: 3,
-              repeat: Infinity,
-              repeatType: "loop",
-              ease: "linear",
-            }}
-          />
-
-          {/* Particules d'énergie réduites pour optimiser les performances */}
-          {[...Array(3)].map((_, i) => (
-            <motion.div
-              key={i}
-              className={`absolute rounded-full ${colorMap[color]} w-3 h-3 sport-animation`}
-              style={{
-                left: "50%",
-                top: "50%",
-                translateX: "-50%",
-                translateY: "-50%",
-              }}
-              animate={{
-                x: [
-                  0,
-                  Math.cos((i * 120 * Math.PI) / 180) *
-                    sizeMap[size].width *
-                    0.7,
-                ],
-                y: [
-                  0,
-                  Math.sin((i * 120 * Math.PI) / 180) *
-                    sizeMap[size].height *
-                    0.7,
-                ],
-                opacity: [0.8, 0],
-              }}
-              transition={{
-                duration: 2,
-                repeat: Infinity,
-                repeatType: "loop",
-                ease: "linear",
-                delay: i * 0.3,
-              }}
-            />
-          ))}
-        </motion.div>
-      );
-
-    default:
-      return null;
-  }
+  return (
+    <div
+      className={`absolute ${positionStyles[position]} mix-blend-screen pointer-events-none`}
+      style={{
+        transform: `translate(${randomOffset.x}%, ${randomOffset.y}%)`,
+      }}
+    >
+      {renderTheme()}
+    </div>
+  );
 };
 
 export default SportAnimation;
