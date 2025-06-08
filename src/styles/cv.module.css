@@ -1,0 +1,289 @@
+/* CV Module CSS - Optimisé pour impression et ATS */
+
+.container {
+  max-width: 210mm; /* Format A4 */
+  margin: 0 auto;
+  padding: 2rem;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  color: #333;
+  background-color: white;
+  line-height: 1.5;
+}
+
+.header {
+  margin-bottom: 2rem;
+  border-bottom: 2px solid #2563eb;
+  padding-bottom: 1rem;
+}
+
+.name {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #1e3a8a;
+  margin-bottom: 0.5rem;
+}
+
+.title {
+  font-size: 1.5rem;
+  font-weight: 500;
+  color: #4b5563;
+  margin-bottom: 1rem;
+}
+
+.contactGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 0.75rem;
+  margin-top: 1rem;
+}
+
+.contactItem {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.9rem;
+}
+
+.contactIcon {
+  width: 1.25rem;
+  height: 1.25rem;
+  color: #2563eb;
+}
+
+.summary {
+  margin-bottom: 2rem;
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+.sectionTitle {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #1e3a8a;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+  border-bottom: 1px solid #e5e7eb;
+  padding-bottom: 0.5rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.twoColumnGrid {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 2rem;
+}
+
+.experienceItem {
+  margin-bottom: 1.5rem;
+  break-inside: avoid;
+}
+
+.experienceHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 0.5rem;
+}
+
+.companyTitle {
+  font-weight: 600;
+  font-size: 1.1rem;
+  color: #1f2937;
+}
+
+.period {
+  font-style: italic;
+  color: #6b7280;
+  font-size: 0.9rem;
+}
+
+.description {
+  margin-top: 0.5rem;
+  font-size: 0.95rem;
+}
+
+.skillsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.skillCategory {
+  margin-bottom: 1rem;
+}
+
+.skillCategoryTitle {
+  font-weight: 600;
+  color: #4b5563;
+  margin-bottom: 0.5rem;
+  font-size: 1rem;
+}
+
+.skillList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.skillItem {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0.25rem;
+  font-size: 0.9rem;
+}
+
+.skillName {
+  display: flex;
+  align-items: center;
+}
+
+.skillLevel {
+  font-size: 0.8rem;
+  color: #6b7280;
+}
+
+.projectGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.projectItem {
+  border: 1px solid #e5e7eb;
+  border-radius: 0.5rem;
+  padding: 1rem;
+  break-inside: avoid;
+}
+
+.projectTitle {
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  font-size: 1rem;
+}
+
+.projectDescription {
+  font-size: 0.9rem;
+  margin-bottom: 0.75rem;
+}
+
+.tagList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 0.5rem;
+}
+
+.tag {
+  background-color: #f3f4f6;
+  padding: 0.25rem 0.5rem;
+  border-radius: 0.25rem;
+  font-size: 0.75rem;
+  color: #4b5563;
+}
+
+.educationItem {
+  margin-bottom: 1rem;
+}
+
+.interestList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.interestItem {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.9rem;
+}
+
+.printButton {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  display: flex;
+  flex-direction: row;
+  gap: 0.5rem;
+}
+
+.actionButton {
+  background-color: #2563eb;
+  color: white;
+  border: none;
+  border-radius: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  font-weight: 500;
+  cursor: pointer;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  transition: all 0.2s;
+}
+
+.actionButton:hover {
+  background-color: #1d4ed8;
+  transform: translateY(-2px);
+}
+
+.actionButton:active {
+  transform: translateY(0);
+}
+
+/* Optimisations pour l'impression */
+@media print {
+  .container {
+    padding: 0;
+    max-width: 100%;
+  }
+
+  .printButton {
+    display: none;
+  }
+
+  .twoColumnGrid {
+    grid-template-columns: 3fr 1fr;
+  }
+
+  /* Forcer l'impression des couleurs et des backgrounds */
+  .printColorAdjust {
+    -webkit-print-color-adjust: exact !important;
+    color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+
+  /* Éviter les sauts de page au milieu des sections importantes */
+  .experienceItem,
+  .projectItem,
+  .educationItem {
+    page-break-inside: avoid;
+  }
+
+  /* Forcer les sauts de page où c'est logique */
+  .sectionTitle {
+    page-break-before: auto;
+  }
+
+  /* Supprimer les URLs imprimés à côté des liens */
+  .container a::after {
+    content: none !important;
+  }
+}
+
+/* Responsive design pour les écrans plus petits */
+@media screen and (max-width: 768px) {
+  .twoColumnGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .contactGrid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .skillsGrid {
+    grid-template-columns: 1fr;
+  }
+}

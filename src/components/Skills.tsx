@@ -1,149 +1,12 @@
 'use client';
-import { motion } from "framer-motion";
-import { useEffect, useState } from "react";
-import { useInView } from "react-intersection-observer";
+import { skills } from '@/data/personalData';
+import { motion } from 'framer-motion';
+import { useEffect, useState } from 'react';
+import { useInView } from 'react-intersection-observer';
 
 const Skills = () => {
-  const skills = [
-    // Backend
-    {
-      name: "PHP",
-      level: 95,
-      category: "backend",
-      color: "bg-blue-500",
-      logo: "/assets/skills/PHP Icon.svg",
-    },
-    {
-      name: "Symfony",
-      level: 95,
-      category: "backend",
-      color: "bg-blue-600",
-      logo: "/assets/skills/Symfony Icon.svg",
-    },
-    {
-      name: "NestJS",
-      level: 70,
-      category: "backend",
-      color: "bg-blue-700",
-      logo: "/assets/skills/Nest.js Icon.svg",
-    },
-    {
-      name: "MySQL",
-      level: 85,
-      category: "backend",
-      color: "bg-blue-800",
-      logo: "/assets/skills/MySQL Icon.svg",
-    },
-    {
-      name: "PostgreSQL",
-      level: 83,
-      category: "backend",
-      color: "bg-blue-900",
-      logo: "/assets/skills/PostgresSQL Icon.svg",
-    },
-    {
-      name: "Doctrine",
-      level: 88,
-      category: "backend",
-      color: "bg-blue-700",
-      logo: "/assets/skills/Doctrine Icon.svg",
-    },
-    {
-      name: "Swagger",
-      level: 80,
-      category: "backend",
-      color: "bg-blue-600",
-      logo: "/assets/skills/Swagger Icon.svg",
-    },
-
-    // Frontend
-    {
-      name: "React",
-      level: 85,
-      category: "frontend",
-      color: "bg-green-500",
-      logo: "/assets/skills/React Icon.svg",
-    },
-    {
-      name: "Next.js",
-      level: 90,
-      category: "frontend",
-      color: "bg-green-600",
-      logo: "/assets/skills/Next.js Icon.svg",
-    },
-    {
-      name: "TailwindCSS",
-      level: 40,
-      category: "frontend",
-      color: "bg-green-700",
-      logo: "/assets/skills/Tailwind CSS Icon.svg",
-    },
-    {
-      name: "TypeScript",
-      level: 70,
-      category: "frontend",
-      color: "bg-green-800",
-      logo: "/assets/skills/TypeScript Icon.svg",
-    },
-    {
-      name: "jQuery",
-      level: 85,
-      category: "frontend",
-      color: "bg-green-500",
-      logo: "/assets/skills/jQuery Icons.svg",
-    },
-
-    // DevOps
-    {
-      name: "Docker",
-      level: 95,
-      category: "devops",
-      color: "bg-purple-500",
-      logo: "/assets/skills/Docker Icon.svg",
-    },
-    {
-      name: "Kubernetes",
-      level: 65,
-      category: "devops",
-      color: "bg-purple-600",
-      logo: "/assets/skills/Kubernetes Icon.svg",
-    },
-    {
-      name: "Jira",
-      level: 80,
-      category: "devops",
-      color: "bg-purple-700",
-      logo: "/assets/skills/Jira Icon.svg",
-    },
-
-    // Data
-    {
-      name: "Elastic Search",
-      level: 70,
-      category: "data",
-      color: "bg-yellow-500",
-      logo: "/assets/skills/Elastic Search Icon.svg",
-    },
-    {
-      name: "Redis",
-      level: 75,
-      category: "data",
-      color: "bg-yellow-600",
-      logo: "/assets/skills/Redis Icon.svg",
-    },
-
-    // IDE
-    {
-      name: "PhpStorm",
-      level: 90,
-      category: "other",
-      color: "bg-red-500",
-      logo: "/assets/skills/PhpStorm Icon.svg",
-    },
-  ];
-
   // Filtres pour les compétences
-  const [filter, setFilter] = useState("all");
+  const [filter, setFilter] = useState('all');
   const [ref, inView] = useInView({
     triggerOnce: false,
     threshold: 0.2,
@@ -185,9 +48,7 @@ const Skills = () => {
 
   // Filtre les compétences en fonction de la catégorie sélectionnée
   const filteredSkills =
-    filter === "all"
-      ? skills
-      : skills.filter((skill) => skill.category === filter);
+    filter === 'all' ? skills : skills.filter(skill => skill.category === filter);
 
   return (
     <section
@@ -197,7 +58,7 @@ const Skills = () => {
     >
       {/* Éléments décoratifs dynamiques inspirés du sport */}
       {inView &&
-        stars.map((star) => (
+        stars.map(star => (
           <motion.div
             key={star.id}
             className="absolute rounded-full bg-blue-400 dark:bg-blue-600 opacity-20"
@@ -216,7 +77,7 @@ const Skills = () => {
             transition={{
               duration: star.duration,
               repeat: Infinity,
-              repeatType: "reverse",
+              repeatType: 'reverse',
             }}
           />
         ))}
@@ -243,9 +104,8 @@ const Skills = () => {
             animate={inView ? { opacity: 1 } : { opacity: 0 }}
             transition={{ duration: 0.5, delay: 0.3 }}
           >
-            Spécialisé en développement back-end avec des compétences solides en
-            PHP, Symfony et Node.js. Je maîtrise également le développement
-            front-end avec React et Next.js.
+            Spécialisé en développement back-end avec des compétences solides en PHP, Symfony et
+            Node.js. Je maîtrise également le développement front-end avec React et Next.js.
           </motion.p>
         </div>
 
@@ -256,22 +116,14 @@ const Skills = () => {
           animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
           transition={{ duration: 0.5 }}
         >
-          {[
-            "all",
-            "backend",
-            "frontend",
-            "mobile",
-            "devops",
-            "data",
-            "other",
-          ].map((category) => (
+          {['all', 'backend', 'frontend', 'devops', 'data', 'other'].map(category => (
             <motion.button
               key={category}
               onClick={() => setFilter(category)}
               className={`px-4 py-2 rounded-full font-medium text-sm transition-all duration-300 ${
                 filter === category
-                  ? "bg-blue-600 text-white shadow-md"
-                  : "bg-white dark:bg-gray-700 text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-600"
+                  ? 'bg-blue-600 text-white shadow-md'
+                  : 'bg-white dark:bg-gray-700 text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-600'
               }`}
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
@@ -286,7 +138,7 @@ const Skills = () => {
           className="grid grid-cols-1 md:grid-cols-2 gap-8"
           variants={containerVariants}
           initial="hidden"
-          animate={inView ? "visible" : "hidden"}
+          animate={inView ? 'visible' : 'hidden'}
         >
           {filteredSkills.map((skill, index) => (
             <motion.div
@@ -311,9 +163,7 @@ const Skills = () => {
                       />
                     </div>
                   )}
-                  <h3 className="font-bold text-gray-800 dark:text-white">
-                    {skill.name}
-                  </h3>
+                  <h3 className="font-bold text-gray-800 dark:text-white">{skill.name}</h3>
                 </div>
                 <span className="text-sm font-medium text-gray-600 dark:text-gray-300">
                   {skill.level}%
@@ -328,7 +178,7 @@ const Skills = () => {
                   transition={{
                     duration: 1,
                     delay: index * 0.05,
-                    ease: "easeOut",
+                    ease: 'easeOut',
                   }}
                 />
               </div>
@@ -342,19 +192,15 @@ const Skills = () => {
                       key={i}
                       xmlns="http://www.w3.org/2000/svg"
                       viewBox="0 0 24 24"
-                      fill={isFilled ? "currentColor" : "none"}
+                      fill={isFilled ? 'currentColor' : 'none'}
                       stroke="currentColor"
                       className={`w-4 h-4 mr-1 ${
                         isFilled
-                          ? "text-blue-500 dark:text-blue-400"
-                          : "text-gray-300 dark:text-gray-500"
+                          ? 'text-blue-500 dark:text-blue-400'
+                          : 'text-gray-300 dark:text-gray-500'
                       }`}
                       initial={{ opacity: 0, scale: 0 }}
-                      animate={
-                        inView
-                          ? { opacity: 1, scale: 1 }
-                          : { opacity: 0, scale: 0 }
-                      }
+                      animate={inView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0 }}
                       transition={{
                         duration: 0.3,
                         delay: 0.5 + index * 0.05 + i * 0.05,
@@ -386,19 +232,19 @@ const Skills = () => {
           <div className="tech-slider max-w-5xl mx-auto">
             <div className="animate-scroll">
               {[
-                ...skills.filter((skill) => skill.logo !== null),
-                ...skills.filter((skill) => skill.logo !== null),
+                ...skills.filter(skill => skill.logo !== null),
+                ...skills.filter(skill => skill.logo !== null),
               ].map((skill, index) => (
                 <div
                   key={`tech-${skill.name}-${index}`}
                   className={`flex-shrink-0 w-24 h-24 ${
-                    skill.category === "backend"
-                      ? "bg-blue-50 dark:bg-blue-900/20"
-                      : skill.category === "frontend"
-                      ? "bg-green-50 dark:bg-green-900/20"
-                      : skill.category === "mobile"
-                      ? "bg-orange-50 dark:bg-orange-900/20"
-                      : "bg-purple-50 dark:bg-purple-900/20"
+                    skill.category === 'backend'
+                      ? 'bg-blue-50 dark:bg-blue-900/20'
+                      : skill.category === 'frontend'
+                        ? 'bg-green-50 dark:bg-green-900/20'
+                        : skill.category === 'mobile'
+                          ? 'bg-orange-50 dark:bg-orange-900/20'
+                          : 'bg-purple-50 dark:bg-purple-900/20'
                   } 
                     rounded-xl shadow-lg p-4 flex flex-col items-center justify-center group hover:scale-110 transition-transform duration-300`}
                   title={skill.name}
@@ -426,27 +272,19 @@ const Skills = () => {
             {/* Ajout d'une légende pour les catégories */}
             <div className="flex items-center gap-2">
               <span className="w-3 h-3 rounded-full bg-blue-500"></span>
-              <span className="text-sm text-gray-600 dark:text-gray-400">
-                Backend
-              </span>
+              <span className="text-sm text-gray-600 dark:text-gray-400">Backend</span>
             </div>
             <div className="flex items-center gap-2">
               <span className="w-3 h-3 rounded-full bg-green-500"></span>
-              <span className="text-sm text-gray-600 dark:text-gray-400">
-                Frontend
-              </span>
+              <span className="text-sm text-gray-600 dark:text-gray-400">Frontend</span>
             </div>
             <div className="flex items-center gap-2">
               <span className="w-3 h-3 rounded-full bg-orange-500"></span>
-              <span className="text-sm text-gray-600 dark:text-gray-400">
-                Mobile
-              </span>
+              <span className="text-sm text-gray-600 dark:text-gray-400">Mobile</span>
             </div>
             <div className="flex items-center gap-2">
               <span className="w-3 h-3 rounded-full bg-purple-500"></span>
-              <span className="text-sm text-gray-600 dark:text-gray-400">
-                DevOps
-              </span>
+              <span className="text-sm text-gray-600 dark:text-gray-400">DevOps</span>
             </div>
           </motion.div>
         </div>

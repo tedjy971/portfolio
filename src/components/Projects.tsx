@@ -1,26 +1,16 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { Key, ReactNode, useEffect } from 'react';
+import { useEffect } from 'react';
 import { useInView } from 'react-intersection-observer';
 // Import Swiper et styles
+import { Project, projects } from '@/data/personalData';
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import { Navigation, Pagination } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { trackProjectView, trackSectionView, trackExternalLinkClick } from '../utils/analytics';
-
-interface Project {
-  id: Key | null | undefined;
-  title: string | ReactNode;
-  description: ReactNode;
-  tags: string[];
-  image: string | undefined;
-  color: string;
-  githubLink: string | undefined;
-  type: ReactNode;
-}
+import { trackExternalLinkClick, trackProjectView, trackSectionView } from '../utils/analytics';
 
 const Projects = () => {
   const [ref, inView] = useInView({
@@ -34,141 +24,6 @@ const Projects = () => {
       trackSectionView('projects');
     }
   }, [inView]);
-
-  const projects: Project[] = [
-    {
-      id: 1,
-      title: 'krankenPhp',
-      description:
-        'Application web moderne utilisant Docker, FrankenPHP et Symfony 7. Une architecture containerisée performante pour le développement PHP moderne avec les dernières technologies.',
-      tags: ['Docker', 'FrankenPHP', 'Symfony', 'PHP', 'DevOps'],
-      image: '/assets/projects/krankenphp-project.svg',
-      color: 'from-blue-500 to-blue-700',
-      githubLink: 'https://github.com/tedjy971/krankenPhp',
-      type: 'Backend',
-    },
-    {
-      id: 2,
-      title: 'Raytracing C++',
-      description:
-        'Moteur de ray-tracing développé en C++ avec optimisations avancées. Implémentation complète des algorithmes de rendu 3D, gestion des ombres, reflets et éclairage réaliste.',
-      tags: ['C++', 'Ray-tracing', '3D', 'Graphisme', 'Optimisation'],
-      image: '/assets/projects/raytracing-project.svg',
-      color: 'from-purple-500 to-purple-700',
-      githubLink: 'https://github.com/tedjy971/Raytracing-Cpp',
-      type: 'Graphics',
-    },
-    {
-      id: 3,
-      title: 'GoofyChat',
-      description:
-        'Application de chat instantané cross-platform développée avec React et React Native. Backend Symfony avec Mercure pour les WebSockets temps réel et synchronisation multi-appareils.',
-      tags: ['React', 'React Native', 'Symfony', 'WebSocket', 'Mercure', 'Real-time'],
-      image: '/assets/projects/goofychat-project.svg',
-      color: 'from-green-500 to-green-700',
-      githubLink: 'https://github.com/GoofyTeam/GoofyChat',
-      type: 'Mobile',
-    },
-    {
-      id: 4,
-      title: 'DevOps Pipeline MT4',
-      description:
-        'Projet DevOps complet avec Docker, Terraform et Apache Spark. Infrastructure cloud automatisée avec monitoring Grafana, CI/CD et déploiement sur AWS.',
-      tags: ['Docker', 'Terraform', 'DevOps', 'Apache Spark', 'Grafana', 'AWS'],
-      image: '/assets/projects/devops-project.svg',
-      color: 'from-orange-500 to-orange-700',
-      githubLink: 'https://github.com/GoofyTeam/RENDU_DEVOPS_MT4',
-      type: 'DevOps',
-    },
-    {
-      id: 5,
-      title: 'GoofyComponent',
-      description:
-        'Bibliothèque de composants UI moderne développée en Svelte avec TypeScript. Documentation interactive déployée sur Netlify avec exemples live et API complète.',
-      tags: ['Svelte', 'TypeScript', 'UI Library', 'Components', 'Documentation'],
-      image: '/assets/projects/goofy-component.svg',
-      color: 'from-teal-500 to-teal-700',
-      githubLink: 'https://github.com/GoofyTeam/GoofyComponent',
-      type: 'Frontend',
-    },
-    {
-      id: 6,
-      title: 'GoofySeRA',
-      description:
-        'Plateforme de gestion de cours de musique en ligne pour la Saline Royale Academy. Frontend React avec backend Laravel, gestion complète des formations musicales.',
-      tags: ['React', 'Laravel', 'Management', 'Education', 'Docker'],
-      image: '/assets/projects/goofy-sera.svg',
-      color: 'from-indigo-500 to-indigo-700',
-      githubLink: 'https://github.com/GoofyTeam/GoofySeRA',
-      type: 'Web App',
-    },
-    {
-      id: 7,
-      title: 'Portfolio React Workshop',
-      description:
-        'Projet de formation React développé pendant le workshop BeginReact.dev. Implémentation des concepts avancés de React avec hooks, context et bonnes pratiques.',
-      tags: ['React', 'Workshop', 'Formation', 'Hooks', 'Context'],
-      image: '/assets/projects/react-portfolio.svg',
-      color: 'from-cyan-500 to-cyan-700',
-      githubLink: 'https://github.com/tedjy971/portfolio-react-workshop',
-      type: 'Learning',
-    },
-    {
-      id: 8,
-      title: 'FrankenPHP Docker',
-      description:
-        'Configuration Docker optimisée pour FrankenPHP avec environnement de développement complet. Setup performant pour applications PHP modernes avec hot-reload.',
-      tags: ['Docker', 'FrankenPHP', 'PHP', 'Development', 'Configuration'],
-      image: '/assets/projects/frankenphp-docker.svg',
-      color: 'from-violet-500 to-violet-700',
-      githubLink: 'https://github.com/tedjy971/frankenphp-docker',
-      type: 'DevOps',
-    },
-    {
-      id: 9,
-      title: 'Portfolio Next.js',
-      description:
-        'Portfolio personnel développé avec Next.js 15 et TailwindCSS. Design moderne responsive avec animations Framer Motion, optimisé pour les performances et le SEO.',
-      tags: ['Next.js', 'TailwindCSS', 'Framer Motion', 'Portfolio', 'SEO'],
-      image: '/assets/projects/portfolio-nextjs.svg',
-      color: 'from-pink-500 to-pink-700',
-      githubLink: 'https://github.com/tedjy971/portfolio',
-      type: 'Frontend',
-    },
-    {
-      id: 10,
-      title: 'GoofyOlympics',
-      description:
-        'Plateforme de gestion de compétitions sportives avec système de classement en temps réel. Interface web moderne pour organiser et suivre les événements olympiques.',
-      tags: ['Competition', 'Sports', 'Real-time', 'Management', 'Web App'],
-      image: '/assets/projects/goofy-olympics.svg',
-      color: 'from-yellow-500 to-yellow-700',
-      githubLink: 'https://github.com/GoofyTeam/GoofyOlympics',
-      type: 'Web App',
-    },
-    {
-      id: 11,
-      title: 'CloudFormation DevOps',
-      description:
-        "Infrastructure AWS automatisée avec CloudFormation. Déploiement d'architecture cloud scalable avec EC2, RDS, Load Balancer et Auto Scaling intégrés.",
-      tags: ['AWS', 'CloudFormation', 'Infrastructure', 'IaC', 'Cloud'],
-      image: '/assets/projects/cloudformation-devops.svg',
-      color: 'from-red-500 to-red-700',
-      githubLink: 'https://github.com/GoofyTeam/DEVOPS_2024_CLOUDFORMATION',
-      type: 'Cloud',
-    },
-    {
-      id: 12,
-      title: 'NYC Urban Data Analytics',
-      description:
-        'Analyse complète des données urbaines de New York avec Python. Visualisations interactives des flux de trafic, densité de population et indicateurs économiques.',
-      tags: ['Python', 'Data Analysis', 'Pandas', 'Visualization', 'Urban Data'],
-      image: '/assets/projects/nyc-analytics.svg',
-      color: 'from-gray-500 to-gray-700',
-      githubLink: 'https://github.com/GoofyTeam/NYC-Urban-Data-Analytics',
-      type: 'Data Science',
-    },
-  ];
 
   // Fonction pour diviser les projets en groupes de 4
   const chunkArray = (array: Project[], chunkSize: number) => {
@@ -245,7 +100,9 @@ const Projects = () => {
                       whileInView={{ opacity: 1, y: 0 }}
                       viewport={{ once: true }}
                       onClick={() =>
-                        trackProjectView(typeof project.title === 'string' ? project.title : String(project.title))
+                        trackProjectView(
+                          typeof project.title === 'string' ? project.title : String(project.title)
+                        )
                       }
                     >
                       {/* Remplacer <img> par <Image /> plus tard pour optimisation Next.js */}

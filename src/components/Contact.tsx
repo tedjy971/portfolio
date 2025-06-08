@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import { useState, useEffect } from 'react';
 import { useInView } from 'react-intersection-observer';
 import { trackContactFormSubmission, trackSectionView, trackExternalLinkClick } from '../utils/analytics';
+import { contactDetails } from '@/data/personalData';
 
 const Contact = () => {
   const [ref, inView] = useInView({
@@ -87,32 +88,6 @@ const Contact = () => {
     },
   };
 
-  const contactDetails = [
-    {
-      icon: '📧',
-      title: 'Email',
-      detail: 'gamiette.Teddy@gmail.com',
-      link: 'mailto:gamiette.Teddy@gmail.com',
-    },
-    {
-      icon: '🔗',
-      title: 'LinkedIn',
-      detail: 'linkedin.com/in/teddygamiette',
-      link: 'https://www.linkedin.com/in/teddy-gamiette-9a1a9613a/',
-    },
-    {
-      icon: '📱',
-      title: 'Téléphone',
-      detail: '+33 7 81 9X XX XX',
-      link: 'tel:+3378195XXXX',
-    },
-    {
-      icon: '💻',
-      title: 'GitHub',
-      detail: 'github.com',
-      link: 'https://github.com/tedjy971',
-    },
-  ];
 
   return (
     <section

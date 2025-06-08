@@ -1,22 +1,18 @@
 'use client';
 
-import { motion } from "framer-motion";
-import Link from "next/link";
+import { socialLinks } from '@/data/personalData';
+import { motion } from 'framer-motion';
+import Link from 'next/link';
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
 
-  const socialLinks = [
-    { name: "GitHub", url: "https://github.com/tedjy97" },
-    { name: "LinkedIn", url: "https://linkedin.com/in/teddygamiette" },
-  ];
-
   const navigationLinks = [
-    { name: "Accueil", path: "/" },
-    { name: "Projets", path: "#projects" },
-    { name: "Compétences", path: "#skills" },
-    { name: "À propos", path: "#about" },
-    { name: "Contact", path: "#contact" },
+    { name: 'Accueil', path: '/' },
+    { name: 'Projets', path: '#projects' },
+    { name: 'Compétences', path: '#skills' },
+    { name: 'À propos', path: '#about' },
+    { name: 'Contact', path: '#contact' },
   ];
 
   return (
@@ -34,21 +30,21 @@ const Footer = () => {
               Teddy Gamiette
             </h3>
             <p className="text-gray-400 mb-4">
-              Tech Lead & Développeur Back-end spécialisé en PHP, React, Next.js
-              et Symfony. Passionné de sport et de domotique.
+              Tech Lead & Développeur Back-end spécialisé en PHP, React, Next.js et Symfony.
+              Passionné de sport et de domotique.
             </p>
             <div className="flex space-x-4">
-              {socialLinks.map((link, index) => (
+              {Object.entries(socialLinks).map((link, index) => (
                 <motion.a
                   key={index}
-                  href={link.url}
+                  href={link[1]}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-gray-400 hover:text-white transition-colors"
                   whileHover={{ scale: 1.1 }}
                   whileTap={{ scale: 0.95 }}
                 >
-                  {link.name}
+                  {link[0]}
                 </motion.a>
               ))}
             </div>
