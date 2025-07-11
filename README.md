@@ -19,8 +19,7 @@ Ce portfolio est une vitrine interactive de mon parcours professionnel en tant q
 - **Projets** : Showcase de mes réalisations les plus significatives
 - **Contact** : Formulaire et informations pour me contacter
 
-Actuellement Tech Lead chez Kernix, je combine expertise technique en développement back-end et vision stratégique pour mener des projets web innovants.
-
+    
 ## Getting Started
 
 First, run the development server:

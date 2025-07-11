@@ -1,7 +1,8 @@
 'use client';
 
+import { motion } from 'framer-motion';
+import { useEffect, useState } from 'react';
 import About from '../components/About';
-import AnimatedDivider from '../components/AnimatedDivider';
 import Contact from '../components/Contact';
 import CustomCursor from '../components/CustomCursor';
 import Footer from '../components/Footer';
@@ -11,8 +12,6 @@ import IntroAnimation from '../components/IntroAnimation';
 import Projects from '../components/Projects';
 import Skills from '../components/Skills';
 import SportAnimation from '../components/SportAnimation';
-import { useState, useEffect } from 'react';
-import { motion } from 'framer-motion';
 
 export default function Home() {
   // État pour contrôler si l'animation GSAP est visible
@@ -47,8 +46,8 @@ export default function Home() {
     const sections = document.querySelectorAll('section');
 
     const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
+      entries => {
+        entries.forEach(entry => {
           if (entry.isIntersecting) {
             setTimeout(() => {
               entry.target.classList.add('in-view');
@@ -64,7 +63,7 @@ export default function Home() {
       }
     );
 
-    sections.forEach((section) => {
+    sections.forEach(section => {
       observer.observe(section);
     });
 
@@ -82,7 +81,7 @@ export default function Home() {
 
     return () => {
       document.body.classList.remove('has-animations');
-      sections.forEach((section) => {
+      sections.forEach(section => {
         observer.unobserve(section);
       });
       // Nettoyage de l'animation de fond
@@ -91,12 +90,7 @@ export default function Home() {
   }, []);
 
   return (
-    <motion.div
-      initial="initial"
-      animate="animate"
-      exit="exit"
-      variants={pageVariants}
-    >
+    <motion.div initial="initial" animate="animate" exit="exit" variants={pageVariants}>
       <CustomCursor />
       <Header />
       <main>
@@ -118,11 +112,7 @@ export default function Home() {
                   stroke="currentColor"
                   className="w-6 h-6"
                 >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    d="M6 18L18 6M6 6l12 12"
-                  />
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
                 </svg>
               </button>
             </div>
@@ -131,7 +121,7 @@ export default function Home() {
 
         {/* Contenu principal toujours visible */}
         <Hero />
-        
+
         {/* Bouton pour afficher l'animation GSAP */}
         {!showGsapIntro && (
           <div className="fixed bottom-10 right-10 z-50">
@@ -158,73 +148,40 @@ export default function Home() {
           </div>
         )}
 
-        <AnimatedDivider color="blue" direction="up" height={120} />
-
         {/* Animations sportives intégrées à différents endroits du site */}
         <div className="relative">
           <Projects />
           <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
-            <SportAnimation
-              position="top-right"
-              theme="ball"
-              color="blue"
-              size="medium"
-            />
+            <SportAnimation position="top-right" theme="ball" color="blue" size="medium" />
           </div>
         </div>
-
-        <AnimatedDivider color="green" direction="down" height={100} />
 
         <div className="relative">
           <Skills />
           <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
             {/* Remplacer l'haltère par une animation sportive plus légère */}
             <div className="absolute bottom-20 right-40">
-              <SportAnimation
-                position="bottom-right"
-                theme="ball"
-                color="green"
-                size="large"
-              />
+              <SportAnimation position="bottom-right" theme="ball" color="green" size="large" />
             </div>
           </div>
         </div>
-
-        <AnimatedDivider color="purple" direction="up" height={120} />
 
         <div className="relative">
           <About />
           <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
             {/* Remplacer l'haltère par une animation sportive plus légère */}
             <div className="absolute top-20 left-40">
-              <SportAnimation
-                position="top-left"
-                theme="energy"
-                color="purple"
-                size="medium"
-              />
+              <SportAnimation position="top-left" theme="energy" color="purple" size="medium" />
             </div>
             {/* Conserver une animation sportive */}
-            <SportAnimation
-              position="bottom-right"
-              theme="energy"
-              color="orange"
-              size="small"
-            />
+            <SportAnimation position="bottom-right" theme="energy" color="orange" size="small" />
           </div>
         </div>
-
-        <AnimatedDivider color="orange" direction="down" height={100} />
 
         <div className="relative">
           <Contact />
           <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
-            <SportAnimation
-              position="center"
-              theme="energy"
-              color="blue"
-              size="large"
-            />
+            <SportAnimation position="center" theme="energy" color="blue" size="large" />
           </div>
         </div>
       </main>

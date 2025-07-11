@@ -4,7 +4,13 @@
   max-width: 210mm; /* Format A4 */
   margin: 0 auto;
   padding: 2rem;
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-family:
+    'Inter',
+    -apple-system,
+    BlinkMacSystemFont,
+    'Segoe UI',
+    Roboto,
+    sans-serif;
   color: #333;
   background-color: white;
   line-height: 1.5;
@@ -28,6 +34,16 @@
   font-weight: 500;
   color: #4b5563;
   margin-bottom: 1rem;
+}
+
+.objective {
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: #1e3a8a;
+  margin-bottom: 1rem;
+  padding: 0.5rem;
+  background-color: #eef2ff;
+  border-left: 4px solid #2563eb;
 }
 
 .contactGrid {
@@ -105,20 +121,14 @@
 
 .skillsGrid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
-  gap: 1rem;
-  margin-bottom: 1.5rem;
-}
-
-.skillCategory {
-  margin-bottom: 1rem;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
 }
 
 .skillCategoryTitle {
   font-weight: 600;
-  color: #4b5563;
-  margin-bottom: 0.5rem;
-  font-size: 1rem;
+  color: #374151;
+  margin-bottom: 0.75rem;
 }
 
 .skillList {
@@ -128,46 +138,29 @@
 }
 
 .skillItem {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin-bottom: 0.25rem;
-  font-size: 0.9rem;
-}
-
-.skillName {
-  display: flex;
-  align-items: center;
-}
-
-.skillLevel {
-  font-size: 0.8rem;
-  color: #6b7280;
-}
-
-.projectGrid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  margin-bottom: 0.5rem;
   gap: 1rem;
-  margin-bottom: 1.5rem;
+}
+
+.skillLevelBarContainer {
+  width: 100%;
+  height: 8px;
+  background-color: #e5e7eb;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.skillLevelBar {
+  height: 100%;
+  background-color: #2563eb;
+  border-radius: 4px;
 }
 
 .projectItem {
-  border: 1px solid #e5e7eb;
-  border-radius: 0.5rem;
-  padding: 1rem;
-  break-inside: avoid;
-}
-
-.projectTitle {
-  font-weight: 600;
-  margin-bottom: 0.5rem;
-  font-size: 1rem;
-}
-
-.projectDescription {
-  font-size: 0.9rem;
-  margin-bottom: 0.75rem;
+  margin-bottom: 1.5rem;
 }
 
 .tagList {
@@ -220,7 +213,9 @@
   padding: 0.75rem 1.5rem;
   font-weight: 500;
   cursor: pointer;
-  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  box-shadow:
+    0 4px 6px -1px rgba(0, 0, 0, 0.1),
+    0 2px 4px -1px rgba(0, 0, 0, 0.06);
   transition: all 0.2s;
 }
 

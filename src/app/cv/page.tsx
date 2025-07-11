@@ -48,12 +48,14 @@ export default function CV() {
     {} as Record<string, typeof skills>
   );
 
-  // Définition des catégories avec leurs titres
+  const otherAndData = [...(skillsByCategory['other'] || []), ...(skillsByCategory['data'] || [])];
+
   const skillCategories = {
     backend: { title: 'Backend', skills: skillsByCategory['backend'] || [] },
     frontend: { title: 'Frontend', skills: skillsByCategory['frontend'] || [] },
     mobile: { title: 'Mobile', skills: skillsByCategory['mobile'] || [] },
     devops: { title: 'DevOps', skills: skillsByCategory['devops'] || [] },
+    other: { title: 'Méthodologies & Outils', skills: otherAndData },
   };
 
   // Sélection des projets les plus pertinents (limité à 4)

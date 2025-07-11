@@ -12,12 +12,13 @@ export const personalInfo = {
   linkedin: 'https://www.linkedin.com/in/teddy-gamiette-9a1a9613a/',
   website: 'https://teddygamiette.online',
   description:
-    'Développeur web back-end spécialisé en PHP, Symfony, React et Next.js. Développeur Back-end en alternance chez Kernix avec une passion pour le sport et la domotique.',
+    "Développeur web back-end avec 4 ans d'expérience en alternance, spécialisé en PHP, Symfony, React et Next.js. Passionné par le sport et la domotique, je suis constamment à la recherche de nouveaux défis techniques.",
+  objective: "En recherche d'un contrat à temps plein à partir de Novembre.",
 };
 
 export const educationExperiences = [
   {
-    title: 'Master Tech Lead',
+    title: 'Master Tech Lead (en alternance)',
     school: 'HETIC',
     period: 'En cours',
     description:
@@ -26,9 +27,9 @@ export const educationExperiences = [
   {
     title: 'Bachelor Web ',
     school: 'HETIC',
-    period: '2023',
+    period: '2021 - 2023',
     description:
-      'Formation intensive dans le développement web avec spécialisation full-stack. Maîtrise des frameworks modernes (React, Symfony) et méthodologies agiles. Projets concrets en conditions réelles avec des partenaires.',
+      'Formation en alternance intensive dans le développement web avec spécialisation full-stack. Maîtrise des frameworks modernes (React, Symfony) et méthodologies agiles. Projets concrets en conditions réelles avec des partenaires.',
   },
   {
     title: 'Licence SGBD (Système de Gestion de Base de Données)',
@@ -42,15 +43,15 @@ export const educationExperiences = [
     school: 'Lycée Parc de Vilgénis',
     period: '2018',
     description:
-      'Diplôme technique en Systèmes Numériques option Informatique et Réseaux. Formation approfondie en développement logiciel, administration système et réseaux, avec projets pratiques en entreprise',
+      'Diplôme axé sur le développement logiciel et la gestion des réseaux informatiques. Projets en C++, Java et administration système sous Linux.',
   },
 ];
 
 export const experiences = [
   {
-    title: 'Developpeur web Back-end en alternance',
+    title: 'Développeur Back-end (Alternance)',
     company: 'Kernix',
-    period: 'Actuel',
+    period: '2021 - Actuel',
     tags: ['NextJS', 'NestJS', 'Symfony', 'API REST'],
     description:
       "Développement et maintenance d'applications web et d'APIs robustes. Utilisation quotidienne de technologies modernes telles que Symfony, NestJS, NextJS, et API Platform. Contribution à des projets d'envergure impliquant Elasticsearch pour la recherche, AWS et Linode pour l'infrastructure cloud. Maîtrise des outils de versioning Git (GitLab, GitHub) et des bases de données NoSQL comme Redis. Participation active au développement et à l'amélioration d'un framework PHP maison (KWO).",
@@ -128,7 +129,7 @@ export const skills = [
   },
   {
     name: 'API REST',
-    level: 90,
+    level: 95,
     category: 'backend',
     color: 'bg-blue-500',
     logo: '/assets/skills/Swagger Icon.svg',
@@ -151,7 +152,7 @@ export const skills = [
   // Frontend
   {
     name: 'Next.js',
-    level: 90,
+    level: 75,
     category: 'frontend',
     color: 'bg-green-600',
     logo: '/assets/skills/Next.js Icon.svg',
@@ -165,14 +166,14 @@ export const skills = [
   },
   {
     name: 'TailwindCSS',
-    level: 80,
+    level: 50,
     category: 'frontend',
     color: 'bg-green-700',
     logo: '/assets/skills/Tailwind CSS Icon.svg',
   },
   {
     name: 'React',
-    level: 85,
+    level: 70,
     category: 'frontend',
     color: 'bg-green-500',
     logo: '/assets/skills/React Icon.svg',
@@ -254,138 +255,106 @@ export interface Project {
   tags: string[];
   image: string | undefined;
   color: string;
-  githubLink: string | undefined;
+  githubLink?: string;
   type: ReactNode;
 }
 
 export const projects: Project[] = [
   {
     id: 1,
-    title: 'Saline Royale Academy',
+    title: 'Montée de version Symfony',
     description:
-      "Plateforme de formation en ligne sur la musique pour la Saline Royale Academy. Développement d'une interface immersive permettant aux musiciens du monde entier d'accéder à des masterclasses de haut niveau. Système de gestion de contenu vidéo avec annotations interactives et suivi pédagogique personnalisé.",
-    tags: ['React', 'Laravel', 'Education', 'Streaming', 'UX Design'],
-    image: '/assets/projects/goofy-sera.svg',
+      "Migration complète d'une application Symfony de PHP 5.6 à PHP 8.1 en utilisant Rector. Amélioration des performances et de la maintenabilité du code.",
+    image: '/assets/projects/Symfony SVG Icon.svg',
     color: 'from-indigo-500 to-indigo-700',
-    githubLink: undefined,
-    type: 'Web App',
+    tags: ['Symfony', 'PHP', 'Rector', 'Gitlab CI'],
+    type: 'entreprise',
   },
   {
     id: 2,
-    title: 'FrankenPHP Symfony',
+    title: 'Recherche avec Elasticsearch',
     description:
-      "Mise en place d'une architecture moderne avec FrankenPHP et Symfony 7. Configuration optimisée pour le développement PHP haute performance avec support natif des WebSockets, HTTP/3 et auto-reload. Containerisation complète avec Docker pour un déploiement simplifié.",
-    tags: ['FrankenPHP', 'Symfony', 'PHP', 'Docker', 'WebSockets'],
-    image: '/assets/projects/frankenphp-docker.svg',
-    color: 'from-blue-500 to-blue-700',
-    githubLink: 'https://github.com/tedjy971/krankenPhp',
-    type: 'Backend',
+      'Mise en place d’un système de recherche avancé avec Elasticsearch sur une application Symfony, permettant une indexation et une recherche rapide et pertinente des données.',
+    image: '/assets/projects/ES.png',    color: 'from-indigo-500 to-indigo-700',
+
+
+    tags: ['Elasticsearch', 'Symfony', 'PHP', 'Kibana'],
+    type: 'entreprise',
   },
   {
     id: 3,
-    title: 'Raytracing C++',
+    title: 'API REST avec NestJS',
     description:
-      "Moteur de ray-tracing développé en C++ avec optimisations avancées. Implémentation complète des algorithmes de rendu 3D, gestion des ombres, reflets et éclairage réaliste. Utilisation de techniques d'accélération comme les BVH (Bounding Volume Hierarchies) pour améliorer les performances.",
-    tags: ['C++', 'Ray-tracing', '3D', 'Graphisme', 'Optimisation'],
-    image: '/assets/projects/raytracing-project.svg',
-    color: 'from-purple-500 to-purple-700',
-    githubLink: 'https://github.com/tedjy971/Raytracing-Cpp',
-    type: 'Graphics',
+      'Développement d’API RESTful robustes et évolutives avec NestJS pour des applications web modernes. Utilisation de TypeScript pour un code plus sûr et maintenable.',
+    image: '/assets/projects/NestJS (1).svg',
+    tags: ['NestJS', 'Node.js', 'TypeScript', 'API REST'],
+    color: 'from-indigo-500 to-indigo-700',
+
+    type: 'entreprise',
   },
   {
     id: 4,
-    title: 'MicroService Event-Driven',
+    title: 'Intégration de Wallets Mobiles',
     description:
-      'Architecture microservices event-driven développée pour maîtriser les patterns de communication asynchrone. Implémentation de RabbitMQ pour la gestion des événements, avec Circuit Breaker et système de retry. Déploiement sur Kubernetes avec monitoring avancé.',
-    tags: ['Microservices', 'Event-Driven', 'RabbitMQ', 'Kubernetes', 'Resilience'],
-    image: '/assets/projects/microservice-event.svg',
-    color: 'from-green-500 to-green-700',
-    githubLink: undefined,
-    type: 'Architecture',
+      'Implémentation de solutions de paiement et de fidélisation via des cartes dématérialisées pour Apple Wallet (iOS) et Google Wallet (Android).',
+    image: '/assets/projects/Wallet Glyph Blue/dd8f3fa9-d7e0-46e3-b6dd-dbd028761207.jpg',
+    tags: ['Apple Wallet', 'Google Wallet', 'API', 'Mobile'],
+    color: 'from-indigo-500 to-indigo-700',
+
+    type: 'entreprise',
   },
   {
     id: 5,
-    title: 'GoofyChat',
+    title: 'Firebase pour Applications Mobiles',
     description:
-      'Application de chat instantané cross-platform développée avec React et React Native. Backend Symfony avec Mercure pour les WebSockets temps réel et synchronisation multi-appareils.',
-    tags: ['React', 'React Native', 'Symfony', 'WebSocket', 'Mercure', 'Real-time'],
-    image: '/assets/projects/goofychat-project.svg',
-    color: 'from-green-500 to-green-700',
-    githubLink: 'https://github.com/GoofyTeam/GoofyChat',
-    type: 'Mobile',
+      'Utilisation des services Firebase (Cloud Functions, Firestore, Authentication, FCM) pour construire le backend d’applications mobiles performantes et réactives.',
+    image: '/assets/projects/Firebase 1 Logo.svg',
+    tags: ['Firebase', 'Cloud Functions', 'FCM', 'NoSQL'],
+    color: 'from-indigo-500 to-indigo-700',
+
+    type: 'entreprise',
   },
   {
     id: 6,
-    title: 'DevOps Pipeline MT4',
+    title: 'Boilerplate Serverless Symfony',
     description:
-      'Projet DevOps complet avec Docker, Terraform et Apache Spark. Infrastructure cloud automatisée avec monitoring Grafana, CI/CD et déploiement sur AWS.',
-    tags: ['Docker', 'Terraform', 'DevOps', 'Apache Spark', 'Grafana', 'AWS'],
-    image: '/assets/projects/devops-project.svg',
-    color: 'from-orange-500 to-orange-700',
-    githubLink: 'https://github.com/GoofyTeam/RENDU_DEVOPS_MT4',
-    type: 'DevOps',
+      'Création d’un template de projet Symfony optimisé pour le déploiement sur des infrastructures serverless avec BrefPHP et le Serverless Framework, pour des applications scalables et à coût maîtrisé.',
+    image: '/assets/projects/Logo Bref.svg',
+    tags: ['Symfony', 'Serverless', 'BrefPHP', 'AWS Lambda'],
+    color: 'from-indigo-500 to-indigo-700',
+
+    githubLink: 'https://github.com/tedjy971/boilerplate-symfony-serverless-bref',
+    type: 'personnel',
   },
   {
     id: 7,
-    title: 'GoofyComponent',
+    title: 'Boilerplate FrankenPHP',
     description:
-      'Bibliothèque de composants UI moderne développée en Svelte avec TypeScript. Documentation interactive déployée sur Netlify avec exemples live et API complète.',
-    tags: ['Svelte', 'TypeScript', 'UI Library', 'Components', 'Documentation'],
-    image: '/assets/projects/goofy-component.svg',
-    color: 'from-teal-500 to-teal-700',
-    githubLink: 'https://github.com/GoofyTeam/GoofyComponent',
-    type: 'Frontend',
+      'Template de projet Symfony prêt à l’emploi avec FrankenPHP, un serveur d’application moderne pour PHP qui simplifie le déploiement et améliore les performances. Idéal pour démarrer rapidement des projets robustes.',
+    image: '/assets/projects/frankenphp.png',
+    tags: ['Symfony', 'FrankenPHP', 'Docker', 'CI/CD'],
+    color: 'from-indigo-500 to-indigo-700',
+
+    githubLink: 'https://github.com/tedjy971/boilerplate-symfony-frankenphp',
+    type: 'personnel',
   },
   {
     id: 8,
-    title: 'Portfolio Next.js',
+    title: 'Ray Tracing en C++',
     description:
-      'Portfolio personnel développé avec Next.js 15 et TailwindCSS. Design moderne responsive avec animations Framer Motion, optimisé pour les performances et le SEO.',
-    tags: ['Next.js', 'TailwindCSS', 'Framer Motion', 'Portfolio', 'SEO'],
-    image: '/assets/projects/portfolio-nextjs.svg',
-    color: 'from-pink-500 to-pink-700',
-    githubLink: 'https://github.com/tedjy971/portfolio',
-    type: 'Frontend',
-  },
-  {
-    id: 9,
-    title: 'GoofyOlympics',
-    description:
-      'Plateforme de gestion de compétitions sportives avec système de classement en temps réel. Interface web moderne pour organiser et suivre les événements olympiques.',
-    tags: ['Competition', 'Sports', 'Real-time', 'Management', 'Web App'],
-    image: '/assets/projects/goofy-olympics.svg',
-    color: 'from-yellow-500 to-yellow-700',
-    githubLink: 'https://github.com/GoofyTeam/GoofyOlympics',
-    type: 'Web App',
-  },
-  {
-    id: 10,
-    title: 'CloudFormation DevOps',
-    description:
-      "Infrastructure AWS automatisée avec CloudFormation. Déploiement d'architecture cloud scalable avec EC2, RDS, Load Balancer et Auto Scaling intégrés.",
-    tags: ['AWS', 'CloudFormation', 'Infrastructure', 'IaC', 'Cloud'],
-    image: '/assets/projects/cloudformation-devops.svg',
-    color: 'from-red-500 to-red-700',
-    githubLink: 'https://github.com/GoofyTeam/DEVOPS_2024_CLOUDFORMATION',
-    type: 'Cloud',
-  },
-  {
-    id: 11,
-    title: 'NYC Urban Data Analytics',
-    description:
-      'Analyse complète des données urbaines de New York avec Python. Visualisations interactives des flux de trafic, densité de population et indicateurs économiques.',
-    tags: ['Python', 'Data Analysis', 'Pandas', 'Visualization', 'Urban Data'],
-    image: '/assets/projects/nyc-analytics.svg',
-    color: 'from-gray-500 to-gray-700',
-    githubLink: 'https://github.com/GoofyTeam/NYC-Urban-Data-Analytics',
-    type: 'Data Science',
+      'Implémentation d’un moteur de rendu d’images par lancer de rayons (Ray Tracing) en C++. Ce projet explore les algorithmes de rendu photoréaliste, la gestion de la lumière, des ombres et des réflexions.',
+    image: '/assets/projects/c.svg',
+    tags: ['C++', 'Ray Tracing', 'Infographie', 'Algorithmique'],
+    githubLink: 'https://github.com/tedjy971/RayTracing',
+    color: 'from-indigo-500 to-indigo-700',
+
+    type: 'personnel',
   },
 ];
 
 export const socialLinks = {
   github: personalInfo.github,
   linkedin: personalInfo.linkedin,
-  // twitter: 'https://twitter.com/teddygamiette',
   email: personalInfo.email,
 };
 
@@ -419,7 +388,7 @@ export const contactDetails = [
   {
     icon: '🔗',
     title: 'LinkedIn',
-    detail: 'linkedin.com/in/teddygamiette',
+    detail: 'linkedin.com/in/teddy-gamiette-9a1a9613a',
     link: 'https://www.linkedin.com/in/teddy-gamiette-9a1a9613a/',
   },
   {
@@ -431,7 +400,7 @@ export const contactDetails = [
   {
     icon: '💻',
     title: 'GitHub',
-    detail: 'github.com',
+    detail: 'github.com/tedjy971',
     link: personalInfo.github,
   },
   {

@@ -133,7 +133,7 @@ const Projects = () => {
                         <span className="inline-block text-xs text-zinc-400 mb-2">
                           {project.type === 'personnel'
                             ? 'Projet personnel'
-                            : 'Projet d&apos;équipe'}
+                            : "Projet d'entreprise"}
                         </span>
                         <a
                           href={project.githubLink}
