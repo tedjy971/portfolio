@@ -22,6 +22,7 @@ const Html2PdfComponent = dynamic(() => import('./Html2PdfComponent'), {
 export default function CV() {
   const [showProjects, setShowProjects] = useState(false);
   const [isGeneratingPdf, setIsGeneratingPdf] = useState(false);
+  const [atsMode, setAtsMode] = useState(false);
   const cvRef = useRef<HTMLDivElement>(null);
 
   // Fonction pour exporter le CV en PDF avec html2pdf
@@ -96,10 +97,14 @@ export default function CV() {
               <span>📍</span>
               <span>{personalInfo.location}</span>
             </div>
+            {/* <div className={styles.contactItem}>
+              <span>🌐</span>
+              <span>Portfolio : https://www.teddygamiette.online</span>
+            </div> */}
           </div>
         </header>
 
-        <div className={styles.twoColumnGrid}>
+        <div className={atsMode ? styles.singleColumn : styles.twoColumnGrid}>
           <main>
             {/* Expériences professionnelles */}
             <section>
@@ -158,7 +163,7 @@ export default function CV() {
           <aside>
             {/* Compétences techniques */}
             <section>
-              <h2 className={styles.sectionTitle}>Compétences techniques</h2>
+              <h2 className={styles.sectionTitle}>Compétences Techniques</h2>
               <div className={styles.skillsGrid}>
                 {Object.entries(skillCategories).map(
                   ([key, category]) =>
@@ -168,8 +173,15 @@ export default function CV() {
                         <ul className={styles.skillList}>
                           {category.skills.map((skill, skillIndex) => (
                             <li key={skillIndex} className={styles.skillItem}>
-                              <span className={styles.skillName}>{skill.name}</span>
-                              <span className={styles.skillLevel}>{skill.level}%</span>
+                              <span className={styles.skillName}>
+                                {skill.name} (
+                                {skill.level >= 80
+                                  ? 'Avancé'
+                                  : skill.level >= 50
+                                    ? 'Confirmé'
+                                    : 'Intermédiaire'}
+                                )
+                              </span>
                             </li>
                           ))}
                         </ul>
@@ -212,6 +224,13 @@ export default function CV() {
             style={{ marginRight: '10px' }}
           >
             {showProjects ? 'Masquer les projets' : 'Afficher les projets'}
+          </button>
+          <button
+            onClick={() => setAtsMode(!atsMode)}
+            className={styles.actionButton}
+            style={{ marginRight: '10px', backgroundColor: atsMode ? '#10b981' : '#6b7280' }}
+          >
+            {atsMode ? 'Mode Standard' : 'Mode ATS'}
           </button>
         </div>
       </div>

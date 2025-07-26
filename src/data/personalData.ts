@@ -2,7 +2,7 @@ import { Key, ReactNode } from 'react';
 
 export const personalInfo = {
   name: 'Teddy Gamiette',
-  title: 'Développeur Web Passionné',
+  title: 'Développeur Web Back-End PHP | Symfony | Node.js',
   role: 'Développeur Back-end en alternance',
   company: 'Kernix',
   email: 'gamiette.teddy@gmail.com',
@@ -49,41 +49,47 @@ export const educationExperiences = [
 
 export const experiences = [
   {
-    title: 'Développeur Back-end (Alternance)',
+    title: 'Développeur Back-end',
     company: 'Kernix',
-    period: '2021 - Actuel',
-    tags: ['NextJS', 'NestJS', 'Symfony', 'API REST'],
+    period: '2021 - 2025',
+    tags: ['NextJS', 'NestJS', 'Symfony', 'RESTful APIs', 'API Platform', 'Elasticsearch'],
     description:
-      "Développement et maintenance d'applications web et d'APIs robustes. Utilisation quotidienne de technologies modernes telles que Symfony, NestJS, NextJS, et API Platform. Contribution à des projets d'envergure impliquant Elasticsearch pour la recherche, AWS et Linode pour l'infrastructure cloud. Maîtrise des outils de versioning Git (GitLab, GitHub) et des bases de données NoSQL comme Redis. Participation active au développement et à l'amélioration d'un framework PHP maison (KWO).",
+      "Développement et maintenance d'applications web et d'APIs robustes en alternance. Utilisation quotidienne de technologies modernes telles que Symfony, NestJS, NextJS, et API Platform. Contribution à des projets d'envergure impliquant Elasticsearch pour la recherche, AWS et Linode pour l'infrastructure cloud. Maîtrise des outils de versioning Git (GitLab, GitHub) et des bases de données NoSQL comme Redis. Participation active au développement et à l'amélioration d'un framework PHP maison (KWO).",
+  },
+  {
+    title: 'Technicien Informatique',
+    company: 'SPIE ICS',
+    period: '2020-2021',
+    tags: [
+      'Windows Server',
+      'Linux Ubuntu',
+      'Network Administration',
+      'Active Directory',
+      'Technical Support',
+    ],
+    description:
+      'Gestion du parc informatique et support technique aux utilisateurs. Déploiement et maintenance de solutions réseau. Résolution des incidents et optimisation des infrastructures IT pour garantir la continuité des services.',
+  },
+  {
+    title: 'Problem Solver',
+    company: 'Amazon',
+    period: '2019',
+    tags: ['VBA', 'Excel', 'Macros', 'API', 'Data Analysis'],
+    description:
+      "Conception et développement d'une macro VBA pour l'automatisation de recherches de produits et la récupération de données via l'API Amazon. Optimisation des processus de collecte d'informations et de reporting.",
   },
   {
     title: 'Data Analyst',
     company: 'LUCERNYS',
     period: '2018-2019',
-    tags: ['Base de données', 'Analyses Big Data', 'R', 'Tableau de bord', 'VBA'],
+    tags: ['MySQL', 'R', 'VBA', 'Macros', 'Data Analysis', 'Reporting', 'Data Visualization'],
     description:
       "Analyse et traitement de données massives pour extraire des insights stratégiques. Utilisation d'outils d'analyse statistique comme R pour identifier des tendances et créer des modèles prédictifs. Développement de tableaux de bord interactifs pour la visualisation des données et l'aide à la décision.",
   },
   {
-    title: 'Problem Solver',
-    company: 'Amazon',
-    period: '2022',
-    tags: ['VBA', 'Excel', 'Macros'],
-    description:
-      "Conception et développement d'une macro VBA pour l'automatisation de recherches de produits et la récupération de données via l'API Amazon. Optimisation des processus de collecte d'informations et de reporting.",
-  },
-  {
-    title: 'Technicien Informatique',
-    company: 'SPIE ICS',
-    period: '2021',
-    tags: ['Windows', 'MacOS', 'Linux', 'Network', 'IT', 'Support'],
-    description:
-      'Gestion du parc informatique et support technique aux utilisateurs. Déploiement et maintenance de solutions réseau. Résolution des incidents et optimisation des infrastructures IT pour garantir la continuité des services.',
-  },
-  {
     title: 'Développeur Web (Stage)',
     company: 'Conseil Départemental de Seine-Saint-Denis',
-    period: '2020',
+    period: 'Mai 2018 - Juin 2018',
     tags: ['PHP', 'MySQL', 'HTML', 'CSS', 'JavaScript'],
     description:
       "Conception et développement d'une application de gestion de projets en PHP natif. Mise en place d'une interface utilisateur intuitive et d'une base de données optimisée. Collaboration étroite avec les équipes métier pour répondre aux besoins spécifiques de l'administration.",
@@ -188,6 +194,27 @@ export const skills = [
     logo: '/assets/skills/Docker Icon.svg',
   },
   {
+    name: 'GitLab CI',
+    level: 85,
+    category: 'devops',
+    color: 'bg-orange-600',
+    logo: '/assets/skills/GitLab Icon.svg',
+  },
+  {
+    name: 'AWS',
+    level: 85,
+    category: 'devops',
+    color: 'bg-orange-500',
+    logo: '/assets/skills/Aws.png',
+  },
+  {
+    name: 'Kubernetes',
+    level: 80,
+    category: 'devops',
+    color: 'bg-blue-500',
+    logo: '/assets/skills/Kubernetes Icon.svg',
+  },
+  {
     name: 'CI/CD',
     level: 85,
     category: 'devops',
@@ -231,20 +258,55 @@ export const skills = [
     color: 'bg-yellow-600',
     logo: '/assets/skills/Elastic Search Icon.svg',
   },
+  // Mots-clés techniques pour ATS
   {
-    name: 'AWS',
-    level: 80,
-    category: 'data',
-    color: 'bg-yellow-600',
-    logo: '/assets/skills/Aws.png',
+    name: 'RESTful APIs',
+    level: 95,
+    category: 'backend',
+    color: 'bg-blue-600',
+    logo: '/assets/skills/api.svg',
   },
-  //kubernetes
   {
-    name: 'Kubernetes',
+    name: 'Microservices',
+    level: 85,
+    category: 'backend',
+    color: 'bg-blue-600',
+    logo: '/assets/skills/microservices.svg',
+  },
+  {
+    name: 'API Platform',
+    level: 90,
+    category: 'backend',
+    color: 'bg-blue-600',
+    logo: '/assets/skills/api-platform.svg',
+  },
+  {
+    name: 'Monorepo',
+    level: 75,
+    category: 'devops',
+    color: 'bg-purple-600',
+    logo: '/assets/skills/monorepo.svg',
+  },
+  {
+    name: 'Architecture Orientée Événements',
     level: 80,
-    category: 'data',
-    color: 'bg-yellow-600',
-    logo: '/assets/skills/Kubernetes Icon.svg',
+    category: 'backend',
+    color: 'bg-blue-600',
+    logo: '/assets/skills/event-driven.svg',
+  },
+  {
+    name: 'RabbitMQ',
+    level: 75,
+    category: 'backend',
+    color: 'bg-orange-600',
+    logo: '/assets/skills/rabbitmq.svg',
+  },
+  {
+    name: 'Kafka',
+    level: 70,
+    category: 'backend',
+    color: 'bg-gray-800',
+    logo: '/assets/skills/kafka.svg',
   },
 ];
 
@@ -266,7 +328,7 @@ export const projects: Project[] = [
     description:
       "Migration complète d'une application Symfony de PHP 5.6 à PHP 8.1 en utilisant Rector. Amélioration des performances et de la maintenabilité du code.",
     image: '/assets/projects/Symfony SVG Icon.svg',
-    color: 'from-indigo-500 to-indigo-700',
+    color: 'from-blue-500 to-blue-700',
     tags: ['Symfony', 'PHP', 'Rector', 'Gitlab CI'],
     type: 'entreprise',
   },
@@ -275,8 +337,8 @@ export const projects: Project[] = [
     title: 'Recherche avec Elasticsearch',
     description:
       'Mise en place d’un système de recherche avancé avec Elasticsearch sur une application Symfony, permettant une indexation et une recherche rapide et pertinente des données.',
-    image: '/assets/projects/ES.png',    color: 'from-indigo-500 to-indigo-700',
-
+    image: '/assets/projects/ES.png',
+    color: 'from-yellow-500 to-orange-600',
 
     tags: ['Elasticsearch', 'Symfony', 'PHP', 'Kibana'],
     type: 'entreprise',
@@ -288,7 +350,7 @@ export const projects: Project[] = [
       'Développement d’API RESTful robustes et évolutives avec NestJS pour des applications web modernes. Utilisation de TypeScript pour un code plus sûr et maintenable.',
     image: '/assets/projects/NestJS (1).svg',
     tags: ['NestJS', 'Node.js', 'TypeScript', 'API REST'],
-    color: 'from-indigo-500 to-indigo-700',
+    color: 'from-red-500 to-red-700',
 
     type: 'entreprise',
   },
@@ -299,7 +361,7 @@ export const projects: Project[] = [
       'Implémentation de solutions de paiement et de fidélisation via des cartes dématérialisées pour Apple Wallet (iOS) et Google Wallet (Android).',
     image: '/assets/projects/Wallet Glyph Blue/dd8f3fa9-d7e0-46e3-b6dd-dbd028761207.jpg',
     tags: ['Apple Wallet', 'Google Wallet', 'API', 'Mobile'],
-    color: 'from-indigo-500 to-indigo-700',
+    color: 'from-green-500 to-green-700',
 
     type: 'entreprise',
   },
@@ -310,7 +372,7 @@ export const projects: Project[] = [
       'Utilisation des services Firebase (Cloud Functions, Firestore, Authentication, FCM) pour construire le backend d’applications mobiles performantes et réactives.',
     image: '/assets/projects/Firebase 1 Logo.svg',
     tags: ['Firebase', 'Cloud Functions', 'FCM', 'NoSQL'],
-    color: 'from-indigo-500 to-indigo-700',
+    color: 'from-orange-500 to-red-600',
 
     type: 'entreprise',
   },
@@ -321,7 +383,7 @@ export const projects: Project[] = [
       'Création d’un template de projet Symfony optimisé pour le déploiement sur des infrastructures serverless avec BrefPHP et le Serverless Framework, pour des applications scalables et à coût maîtrisé.',
     image: '/assets/projects/Logo Bref.svg',
     tags: ['Symfony', 'Serverless', 'BrefPHP', 'AWS Lambda'],
-    color: 'from-indigo-500 to-indigo-700',
+    color: 'from-purple-500 to-purple-700',
 
     githubLink: 'https://github.com/tedjy971/boilerplate-symfony-serverless-bref',
     type: 'personnel',
@@ -346,23 +408,17 @@ export const projects: Project[] = [
     image: '/assets/projects/c.svg',
     tags: ['C++', 'Ray Tracing', 'Infographie', 'Algorithmique'],
     githubLink: 'https://github.com/tedjy971/RayTracing',
-    color: 'from-indigo-500 to-indigo-700',
+    color: 'from-gray-600 to-gray-800',
 
     type: 'personnel',
   },
 ];
 
+// Recréation de socialLinks pour compatibilité avec Footer.tsx
 export const socialLinks = {
   github: personalInfo.github,
   linkedin: personalInfo.linkedin,
   email: personalInfo.email,
-};
-
-export const contactInfo = {
-  email: personalInfo.email,
-  phone: personalInfo.phone,
-  address: 'Palaiseau, Ile de France',
-  availability: "Actuellement en alternance, en recherche d'un contrat à temps plein",
 };
 
 export const themes = {

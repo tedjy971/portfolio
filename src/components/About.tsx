@@ -172,8 +172,8 @@ const About = () => {
                   >
                     Développeur web passionné spécialisé dans les technologies back-end comme PHP et
                     Symfony, tout en maîtrisant React et Next.js pour le front-end. Actuellement
-                    Tech Lead chez Kernix, je combine expertise technique et vision stratégique pour
-                    mener des projets web innovants.
+                    Développeur Back-end chez Kernix, je combine expertise technique et vision
+                    stratégique pour mener des projets web innovants.
                   </motion.p>
 
                   <div className="absolute inset-0 overflow-hidden">

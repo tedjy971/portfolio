@@ -90,6 +90,19 @@
   gap: 2rem;
 }
 
+/* Mode ATS - Mise en page monocolonne optimisée pour les ATS */
+.singleColumn {
+  display: block;
+}
+
+.singleColumn main {
+  margin-bottom: 2rem;
+}
+
+.singleColumn aside {
+  margin-top: 0;
+}
+
 .experienceItem {
   margin-bottom: 1.5rem;
   break-inside: avoid;
@@ -138,11 +151,16 @@
 }
 
 .skillItem {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
+  display: flex;
   align-items: center;
   margin-bottom: 0.5rem;
   gap: 1rem;
+}
+
+/* Style pour les compétences en mode ATS */
+.skillName {
+  font-size: 0.9rem;
+  color: #374151;
 }
 
 .skillLevelBarContainer {
