@@ -13,6 +13,27 @@ import styles from '@/styles/cv.module.css';
 import dynamic from 'next/dynamic';
 import { useRef, useState } from 'react';
 
+// Données optimisées pour ATS
+const optimizedPersonalInfo = {
+  ...personalInfo,
+  title: "Backend Engineer | PHP/Symfony Expert | Microservices & Cloud Architecture",
+  description: [
+    "Backend Developer avec 4 ans d'expérience en architecture API REST et microservices.",
+    "Expertise Symfony 6, NestJS, Elasticsearch avec déploiement sur AWS et Docker.",
+    "Contributions : migration PHP legacy, optimisation bases de données, intégrations tierces.",
+    "Maîtrise DevOps : conteneurisation, CI/CD GitLab, monitoring infrastructure."
+  ],
+  objective: "✅ Disponible immédiatement | CDI recherché | Remote partiel accepté"
+};
+
+const keyAchievements = [
+  "Migration PHP 5.6→8.1 avec Rector | Amélioration performances et stabilité",
+  "Architecture Microservices avec Symfony 6 et NestJS | 8+ services en production", 
+  "Optimisation Elasticsearch | Réduction latence de 3s à 1.8s",
+  "Intégration Apple/Google Wallet | API PKPass et notifications push",
+  "DevOps & CI/CD | Docker, AWS, GitLab pipelines"
+];
+
 // Import dynamique de html2pdf pour éviter les erreurs côté serveur
 const Html2PdfComponent = dynamic(() => import('./Html2PdfComponent'), {
   ssr: false,
@@ -76,9 +97,26 @@ export default function CV() {
       <div ref={cvRef} className={`${styles.container} ${styles.printColorAdjust}`}>
         {/* En-tête avec informations personnelles */}
         <header className={styles.header}>
-          <h1 className={styles.name}>{personalInfo.name}</h1>
-          <h2 className={styles.title}>{personalInfo.title}</h2>
-          <p>{personalInfo.description}</p>
+          <h1 className={styles.name}>{personalInfo.name.toUpperCase()}</h1>
+          <h2 className={styles.title}>{atsMode ? optimizedPersonalInfo.title : personalInfo.title}</h2>
+          {atsMode ? (
+            <div className={styles.professionalSummary}>
+              {optimizedPersonalInfo.description.map((paragraph, index) => (
+                <p key={index} className={styles.summaryParagraph}>
+                  {paragraph}
+                </p>
+              ))}
+            </div>
+          ) : (
+            <p className={styles.description}>
+              {personalInfo.description}
+            </p>
+          )}
+          {atsMode && (
+            <div className={styles.availability}>
+              {optimizedPersonalInfo.objective}
+            </div>
+          )}
 
           <div className={styles.contactGrid}>
             {contactDetails.map((contact, index) => (
@@ -106,20 +144,68 @@ export default function CV() {
 
         <div className={atsMode ? styles.singleColumn : styles.twoColumnGrid}>
           <main>
+            {/* Section Réalisations Clés - Mode ATS uniquement */}
+            {atsMode && (
+              <section>
+                <h2 className={styles.sectionTitle}>🏆 RÉALISATIONS CLÉS</h2>
+                <ul className={styles.achievementList}>
+                  {keyAchievements.map((achievement, index) => (
+                    <li key={index} className={styles.achievementItem}>
+                      • {achievement}
+                    </li>
+                  ))}
+                </ul>
+              </section>
+            )}
+
             {/* Expériences professionnelles */}
             <section>
-              <h2 className={styles.sectionTitle}>Expériences professionnelles</h2>
-              {professionalExperiences.map((experience, index) => (
-                <div key={index} className={styles.experienceItem}>
-                  <div className={styles.experienceHeader}>
-                    <h3 className={styles.companyTitle}>
-                      {experience.title} | {experience.company}
-                    </h3>
-                    <span className={styles.period}>{experience.period}</span>
+              <h2 className={styles.sectionTitle}>
+                {atsMode ? 'EXPÉRIENCE PROFESSIONNELLE' : 'Expériences professionnelles'}
+              </h2>
+              {professionalExperiences.map((experience, index) => {
+                if (atsMode && experience.company === 'Kernix') {
+                  return (
+                    <div key={index} className={styles.experienceItem}>
+                      <div className={styles.experienceHeader}>
+                        <h3 className={styles.companyTitle}>
+                          Backend Developer | {experience.company}
+                        </h3>
+                        <span className={styles.period}>2021 - 2025 (4 ans)</span>
+                      </div>
+                      <ul className={styles.bulletList}>
+                        <li>• Développe architecture microservices avec Symfony 6 et NestJS (8+ services en production)</li>
+                        <li>• Migration PHP legacy 5.6→8.1 avec Rector, refactorisation et amélioration stabilité</li>
+                        <li>• Architecture event-driven avec RabbitMQ/Redis pour découplage des services</li>
+                        <li>• Optimisation moteur de recherche Elasticsearch, réduction temps réponse de 3s à 1.8s</li>
+                        <li>• Déploiement containerisé sur AWS avec Docker et Kubernetes</li>
+                        <li>• Intégration Apple Wallet et Google Pay, développement API PKPass</li>
+                        <li>• Code reviews, documentation technique et veille technologique</li>
+                      </ul>
+                      <p className={styles.techStack}>
+                        <strong>Stack:</strong> PHP 8, Symfony 6, NestJS, PostgreSQL, Redis, Elasticsearch, Docker, AWS, GitLab CI/CD
+                      </p>
+                    </div>
+                  );
+                }
+                return (
+                  <div key={index} className={styles.experienceItem}>
+                    <div className={styles.experienceHeader}>
+                      <h3 className={styles.companyTitle}>
+                        {experience.title} | {experience.company}
+                      </h3>
+                      <span className={styles.period}>{experience.period}</span>
+                    </div>
+                    <div className={styles.description}>
+                      {experience.description.split('\n').map((line, lineIndex) => (
+                        <p key={lineIndex} className={styles.descriptionLine}>
+                          {line}
+                        </p>
+                      ))}
+                    </div>
                   </div>
-                  <p className={styles.description}>{experience.description}</p>
-                </div>
-              ))}
+                );
+              })}
             </section>
 
             {/* Projets significatifs - Optionnel */}
@@ -146,63 +232,130 @@ export default function CV() {
 
             {/* Formation */}
             <section>
-              <h2 className={styles.sectionTitle}>Formation</h2>
-              {educationExperiences.map((education, index) => (
-                <div key={index} className={styles.educationItem}>
-                  <div className={styles.experienceHeader}>
-                    <h3 className={styles.companyTitle}>{education.title}</h3>
-                    <span className={styles.schoolName}>{education.school}</span>
-                    <span className={styles.period}>{education.period}</span>
+              <h2 className={styles.sectionTitle}>
+                {atsMode ? 'FORMATION' : 'Formation'}
+              </h2>
+              {educationExperiences.map((education, index) => {
+                const period = education.period === 'En cours' ? '2023 - 2025' : education.period;
+                return (
+                  <div key={index} className={styles.educationItem}>
+                    <div className={styles.experienceHeader}>
+                      <h3 className={styles.companyTitle}>{education.title}</h3>
+                      <span className={styles.schoolName}>{education.school}</span>
+                      <span className={styles.period}>{period}</span>
+                    </div>
+                    {atsMode && education.title.includes('Master') ? (
+                      <p className={styles.description}>
+                        Architecture logicielle, DDD, Microservices, Cloud Architecture, Leadership technique
+                      </p>
+                    ) : (
+                      <p className={styles.description}>{education.description}</p>
+                    )}
                   </div>
-                  <p className={styles.description}>{education.description}</p>
-                </div>
-              ))}
+                );
+              })}
+              
             </section>
           </main>
 
           <aside>
             {/* Compétences techniques */}
             <section>
-              <h2 className={styles.sectionTitle}>Compétences Techniques</h2>
-              <div className={styles.skillsGrid}>
-                {Object.entries(skillCategories).map(
-                  ([key, category]) =>
-                    category.skills.length > 0 && (
-                      <div key={key} className={styles.skillCategory}>
-                        <h3 className={styles.skillCategoryTitle}>{category.title}</h3>
-                        <ul className={styles.skillList}>
-                          {category.skills.map((skill, skillIndex) => (
-                            <li key={skillIndex} className={styles.skillItem}>
-                              <span className={styles.skillName}>
-                                {skill.name} (
-                                {skill.level >= 80
-                                  ? 'Avancé'
-                                  : skill.level >= 50
-                                    ? 'Confirmé'
-                                    : 'Intermédiaire'}
-                                )
-                              </span>
-                            </li>
-                          ))}
-                        </ul>
-                      </div>
-                    )
-                )}
-              </div>
+              <h2 className={styles.sectionTitle}>
+                {atsMode ? 'COMPÉTENCES TECHNIQUES' : 'Compétences Techniques'}
+              </h2>
+              {atsMode ? (
+                <div className={styles.skillsAts}>
+                  <div className={styles.skillCategoryAts}>
+                    <h4>Backend</h4>
+                    <p>PHP 8.x • Symfony 6 • NestJS • Node.js • API REST • GraphQL • Microservices</p>
+                  </div>
+                  <div className={styles.skillCategoryAts}>
+                    <h4>Databases</h4>
+                    <p>PostgreSQL • MySQL • MongoDB • Redis • Elasticsearch • Query Optimization</p>
+                  </div>
+                  <div className={styles.skillCategoryAts}>
+                    <h4>DevOps & Cloud</h4>
+                    <p>AWS (EC2, S3, Lambda) • Docker • Kubernetes • GitLab CI/CD • Terraform • Linux</p>
+                  </div>
+                  <div className={styles.skillCategoryAts}>
+                    <h4>Architecture & Patterns</h4>
+                    <p>DDD • SOLID • Design Patterns • CQRS • Event-Driven • Hexagonal Architecture</p>
+                  </div>
+                  <div className={styles.skillCategoryAts}>
+                    <h4>Testing & Quality</h4>
+                    <p>PHPUnit • Jest • TDD • Code Review • SonarQube • Performance Monitoring</p>
+                  </div>
+                  <div className={styles.skillCategoryAts}>
+                    <h4>Méthodologies</h4>
+                    <p>Agile/Scrum • Git Flow • API Documentation • Technical Writing • Mentoring</p>
+                  </div>
+                </div>
+              ) : (
+                <div className={styles.skillsGrid}>
+                  {Object.entries(skillCategories).map(
+                    ([key, category]) =>
+                      category.skills.length > 0 && (
+                        <div key={key} className={styles.skillCategory}>
+                          <h3 className={styles.skillCategoryTitle}>{category.title}</h3>
+                          <ul className={styles.skillList}>
+                            {category.skills.map((skill, skillIndex) => (
+                              <li key={skillIndex} className={styles.skillItem}>
+                                <span className={styles.skillName}>
+                                  {skill.name} (
+                                  {skill.level >= 80
+                                    ? 'Avancé'
+                                    : skill.level >= 50
+                                      ? 'Confirmé'
+                                      : 'Intermédiaire'}
+                                  )
+                                </span>
+                              </li>
+                            ))}
+                          </ul>
+                        </div>
+                      )
+                  )}
+                </div>
+              )}
             </section>
 
-            {/* Centres d'intérêt */}
-            <section>
-              <h2 className={styles.sectionTitle}>Centres d'intérêt</h2>
-              <div className={styles.interestList}>
-                {interests.map((interest, index) => (
-                  <div key={index} className={styles.interestItem}>
-                    <span>{interest.icon}</span>
-                    <span>{interest.title}</span>
-                  </div>
-                ))}
-              </div>
-            </section>
+            {/* Compétences Transversales - Mode ATS */}
+            {atsMode && (
+              <section>
+                <h2 className={styles.sectionTitle}>COMPÉTENCES TRANSVERSALES</h2>
+                <p className={styles.softSkills}>
+                  Leadership Technique • Mentoring • Communication Stakeholders • 
+                  Problem Solving • Architecture Decision Records • Code Review • 
+                  Documentation Technique • Veille Technologique • Open Source Contribution
+                </p>
+              </section>
+            )}
+            
+            {/* Langues - Mode ATS */}
+            {atsMode && (
+              <section>
+                <h2 className={styles.sectionTitle}>LANGUES</h2>
+                <p className={styles.languages}>
+                  Français (Natif) • Anglais (Professionnel - Documentation, Stack Overflow, GitHub)
+                </p>
+              </section>
+            )}
+
+            {/* Centres d'intérêt - Mode Standard uniquement */}
+            {!atsMode && (
+              <section>
+                <h2 className={styles.sectionTitle}>Centres d'intérêt</h2>
+                <div className={styles.interestList}>
+                  {interests.map((interest, index) => (
+                    <div key={index} className={styles.interestItem}>
+                      <span>{interest.icon}</span>
+                      <span>{interest.title}</span>
+                    </div>
+                  ))}
+                </div>
+              </section>
+            )}
           </aside>
         </div>
 
@@ -230,7 +383,7 @@ export default function CV() {
             className={styles.actionButton}
             style={{ marginRight: '10px', backgroundColor: atsMode ? '#10b981' : '#6b7280' }}
           >
-            {atsMode ? 'Mode Standard' : 'Mode ATS'}
+            {atsMode ? 'Mode Standard' : 'Mode ATS Optimisé'}
           </button>
         </div>
       </div>

@@ -36,6 +36,51 @@
   margin-bottom: 1rem;
 }
 
+.description {
+  font-size: 1rem;
+  line-height: 1.6;
+  margin-bottom: 1rem;
+  color: #374151;
+}
+
+.availability {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #059669;
+  margin-bottom: 1rem;
+  padding: 0.75rem;
+  background-color: #ecfdf5;
+  border-left: 4px solid #059669;
+  border-radius: 0.375rem;
+}
+
+.professionalSummary {
+  margin-bottom: 1.5rem;
+}
+
+.summaryParagraph {
+  font-size: 1rem;
+  line-height: 1.6;
+  margin-bottom: 0.75rem;
+  color: #374151;
+  text-align: justify;
+}
+
+.summaryParagraph:last-child {
+  margin-bottom: 0;
+}
+
+/* Amélioration de l'affichage des descriptions en mode standard */
+.experienceItem .description {
+  margin-top: 0.75rem;
+}
+
+.experienceItem .descriptionLine {
+  padding-left: 0;
+  color: #4b5563;
+  font-size: 0.95rem;
+}
+
 .objective {
   font-size: 1.1rem;
   font-weight: 500;
@@ -77,9 +122,9 @@
   font-weight: 600;
   color: #1e3a8a;
   margin-top: 2rem;
-  margin-bottom: 1rem;
-  border-bottom: 1px solid #e5e7eb;
-  padding-bottom: 0.5rem;
+  margin-bottom: 1.5rem;
+  border-bottom: 2px solid #e5e7eb;
+  padding-bottom: 0.75rem;
   text-transform: uppercase;
   letter-spacing: 0.05em;
 }
@@ -93,19 +138,36 @@
 /* Mode ATS - Mise en page monocolonne optimisée pour les ATS */
 .singleColumn {
   display: block;
+  max-width: 100%;
 }
 
 .singleColumn main {
-  margin-bottom: 2rem;
+  margin-bottom: 2.5rem;
 }
 
 .singleColumn aside {
   margin-top: 0;
 }
 
-.experienceItem {
+.singleColumn section {
+  margin-bottom: 2rem;
+}
+
+.singleColumn .sectionTitle {
+  margin-top: 2.5rem;
   margin-bottom: 1.5rem;
+}
+
+.experienceItem {
+  margin-bottom: 2rem;
   break-inside: avoid;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid #f3f4f6;
+}
+
+.experienceItem:last-child {
+  border-bottom: none;
+  margin-bottom: 1.5rem;
 }
 
 .experienceHeader {
@@ -132,6 +194,17 @@
   font-size: 0.95rem;
 }
 
+.descriptionLine {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  margin-bottom: 0.6rem;
+  color: #374151;
+}
+
+.descriptionLine:last-child {
+  margin-bottom: 0;
+}
+
 .skillsGrid {
   display: grid;
   grid-template-columns: 1fr;
@@ -155,6 +228,98 @@
   align-items: center;
   margin-bottom: 0.5rem;
   gap: 1rem;
+}
+
+/* Styles spécifiques pour le mode ATS */
+.achievementList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.achievementItem {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  margin-bottom: 0.8rem;
+  color: #374151;
+  padding-left: 0.5rem;
+}
+
+.bulletList {
+  list-style: none;
+  padding: 0;
+  margin: 0.5rem 0;
+}
+
+.bulletList li {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  margin-bottom: 0.6rem;
+  color: #374151;
+  padding-left: 0.5rem;
+}
+
+.techStack {
+  font-size: 0.9rem;
+  color: #6b7280;
+  margin-top: 0.75rem;
+  padding: 0.5rem;
+  background-color: #f9fafb;
+  border-radius: 0.375rem;
+}
+
+.skillsAts {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+}
+
+.skillCategoryAts {
+  margin-bottom: 1rem;
+}
+
+.skillCategoryAts h4 {
+  font-weight: 600;
+  color: #1f2937;
+  margin-bottom: 0.5rem;
+  font-size: 1rem;
+}
+
+.skillCategoryAts p {
+  font-size: 0.9rem;
+  color: #374151;
+  line-height: 1.6;
+  margin: 0;
+  text-align: left;
+}
+
+.certificationList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.certificationList li {
+  font-size: 0.95rem;
+  line-height: 1.5;
+  margin-bottom: 0.5rem;
+  color: #374151;
+}
+
+.softSkills {
+  font-size: 0.95rem;
+  color: #374151;
+  line-height: 1.7;
+  margin: 0;
+  text-align: justify;
+}
+
+.languages {
+  font-size: 0.95rem;
+  color: #374151;
+  line-height: 1.6;
+  margin: 0;
+  text-align: left;
 }
 
 /* Style pour les compétences en mode ATS */
@@ -261,6 +426,25 @@
     grid-template-columns: 3fr 1fr;
   }
 
+  /* Optimisations spécifiques pour le mode ATS en impression */
+  .singleColumn .achievementList,
+  .singleColumn .bulletList,
+  .singleColumn .certificationList {
+    page-break-inside: avoid;
+  }
+
+  .singleColumn .techStack {
+    background-color: #f9fafb !important;
+    -webkit-print-color-adjust: exact !important;
+    color-adjust: exact !important;
+  }
+
+  .singleColumn .availability {
+    background-color: #ecfdf5 !important;
+    -webkit-print-color-adjust: exact !important;
+    color-adjust: exact !important;
+  }
+
   /* Forcer l'impression des couleurs et des backgrounds */
   .printColorAdjust {
     -webkit-print-color-adjust: exact !important;
@@ -271,7 +455,8 @@
   /* Éviter les sauts de page au milieu des sections importantes */
   .experienceItem,
   .projectItem,
-  .educationItem {
+  .educationItem,
+  .skillCategoryAts {
     page-break-inside: avoid;
   }
 
@@ -298,5 +483,21 @@
 
   .skillsGrid {
     grid-template-columns: 1fr;
+  }
+
+  .skillsAts {
+    grid-template-columns: 1fr;
+  }
+
+  .printButton {
+    position: fixed;
+    bottom: 1rem;
+    right: 1rem;
+    flex-direction: column;
+  }
+
+  .actionButton {
+    padding: 0.5rem 1rem;
+    font-size: 0.875rem;
   }
 }

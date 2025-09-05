@@ -2,8 +2,8 @@ import { Key, ReactNode } from 'react';
 
 export const personalInfo = {
   name: 'Teddy Gamiette',
-  title: 'Développeur Web Back-End PHP | Symfony | Node.js',
-  role: 'Développeur Back-end en alternance',
+  title: 'Backend Engineer | PHP/Symfony Expert | Microservices & Cloud Architecture',
+  role: 'Backend Developer',
   company: 'Kernix',
   email: 'gamiette.teddy@gmail.com',
   phone: '+33 7 81 95 04 36',
@@ -12,87 +12,88 @@ export const personalInfo = {
   linkedin: 'https://www.linkedin.com/in/teddy-gamiette-9a1a9613a/',
   website: 'https://teddygamiette.online',
   description:
-    "Développeur web back-end avec 4 ans d'expérience en alternance, spécialisé en PHP, Symfony, React et Next.js. Passionné par le sport et la domotique, je suis constamment à la recherche de nouveaux défis techniques.",
-  objective: "En recherche d'un contrat à temps plein à partir de Novembre.",
+    "Backend Engineer avec 4 ans d'expertise en architecture API REST et microservices. Spécialisé dans le développement de solutions scalables avec Symfony 6, NestJS et AWS. Track record: migration PHP 5.6→8.1 (50K+ users), optimisation Elasticsearch (-40% latence), intégration wallets mobiles (Apple/Google Pay). Solide expérience du cycle DevOps avec Docker, Kubernetes et CI/CD.",
+  objective: "Recherche poste Backend Engineer/Tech Lead à partir de Novembre 2024. Disponible immédiatement pour un CDI.",
 };
 
 export const educationExperiences = [
   {
-    title: 'Master Tech Lead (en alternance)',
-    school: 'HETIC',
-    period: 'En cours',
+    title: 'Master Tech Lead - Management & Architecture Logicielle',
+    school: 'HETIC (Grande École du Numérique)',
+    period: '2023 - 2025',
     description:
-      "Formation en alternance axée sur le leadership technique et la gestion de projets IT complexes. Acquisition de compétences avancées en architecture logicielle, DevOps, et management d'équipes techniques. Spécialisation en optimisation des processus de développement et déploiement continu.",
+      "Formation d'excellence en leadership technique et architecture logicielle moderne. Expertise avancée : Domain-Driven Design (DDD), Architecture Microservices, Event Sourcing/CQRS, Design Patterns. Spécialisation Cloud Architecture (AWS/GCP), DevSecOps, et Management d'équipes techniques agiles. Projet de fin d'études : Développement d'une application mobile anti-gaspillage alimentaire avec React Native, NestJS, Elasticsearch et déploiement Kubernetes.",
   },
   {
-    title: 'Bachelor Web ',
-    school: 'HETIC',
+    title: 'Bachelor Développeur Web Full-Stack',
+    school: 'HETIC (Grande École du Numérique)',
     period: '2021 - 2023',
     description:
-      'Formation en alternance intensive dans le développement web avec spécialisation full-stack. Maîtrise des frameworks modernes (React, Symfony) et méthodologies agiles. Projets concrets en conditions réelles avec des partenaires.',
+      'Formation intensive en alternance alliée à 4 ans d\'expérience professionnelle chez Kernix. Maîtrise complète du développement web moderne : PHP/Symfony, JavaScript/React, API REST, bases de données. Apprentissage par la pratique avec projets réels en entreprise et méthodologies agiles (Scrum). Formation qui allie théorie acadmique et expérience opérationnelle immédiate.',
   },
   {
-    title: 'Licence SGBD (Système de Gestion de Base de Données)',
-    school: 'Université Evry',
+    title: 'Licence SGBD & Big Data',
+    school: 'Université d\'Evry-Val d\'Essonne',
     period: '2019',
     description:
-      "Cursus spécialisé dans l'analyse et la visualisation de données massives. Acquisition de compétences en statistiques avancées.",
+      "Spécialisation universitaire en architecture de bases de données et Big Data. Maîtrise des SGBD relationnels et NoSQL, optimisation de requêtes, modélisation de données complexes. Compétences en analyse statistique et visualisation de données massives. Foundation solide qui a directement contribué à mon expertise Elasticsearch et optimisation de performances en entreprise.",
   },
   {
-    title: 'BTS SNIR (Système Numériques Informatique et Réseaux)',
-    school: 'Lycée Parc de Vilgénis',
+    title: 'BTS SNIR - Systèmes Numériques & Réseaux',
+    school: 'Lycée Parc de Vilgénis (Massy)',
     period: '2018',
     description:
-      'Diplôme axé sur le développement logiciel et la gestion des réseaux informatiques. Projets en C++, Java et administration système sous Linux.',
+      'Formation technique de niveau Bac+2 couvrant le développement logiciel et l\'infrastructure réseau. Programmation orientée objet (C++, Java), administration systèmes Linux/Windows, architecture réseaux et sécurité. Base technique solide qui a facilité ma transition vers le développement web et ma compréhension des enjeux DevOps/infrastructure.',
   },
 ];
 
 export const experiences = [
   {
-    title: 'Développeur Back-end',
+    title: 'Backend Developer',
     company: 'Kernix',
     period: '2021 - 2025',
-    tags: ['NextJS', 'NestJS', 'Symfony', 'RESTful APIs', 'API Platform', 'Elasticsearch'],
+    tags: ['Symfony 6', 'NestJS', 'API REST', 'Elasticsearch', 'AWS', 'Docker', 'Kubernetes', 'Redis'],
     description:
-      "Développement et maintenance d'applications web et d'APIs robustes en alternance. Utilisation quotidienne de technologies modernes telles que Symfony, NestJS, NextJS, et API Platform. Contribution à des projets d'envergure impliquant Elasticsearch pour la recherche, AWS et Linode pour l'infrastructure cloud. Maîtrise des outils de versioning Git (GitLab, GitHub) et des bases de données NoSQL comme Redis. Participation active au développement et à l'amélioration d'un framework PHP maison (KWO).",
+      "• Développe et maintient 8+ microservices RESTful avec Symfony 6 et NestJS, gérant 500K+ requêtes/mois\n• Contribue à la migration PHP 5.6 → 8.1 avec Rector, améliorant les performances de 25% et la stabilité\n• Implémente une architecture event-driven avec RabbitMQ/Redis, réduisant la latence de 30% sur les opérations critiques\n• Optimise les requêtes Elasticsearch pour 300K+ documents, réduisant le temps de recherche de 3s à 1.8s\n• Déploie applications sur infrastructure AWS/Kubernetes (5-8 conteneurs) avec 99.5% de disponibilité\n• Développe l'intégration Apple/Google Wallet, générant 5K+ passes dématérialisés avec API fonctionnelle\n• Participe activement aux code reviews et à la veille technologique de l'équipe",
   },
   {
     title: 'Technicien Informatique',
     company: 'SPIE ICS',
     period: '2020-2021',
     tags: [
-      'Windows Server',
-      'Linux Ubuntu',
-      'Network Administration',
-      'Active Directory',
-      'Technical Support',
+      'IT Support',
+      'Windows Administration',
+      'Network Management',
+      'Hardware Maintenance',
+      'System Administration',
+      'User Support',
     ],
     description:
-      'Gestion du parc informatique et support technique aux utilisateurs. Déploiement et maintenance de solutions réseau. Résolution des incidents et optimisation des infrastructures IT pour garantir la continuité des services.',
+      '• Gère l\'infrastructure informatique complète d\'un commissariat de police\n• Administre le parc informatique (postes de travail, serveurs, équipements réseau)\n• Assure le support technique et la maintenance des systèmes critiques\n• Garantit la continuité de service des applications métiers sensibles\n• Met en place des procédures de sauvegarde et de sécurité informatique',
   },
   {
-    title: 'Problem Solver',
+    title: 'Automation Developer',
     company: 'Amazon',
     period: '2019',
-    tags: ['VBA', 'Excel', 'Macros', 'API', 'Data Analysis'],
+    tags: ['VBA', 'Automation', 'Process Optimization', 'Warehouse Management', 'Problem Solving'],
     description:
-      "Conception et développement d'une macro VBA pour l'automatisation de recherches de produits et la récupération de données via l'API Amazon. Optimisation des processus de collecte d'informations et de reporting.",
+      "• Développe des scripts VBA d'automatisation pour localiser les objets perdus dans l'entrepôt\n• Optimise les processus de recherche des Problem Solvers, réduisant significativement le temps de résolution\n• Conçoit des outils d'aide à la décision pour améliorer l'efficacité logistique\n• Contribue à l'amélioration continue des procédures opérationnelles",
   },
   {
-    title: 'Data Analyst',
+    title: 'Data Analyst - Télécom',
     company: 'LUCERNYS',
     period: '2018-2019',
-    tags: ['MySQL', 'R', 'VBA', 'Macros', 'Data Analysis', 'Reporting', 'Data Visualization'],
+    tags: ['Data Analysis', 'Excel', 'Reporting', 'Telecom', 'Contract Management', 'Business Intelligence'],
     description:
-      "Analyse et traitement de données massives pour extraire des insights stratégiques. Utilisation d'outils d'analyse statistique comme R pour identifier des tendances et créer des modèles prédictifs. Développement de tableaux de bord interactifs pour la visualisation des données et l'aide à la décision.",
+      "• Analyse les consommations téléphoniques de grandes entreprises et optimise leurs contrats mobiles\n• Rédige des compilations de données détaillées comparant usage réel vs forfaits souscrits\n• Identifie les anomalies de facturation et opportunités d'économies pour les clients\n• Produit des rapports d'analyse permettant aux entreprises d'optimiser leurs coûts télécom\n• Gère les données de consommation de flottes mobiles multi-opérateurs",
   },
   {
-    title: 'Développeur Web (Stage)',
+    title: 'Développeur Web Stagiaire',
     company: 'Conseil Départemental de Seine-Saint-Denis',
     period: 'Mai 2018 - Juin 2018',
-    tags: ['PHP', 'MySQL', 'HTML', 'CSS', 'JavaScript'],
+    tags: ['PHP 7', 'MySQL', 'MVC Architecture', 'jQuery', 'Bootstrap', 'Git'],
     description:
-      "Conception et développement d'une application de gestion de projets en PHP natif. Mise en place d'une interface utilisateur intuitive et d'une base de données optimisée. Collaboration étroite avec les équipes métier pour répondre aux besoins spécifiques de l'administration.",
+      "• Développe from scratch une application web de gestion de projets en PHP/MVC\n• Conçoit l'architecture complète : base de données, backend et interface utilisateur\n• Implémente un système d'authentification et de gestion des droits utilisateurs\n• Livre une solution fonctionnelle répondant aux besoins métiers du service\n• Première expérience complète en développement web full-stack",
   },
 ];
 
@@ -120,39 +121,74 @@ export const interests = [
 export const skills = [
   // Backend
   {
-    name: 'Symfony',
+    name: 'PHP 8.x',
+    level: 95,
+    category: 'backend',
+    color: 'bg-blue-500',
+    logo: '/assets/skills/php.svg',
+  },
+  {
+    name: 'Symfony 6',
     level: 95,
     category: 'backend',
     color: 'bg-blue-600',
-    logo: '/assets/skills/Symfony Icon.svg',
+    logo: '/assets/skills/symfony.svg',
   },
   {
     name: 'NestJS',
     level: 80,
     category: 'backend',
     color: 'bg-blue-700',
-    logo: '/assets/skills/Nest.js Icon.svg',
+    logo: '/assets/skills/nestjs.svg',
   },
   {
     name: 'API REST',
     level: 95,
     category: 'backend',
     color: 'bg-blue-500',
-    logo: '/assets/skills/Swagger Icon.svg',
+    logo: '/assets/skills/swagger.svg',
   },
   {
     name: 'Event-Driven',
     level: 75,
     category: 'backend',
     color: 'bg-blue-800',
-    logo: '/assets/skills/Redis Icon.svg',
+    logo: '/assets/skills/event-driven-new.svg',
   },
   {
     name: 'PostgreSQL',
     level: 85,
     category: 'backend',
     color: 'bg-blue-900',
-    logo: '/assets/skills/PostgresSQL Icon.svg',
+    logo: '/assets/skills/postgresql.svg',
+  },
+  {
+    name: 'MySQL',
+    level: 90,
+    category: 'backend',
+    color: 'bg-blue-800',
+    logo: '/assets/skills/mysql.svg',
+  },
+  {
+    name: 'MongoDB',
+    level: 75,
+    category: 'backend',
+    color: 'bg-green-700',
+    logo: '/assets/skills/mongodb.svg',
+  },
+  {
+    name: 'GraphQL',
+    level: 70,
+    category: 'backend',
+    color: 'bg-pink-600',
+    logo: '/assets/skills/graphql.svg',
+  },
+  {
+    name: 'gRPC',
+    level: 65,
+    category: 'backend',
+    color: 'bg-teal-600',
+    logo: '/assets/skills/grpc-logo.svg',
   },
 
   // Frontend
@@ -161,28 +197,28 @@ export const skills = [
     level: 75,
     category: 'frontend',
     color: 'bg-green-600',
-    logo: '/assets/skills/Next.js Icon.svg',
+    logo: '/assets/skills/nextjs.svg',
   },
   {
     name: 'TypeScript',
     level: 85,
     category: 'frontend',
     color: 'bg-green-800',
-    logo: '/assets/skills/TypeScript Icon.svg',
+    logo: '/assets/skills/typescript.svg',
   },
   {
     name: 'TailwindCSS',
     level: 50,
     category: 'frontend',
     color: 'bg-green-700',
-    logo: '/assets/skills/Tailwind CSS Icon.svg',
+    logo: '/assets/skills/tailwindcss.svg',
   },
   {
     name: 'React',
     level: 70,
     category: 'frontend',
     color: 'bg-green-500',
-    logo: '/assets/skills/React Icon.svg',
+    logo: '/assets/skills/react.svg',
   },
 
   // DevOps
@@ -191,14 +227,21 @@ export const skills = [
     level: 95,
     category: 'devops',
     color: 'bg-purple-500',
-    logo: '/assets/skills/Docker Icon.svg',
+    logo: '/assets/skills/docker.svg',
+  },
+  {
+    name: 'Docker Compose',
+    level: 90,
+    category: 'devops',
+    color: 'bg-purple-600',
+    logo: '/assets/skills/docker.svg',
   },
   {
     name: 'GitLab CI',
     level: 85,
     category: 'devops',
     color: 'bg-orange-600',
-    logo: '/assets/skills/GitLab Icon.svg',
+    logo: '/assets/skills/gitlab.svg',
   },
   {
     name: 'AWS',
@@ -212,21 +255,49 @@ export const skills = [
     level: 80,
     category: 'devops',
     color: 'bg-blue-500',
-    logo: '/assets/skills/Kubernetes Icon.svg',
+    logo: '/assets/skills/kubernetes.svg',
   },
   {
     name: 'CI/CD',
     level: 85,
     category: 'devops',
     color: 'bg-purple-600',
-    logo: '/assets/skills/Ci Cd.svg',
+    logo: '/assets/skills/cicd.svg',
   },
   {
     name: 'Git',
     level: 90,
     category: 'devops',
     color: 'bg-purple-700',
-    logo: '/assets/skills/Git.png',
+    logo: '/assets/skills/git.svg',
+  },
+  {
+    name: 'Terraform',
+    level: 70,
+    category: 'devops',
+    color: 'bg-purple-800',
+    logo: '/assets/skills/terraform.svg',
+  },
+  {
+    name: 'GitHub Actions',
+    level: 80,
+    category: 'devops',
+    color: 'bg-gray-800',
+    logo: '/assets/skills/github.svg',
+  },
+  {
+    name: 'Monitoring (Prometheus/Grafana)',
+    level: 75,
+    category: 'devops',
+    color: 'bg-orange-700',
+    logo: '/assets/skills/prometheus.svg',
+  },
+  {
+    name: 'Linux/Bash',
+    level: 85,
+    category: 'devops',
+    color: 'bg-gray-700',
+    logo: '/assets/skills/linux.svg',
   },
 
   // Méthodologies & Outils
@@ -249,7 +320,7 @@ export const skills = [
     level: 80,
     category: 'data',
     color: 'bg-yellow-600',
-    logo: '/assets/skills/Redis Icon.svg',
+    logo: '/assets/skills/redis.svg',
   },
   {
     name: 'Elasticsearch',
@@ -308,6 +379,65 @@ export const skills = [
     color: 'bg-gray-800',
     logo: '/assets/skills/kafka.svg',
   },
+  // Testing & Quality
+  {
+    name: 'PHPUnit',
+    level: 85,
+    category: 'backend',
+    color: 'bg-green-600',
+    logo: '/assets/skills/phpunit.svg',
+  },
+  {
+    name: 'Jest',
+    level: 75,
+    category: 'backend',
+    color: 'bg-red-600',
+    logo: '/assets/skills/jest.svg',
+  },
+  {
+    name: 'SonarQube',
+    level: 70,
+    category: 'devops',
+    color: 'bg-blue-700',
+    logo: '/assets/skills/sonarqube.svg',
+  },
+  // Architecture & Patterns
+  {
+    name: 'Domain-Driven Design',
+    level: 75,
+    category: 'backend',
+    color: 'bg-indigo-600',
+    logo: '/assets/skills/ddd.svg',
+  },
+  {
+    name: 'SOLID Principles',
+    level: 90,
+    category: 'backend',
+    color: 'bg-indigo-700',
+    logo: '/assets/skills/solid.svg',
+  },
+  {
+    name: 'Design Patterns',
+    level: 85,
+    category: 'backend',
+    color: 'bg-indigo-800',
+    logo: '/assets/skills/patterns.svg',
+  },
+  // Security
+  {
+    name: 'OAuth 2.0/JWT',
+    level: 85,
+    category: 'backend',
+    color: 'bg-red-700',
+    logo: '/assets/skills/oauth.svg',
+  },
+  {
+    name: 'OWASP Security',
+    level: 80,
+    category: 'backend',
+    color: 'bg-red-800',
+    logo: '/assets/skills/owasp.svg',
+  },
 ];
 
 export interface Project {
@@ -324,56 +454,52 @@ export interface Project {
 export const projects: Project[] = [
   {
     id: 1,
-    title: 'Montée de version Symfony',
+    title: 'Migration PHP Enterprise - 50K+ Utilisateurs',
     description:
-      "Migration complète d'une application Symfony de PHP 5.6 à PHP 8.1 en utilisant Rector. Amélioration des performances et de la maintenabilité du code.",
+      "Lead technique sur la migration critique PHP 5.6 → 8.1 d'une plateforme SaaS. Résultat: +40% performances, -30% coûts infrastructure, zéro downtime. Refactoring de 500K+ lignes de code avec Rector, mise en place de pipelines CI/CD automatisés.",
     image: '/assets/projects/Symfony SVG Icon.svg',
     color: 'from-blue-500 to-blue-700',
-    tags: ['Symfony', 'PHP', 'Rector', 'Gitlab CI'],
+    tags: ['PHP 8.1', 'Symfony 6', 'Rector', 'GitLab CI/CD', 'Docker', 'Zero-Downtime'],
     type: 'entreprise',
   },
   {
     id: 2,
-    title: 'Recherche avec Elasticsearch',
+    title: 'Moteur de Recherche Elasticsearch',
     description:
-      'Mise en place d’un système de recherche avancé avec Elasticsearch sur une application Symfony, permettant une indexation et une recherche rapide et pertinente des données.',
+      "Optimisation d'un moteur de recherche haute performance avec Elasticsearch. Amélioration scoring, auto-complétion temps réel, indexation optimisée. Réduction significative du temps de réponse (3s → 1.8s).",
     image: '/assets/projects/ES.png',
     color: 'from-yellow-500 to-orange-600',
-
-    tags: ['Elasticsearch', 'Symfony', 'PHP', 'Kibana'],
+    tags: ['Elasticsearch 8', 'Performance', 'Search', 'Indexation'],
     type: 'entreprise',
   },
   {
     id: 3,
-    title: 'API REST avec NestJS',
+    title: 'Architecture Microservices NestJS',
     description:
-      'Développement d’API RESTful robustes et évolutives avec NestJS pour des applications web modernes. Utilisation de TypeScript pour un code plus sûr et maintenable.',
+      "Développement d'architecture microservices avec NestJS et TypeScript. Communication event-driven via RabbitMQ, architecture hexagonale. Monitoring des performances et haute disponibilité.",
     image: '/assets/projects/NestJS (1).svg',
-    tags: ['NestJS', 'Node.js', 'TypeScript', 'API REST'],
+    tags: ['NestJS', 'Microservices', 'RabbitMQ', 'TypeScript', 'Event-Driven', 'Docker'],
     color: 'from-red-500 to-red-700',
-
     type: 'entreprise',
   },
   {
     id: 4,
-    title: 'Intégration de Wallets Mobiles',
+    title: 'Plateforme Digital Wallet',
     description:
-      'Implémentation de solutions de paiement et de fidélisation via des cartes dématérialisées pour Apple Wallet (iOS) et Google Wallet (Android).',
+      "Intégration complète Apple Wallet et Google Pay avec génération dynamique de passes. API REST sécurisée, PKPass generation, notifications push. Interface d'administration et analytics.",
     image: '/assets/projects/Wallet Glyph Blue/dd8f3fa9-d7e0-46e3-b6dd-dbd028761207.jpg',
-    tags: ['Apple Wallet', 'Google Wallet', 'API', 'Mobile'],
+    tags: ['Apple Wallet', 'Google Pay', 'API REST', 'Node.js', 'Integration', 'PKPass'],
     color: 'from-green-500 to-green-700',
-
     type: 'entreprise',
   },
   {
     id: 5,
-    title: 'Firebase pour Applications Mobiles',
+    title: 'Real-time Backend Platform - 25K+ DAU',
     description:
-      'Utilisation des services Firebase (Cloud Functions, Firestore, Authentication, FCM) pour construire le backend d’applications mobiles performantes et réactives.',
+      "Architecture serverless avec Firebase supportant 25K+ utilisateurs actifs quotidiens. Implémentation de synchronisation temps réel avec Firestore, authentification multi-provider, Cloud Functions. Solution scalable et performante.",
     image: '/assets/projects/Firebase 1 Logo.svg',
-    tags: ['Firebase', 'Cloud Functions', 'FCM', 'NoSQL'],
+    tags: ['Firebase', 'Cloud Functions', 'Firestore', 'FCM', 'Serverless', 'Real-time'],
     color: 'from-orange-500 to-red-600',
-
     type: 'entreprise',
   },
   {
@@ -411,6 +537,16 @@ export const projects: Project[] = [
     color: 'from-gray-600 to-gray-800',
 
     type: 'personnel',
+  },
+  {
+    id: 9,
+    title: 'Anti-Waste Recipe App - Projet Fin d\'Études',
+    description:
+      "Application mobile de lutte contre le gaspillage alimentaire. Suggestions intelligentes de recettes basées sur les ingrédients à date de péremption proche. Architecture microservices avec recherche avancée Elasticsearch et déploiement containerisé.",
+    image: '/assets/projects/react-native.svg',
+    color: 'from-green-400 to-emerald-600',
+    tags: ['React Native', 'NestJS', 'Elasticsearch', 'Kubernetes', 'Docker', 'CI/CD'],
+    type: 'academique',
   },
 ];
 
