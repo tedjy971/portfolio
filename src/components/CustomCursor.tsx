@@ -85,7 +85,7 @@ const CustomCursor = () => {
           clicked ? 'clicked' : linkHovered ? 'hovered' : 'default'
         }
         transition={{
-          type: 'spring',
+          type: 'spring' as const,
           stiffness: 500,
           damping: 28,
           mass: 0.5
@@ -104,7 +104,7 @@ const CustomCursor = () => {
           scale: clicked ? 0.5 : 1
         }}
         transition={{
-          type: 'spring',
+          type: 'spring' as const,
           stiffness: 250,
           damping: 40,
           mass: 0.8

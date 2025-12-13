@@ -98,14 +98,14 @@ const SportAnimation: React.FC<SportAnimationProps> = ({
           opacity: 0,
           scale: 0.8,
         },
-        animate: { 
+        animate: {
           opacity: 0.8,
           scale: 1,
           transition: {
             duration: 0.8,
             repeat: Infinity,
             repeatType: "reverse" as const,
-            ease: "easeInOut",
+            ease: "easeInOut" as const,
           }
         },
       };
@@ -117,14 +117,14 @@ const SportAnimation: React.FC<SportAnimationProps> = ({
         opacity: 0,
         scale: 0.8,
       },
-      animate: { 
+      animate: {
         opacity: 0.8,
         scale: 1,
         transition: {
           duration: 2,
           repeat: Infinity,
           repeatType: "reverse" as const,
-          ease: "easeInOut",
+          ease: "easeInOut" as const,
         }
       },
     };

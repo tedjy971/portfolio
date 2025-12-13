@@ -178,7 +178,7 @@ const Skills = () => {
                   transition={{
                     duration: 1,
                     delay: index * 0.05,
-                    ease: 'easeOut',
+                    ease: 'easeOut' as const,
                   }}
                 />
               </div>
