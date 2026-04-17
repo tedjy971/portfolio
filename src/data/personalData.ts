@@ -12,7 +12,7 @@ export const personalInfo = {
   linkedin: 'https://www.linkedin.com/in/teddy-gamiette-9a1a9613a/',
   website: 'https://teddygamiette.online',
   description:
-    "Développeur Back-end avec 4+ ans d'expérience chez Kernix, spécialisé en PHP/Symfony, API REST et architecture microservices. Compétences transverses en Vue.js (design system, dashboards) et DevOps (Docker, AWS, CI/CD). Diplômé Master Tech Lead (HETIC, 2026).",
+    "Développeur Back-end avec 4+ ans d'expérience chez Kernix, spécialisé en PHP/Symfony, API REST et architecture microservices. Compétences transverses en Vue.js (design system, dashboards) et DevOps (Docker, AWS, CI/CD). Diplômé Master Tech Lead (HETIC, 2025).",
   objective: "Développeur Back-end en CDI chez Kernix.",
 };
 
@@ -20,7 +20,7 @@ export const educationExperiences = [
   {
     title: 'Master Tech Lead - Management & Architecture Logicielle',
     school: 'HETIC (Grande École du Numérique)',
-    period: '2023 - 2026 (Obtenu en Novembre 2026)',
+    period: '2023 - 2025 (Obtenu en Septembre 2025)',
     description:
       "Formation d'excellence en leadership technique et architecture logicielle moderne. Expertise avancée : Domain-Driven Design (DDD), Architecture Microservices, Event Sourcing/CQRS, Design Patterns. Spécialisation Cloud Architecture (AWS/GCP), DevSecOps, et Management d'équipes techniques agiles. Projet de fin d'études : Développement d'une application mobile anti-gaspillage alimentaire avec React Native, NestJS, Elasticsearch et déploiement Kubernetes.",
   },
@@ -51,7 +51,7 @@ export const experiences = [
   {
     title: 'Développeur Back-end en CDI',
     company: 'Kernix',
-    period: 'Depuis 2025',
+    period: 'Depuis Septembre 2025',
     tags: ['Symfony 6', 'Vue 3', 'NestJS', 'API REST', 'Design System', 'Storybook', 'Docker', 'AWS'],
     description:
       "• Développe des API REST et microservices avec Symfony 6 et NestJS\n• Conçoit un cockpit métier Vue 3 avec design system réutilisable (Vuetify → Shoelace)\n• Développe des widgets autonomes (Custom Elements, Pinia) pour intégration multi-applications\n• Maintient la documentation composants avec Storybook et tests Vitest\n• Participe aux code reviews, veille technologique et décisions d'architecture",

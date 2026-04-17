@@ -21,7 +21,7 @@ const optimizedPersonalInfo = {
     "Développeur Back-end avec 4+ ans d'expérience en CDI chez Kernix (agence digitale).",
     "Expertise PHP 8/Symfony 6, NestJS, Vue 3, API REST et architecture microservices.",
     "Compétences transverses : design system Vue.js, Elasticsearch, DevOps (Docker, AWS, CI/CD).",
-    "Diplômé Master Tech Lead — HETIC (2026)."
+    "Diplômé Master Tech Lead — HETIC (2025)."
   ],
   objective: "🟢 En poste — CDI chez Kernix | Ouvert aux opportunités"
 };
@@ -164,14 +164,14 @@ export default function CV() {
                 {atsMode ? 'EXPÉRIENCE PROFESSIONNELLE' : 'Expériences professionnelles'}
               </h2>
               {professionalExperiences.map((experience, index) => {
-                if (atsMode && experience.company === 'Kernix' && experience.period === 'Depuis 2025') {
+                if (atsMode && experience.company === 'Kernix' && experience.period === 'Depuis Septembre 2025') {
                   return (
                     <div key={index} className={styles.experienceItem}>
                       <div className={styles.experienceHeader}>
                         <h3 className={styles.companyTitle}>
                           Développeur Back-end (CDI) | Kernix
                         </h3>
-                        <span className={styles.period}>2021 - Présent (4+ ans, dont CDI depuis 2025)</span>
+                        <span className={styles.period}>2021 - Présent (4+ ans, dont CDI depuis Sept. 2025)</span>
                       </div>
                       <ul className={styles.bulletList}>
                         <li>• Conçoit un cockpit métier Vue 3 avec design system réutilisable et widgets autonomes</li>
@@ -189,7 +189,7 @@ export default function CV() {
                     </div>
                   );
                 }
-                if (atsMode && experience.company === 'Kernix' && experience.period !== 'Depuis 2025') {
+                if (atsMode && experience.company === 'Kernix' && experience.period !== 'Depuis Septembre 2025') {
                   return null;
                 }
                 return (
@@ -240,7 +240,7 @@ export default function CV() {
                 {atsMode ? 'FORMATION' : 'Formation'}
               </h2>
               {educationExperiences.map((education, index) => {
-                const period = education.period === 'En cours' ? '2023 - 2026' : education.period;
+                const period = education.period === 'En cours' ? '2023 - 2025' : education.period;
                 return (
                   <div key={index} className={styles.educationItem}>
                     <div className={styles.experienceHeader}>

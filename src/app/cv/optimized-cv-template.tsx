@@ -30,7 +30,7 @@ const OptimizedCVTemplate = () => {
           Développeur Back-end avec 4+ ans d'expérience chez Kernix (agence digitale).
           Spécialisé en PHP 8/Symfony 6, API REST et architecture microservices.
           Compétences transverses en Vue 3 (design system, dashboards) et DevOps (Docker, AWS, CI/CD).
-          Diplômé Master Tech Lead — HETIC (2026).
+          Diplômé Master Tech Lead — HETIC (2025).
         </p>
       </section>
 
@@ -90,7 +90,7 @@ const OptimizedCVTemplate = () => {
         <div className="experience-item">
           <div className="exp-header">
             <h4>Développeur Back-end (CDI) | Kernix</h4>
-            <span>2021 - Présent (4+ ans, dont CDI depuis 2025)</span>
+            <span>2021 - Présent (4+ ans, dont CDI depuis Sept. 2025)</span>
           </div>
           <ul>
             <li>• Conçoit un cockpit métier Vue 3 avec design system réutilisable et widgets autonomes</li>
@@ -127,7 +127,7 @@ const OptimizedCVTemplate = () => {
         
         <div className="education-item">
           <h4>Master Tech Lead | HETIC</h4>
-          <span>2023 - 2026 (Obtenu en Novembre 2026)</span>
+          <span>2023 - 2025 (Obtenu en Septembre 2025)</span>
           <p>Architecture logicielle, DDD, Microservices, Cloud Architecture, Leadership technique</p>
         </div>
 
