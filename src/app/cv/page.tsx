@@ -16,22 +16,22 @@ import { useRef, useState } from 'react';
 // Données optimisées pour ATS
 const optimizedPersonalInfo = {
   ...personalInfo,
-  title: "Backend Engineer | PHP/Symfony Expert | Microservices & Cloud Architecture",
+  title: "Développeur Back-end | PHP/Symfony | Vue.js | API REST & Microservices",
   description: [
-    "Backend Developer avec 4 ans d'expérience en architecture API REST et microservices.",
-    "Expertise Symfony 6, NestJS, Elasticsearch avec déploiement sur AWS et Docker.",
-    "Contributions : migration PHP legacy, optimisation bases de données, intégrations tierces.",
-    "Maîtrise DevOps : conteneurisation, CI/CD GitLab, monitoring infrastructure."
+    "Développeur Back-end avec 4+ ans d'expérience en CDI chez Kernix (agence digitale).",
+    "Expertise PHP 8/Symfony 6, NestJS, Vue 3, API REST et architecture microservices.",
+    "Compétences transverses : design system Vue.js, Elasticsearch, DevOps (Docker, AWS, CI/CD).",
+    "Diplômé Master Tech Lead — HETIC (2026)."
   ],
-  objective: "✅ Disponible immédiatement | CDI recherché | Remote partiel accepté"
+  objective: "🟢 En poste — CDI chez Kernix | Ouvert aux opportunités"
 };
 
 const keyAchievements = [
-  "Migration PHP 5.6→8.1 avec Rector | Amélioration performances et stabilité",
-  "Architecture Microservices avec Symfony 6 et NestJS | 8+ services en production", 
-  "Optimisation Elasticsearch | Réduction latence de 3s à 1.8s",
+  "Cockpit métier Vue 3 + Design System réutilisable | Migration Vuetify → Shoelace (Web Components)",
+  "Migration PHP 5.6 → 8.1 avec Rector | Amélioration performances et stabilité applicative",
+  "Optimisation Elasticsearch | Réduction temps de recherche de 3s à 1.8s",
   "Intégration Apple/Google Wallet | API PKPass et notifications push",
-  "DevOps & CI/CD | Docker, AWS, GitLab pipelines"
+  "Architecture event-driven RabbitMQ/Redis | Déploiement Docker/AWS/Kubernetes"
 ];
 
 // Import dynamique de html2pdf pour éviter les erreurs côté serveur
@@ -164,29 +164,33 @@ export default function CV() {
                 {atsMode ? 'EXPÉRIENCE PROFESSIONNELLE' : 'Expériences professionnelles'}
               </h2>
               {professionalExperiences.map((experience, index) => {
-                if (atsMode && experience.company === 'Kernix') {
+                if (atsMode && experience.company === 'Kernix' && experience.period === 'Depuis 2025') {
                   return (
                     <div key={index} className={styles.experienceItem}>
                       <div className={styles.experienceHeader}>
                         <h3 className={styles.companyTitle}>
-                          Backend Developer | {experience.company}
+                          Développeur Back-end (CDI) | Kernix
                         </h3>
-                        <span className={styles.period}>2021 - 2025 (4 ans)</span>
+                        <span className={styles.period}>2021 - Présent (4+ ans, dont CDI depuis 2025)</span>
                       </div>
                       <ul className={styles.bulletList}>
-                        <li>• Développe architecture microservices avec Symfony 6 et NestJS (8+ services en production)</li>
-                        <li>• Migration PHP legacy 5.6→8.1 avec Rector, refactorisation et amélioration stabilité</li>
+                        <li>• Conçoit un cockpit métier Vue 3 avec design system réutilisable et widgets autonomes</li>
+                        <li>• Développe des API REST et microservices avec Symfony 6 et NestJS</li>
+                        <li>• Migration PHP 5.6 → 8.1 avec Rector, amélioration performances et stabilité</li>
                         <li>• Architecture event-driven avec RabbitMQ/Redis pour découplage des services</li>
-                        <li>• Optimisation moteur de recherche Elasticsearch, réduction temps réponse de 3s à 1.8s</li>
-                        <li>• Déploiement containerisé sur AWS avec Docker et Kubernetes</li>
+                        <li>• Optimisation Elasticsearch, réduction temps de recherche de 3s à 1.8s</li>
                         <li>• Intégration Apple Wallet et Google Pay, développement API PKPass</li>
-                        <li>• Code reviews, documentation technique et veille technologique</li>
+                        <li>• Déploiement containerisé sur AWS avec Docker et Kubernetes</li>
+                        <li>• Code reviews, documentation Storybook et veille technologique</li>
                       </ul>
                       <p className={styles.techStack}>
-                        <strong>Stack:</strong> PHP 8, Symfony 6, NestJS, PostgreSQL, Redis, Elasticsearch, Docker, AWS, GitLab CI/CD
+                        <strong>Stack:</strong> PHP 8, Symfony 6, Vue 3, NestJS, PostgreSQL, Redis, Elasticsearch, Docker, AWS, GitLab CI/CD, Storybook
                       </p>
                     </div>
                   );
+                }
+                if (atsMode && experience.company === 'Kernix' && experience.period !== 'Depuis 2025') {
+                  return null;
                 }
                 return (
                   <div key={index} className={styles.experienceItem}>
@@ -236,7 +240,7 @@ export default function CV() {
                 {atsMode ? 'FORMATION' : 'Formation'}
               </h2>
               {educationExperiences.map((education, index) => {
-                const period = education.period === 'En cours' ? '2023 - 2025' : education.period;
+                const period = education.period === 'En cours' ? '2023 - 2026' : education.period;
                 return (
                   <div key={index} className={styles.educationItem}>
                     <div className={styles.experienceHeader}>
@@ -271,24 +275,24 @@ export default function CV() {
                     <p>PHP 8.x • Symfony 6 • NestJS • Node.js • API REST • GraphQL • Microservices</p>
                   </div>
                   <div className={styles.skillCategoryAts}>
-                    <h4>Databases</h4>
-                    <p>PostgreSQL • MySQL • MongoDB • Redis • Elasticsearch • Query Optimization</p>
+                    <h4>Frontend</h4>
+                    <p>Vue 3 • Vuetify • Shoelace • Pinia • TypeScript • Storybook • Web Components</p>
+                  </div>
+                  <div className={styles.skillCategoryAts}>
+                    <h4>Bases de données</h4>
+                    <p>PostgreSQL • MySQL • MongoDB • Redis • Elasticsearch</p>
                   </div>
                   <div className={styles.skillCategoryAts}>
                     <h4>DevOps & Cloud</h4>
-                    <p>AWS (EC2, S3, Lambda) • Docker • Kubernetes • GitLab CI/CD • Terraform • Linux</p>
+                    <p>Docker • Kubernetes • AWS • GitLab CI/CD • Terraform • Linux</p>
                   </div>
                   <div className={styles.skillCategoryAts}>
-                    <h4>Architecture & Patterns</h4>
-                    <p>DDD • SOLID • Design Patterns • CQRS • Event-Driven • Hexagonal Architecture</p>
-                  </div>
-                  <div className={styles.skillCategoryAts}>
-                    <h4>Testing & Quality</h4>
-                    <p>PHPUnit • Jest • TDD • Code Review • SonarQube • Performance Monitoring</p>
+                    <h4>Architecture & Qualité</h4>
+                    <p>DDD • SOLID • Design Patterns • Event-Driven • PHPUnit • Jest • Vitest</p>
                   </div>
                   <div className={styles.skillCategoryAts}>
                     <h4>Méthodologies</h4>
-                    <p>Agile/Scrum • Git Flow • API Documentation • Technical Writing • Mentoring</p>
+                    <p>Agile/Scrum • Git Flow • Code Review • Documentation Storybook</p>
                   </div>
                 </div>
               ) : (

@@ -2,17 +2,17 @@ import { Key, ReactNode } from 'react';
 
 export const personalInfo = {
   name: 'Teddy Gamiette',
-  title: 'Backend Engineer | PHP/Symfony Expert | Microservices & Cloud Architecture',
-  role: 'Backend Developer',
+  title: 'Développeur Back-end | PHP/Symfony | Vue.js | API REST & Microservices',
+  role: 'Développeur Back-end',
   company: 'Kernix',
   email: 'gamiette.teddy@gmail.com',
   phone: '+33 7 81 95 04 36',
-  location: 'Palaiseau, Ile de France',
+  location: 'Palaiseau, Île-de-France',
   github: 'https://github.com/tedjy971',
   linkedin: 'https://www.linkedin.com/in/teddy-gamiette-9a1a9613a/',
   website: 'https://teddygamiette.online',
   description:
-    "Backend Engineer avec 4 ans d'expertise en architecture API REST et microservices. Spécialisé dans le développement de solutions scalables avec Symfony 6, NestJS et AWS. Track record: migration PHP 5.6→8.1 (50K+ users), optimisation Elasticsearch (-40% latence), intégration wallets mobiles (Apple/Google Pay). Solide expérience du cycle DevOps avec Docker, Kubernetes et CI/CD.",
+    "Développeur Back-end avec 4+ ans d'expérience chez Kernix, spécialisé en PHP/Symfony, API REST et architecture microservices. Compétences transverses en Vue.js (design system, dashboards) et DevOps (Docker, AWS, CI/CD). Diplômé Master Tech Lead (HETIC, 2026).",
   objective: "Développeur Back-end en CDI chez Kernix.",
 };
 
@@ -51,10 +51,10 @@ export const experiences = [
   {
     title: 'Développeur Back-end en CDI',
     company: 'Kernix',
-    period: 'Actuel',
-    tags: ['Symfony 6', 'NestJS', 'API REST', 'Elasticsearch', 'AWS', 'Docker', 'Kubernetes', 'Redis'],
+    period: 'Depuis 2025',
+    tags: ['Symfony 6', 'Vue 3', 'NestJS', 'API REST', 'Design System', 'Storybook', 'Docker', 'AWS'],
     description:
-      "Embauché en CDI après mon alternance. Développement d'applications web robustes avec PHP, Symfony et API REST.",
+      "• Développe des API REST et microservices avec Symfony 6 et NestJS\n• Conçoit un cockpit métier Vue 3 avec design system réutilisable (Vuetify → Shoelace)\n• Développe des widgets autonomes (Custom Elements, Pinia) pour intégration multi-applications\n• Maintient la documentation composants avec Storybook et tests Vitest\n• Participe aux code reviews, veille technologique et décisions d'architecture",
   },
   {
     title: 'Développeur Back-end en alternance',
@@ -62,7 +62,7 @@ export const experiences = [
     period: '2021 - 2025',
     tags: ['Symfony 6', 'NestJS', 'API REST', 'Elasticsearch', 'AWS', 'Docker', 'Kubernetes', 'Redis'],
     description:
-      "Alternance en tant que développeur back-end sur des projets web avec PHP, Symfony et API REST. Développement et maintenance de 8+ microservices RESTful, migration PHP 5.6 → 8.1, architecture event-driven avec RabbitMQ/Redis, optimisation Elasticsearch, déploiement AWS/Kubernetes.",
+      "• Développe et maintient des microservices RESTful avec Symfony 6 et NestJS\n• Participe à la migration PHP 5.6 → 8.1 avec Rector, améliorant performances et stabilité\n• Implémente une architecture event-driven avec RabbitMQ/Redis\n• Optimise les requêtes Elasticsearch, réduisant le temps de recherche de 3s à 1.8s\n• Déploie des applications conteneurisées sur AWS avec Docker et Kubernetes\n• Développe l'intégration Apple/Google Wallet (API PKPass, notifications push)",
   },
   {
     title: 'Technicien Informatique',
@@ -200,6 +200,13 @@ export const skills = [
   },
 
   // Frontend
+  {
+    name: 'Vue 3',
+    level: 80,
+    category: 'frontend',
+    color: 'bg-green-500',
+    logo: '/assets/skills/vue.svg',
+  },
   {
     name: 'Next.js',
     level: 75,

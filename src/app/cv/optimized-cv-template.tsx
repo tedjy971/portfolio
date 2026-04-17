@@ -9,17 +9,17 @@ const OptimizedCVTemplate = () => {
       {/* HEADER - Information de contact */}
       <header className="cv-header">
         <h1>TEDDY GAMIETTE</h1>
-        <h2>Backend Engineer | PHP/Symfony Expert | Microservices & Cloud Architecture</h2>
-        
+        <h2>Développeur Back-end | PHP/Symfony | Vue.js | API REST & Microservices</h2>
+
         {/* Contact en ligne pour ATS */}
         <div className="contact-line">
-          📧 gamiette.teddy@gmail.com | 📱 +33 7 81 95 04 36 | 📍 Palaiseau, Île-de-France | 
+          📧 gamiette.teddy@gmail.com | 📱 +33 7 81 95 04 36 | 📍 Palaiseau, Île-de-France |
           💼 linkedin.com/in/teddy-gamiette | 🔗 github.com/tedjy971 | 🌐 teddygamiette.online
         </div>
-        
-        {/* Disponibilité claire */}
+
+        {/* Statut */}
         <div className="availability">
-          ✅ Disponible immédiatement | CDI recherché | Remote partiel accepté
+          🟢 En poste — CDI chez Kernix | Ouvert aux opportunités
         </div>
       </header>
 
@@ -27,11 +27,10 @@ const OptimizedCVTemplate = () => {
       <section className="professional-summary">
         <h3>PROFIL PROFESSIONNEL</h3>
         <p>
-          Backend Engineer avec 4 ans d'expertise en architecture API REST et microservices. 
-          Spécialisé dans le développement de solutions scalables avec Symfony 6, NestJS et AWS. 
-          Track record prouvé: migration PHP 5.6→8.1 (50K+ users, zero downtime), 
-          optimisation Elasticsearch (-40% latence), intégration wallets mobiles (10K+ passes). 
-          Maîtrise complète du cycle DevOps avec Docker, Kubernetes et CI/CD.
+          Développeur Back-end avec 4+ ans d'expérience chez Kernix (agence digitale).
+          Spécialisé en PHP 8/Symfony 6, API REST et architecture microservices.
+          Compétences transverses en Vue 3 (design system, dashboards) et DevOps (Docker, AWS, CI/CD).
+          Diplômé Master Tech Lead — HETIC (2026).
         </p>
       </section>
 
@@ -39,11 +38,11 @@ const OptimizedCVTemplate = () => {
       <section className="key-achievements">
         <h3>🏆 RÉALISATIONS CLÉS</h3>
         <ul>
-          <li>• Migration Zero-Downtime PHP 5.6→8.1 | Impact: 50K+ users, +40% perf, -30% coûts</li>
-          <li>• Architecture Microservices | 8+ services, 500K+ req/mois, 99.5% uptime</li>
-          <li>• Optimisation Elasticsearch | -40% latence (3s→1.8s), indexation 500K+ documents</li>
-          <li>• Plateforme Digital Wallet | 10K+ passes générés, +35% taux de conversion</li>
-          <li>• Collaboration Technique | Participation active aux code reviews et veille technologique</li>
+          <li>• Cockpit métier Vue 3 + Design System réutilisable | Migration Vuetify → Shoelace</li>
+          <li>• Migration PHP 5.6 → 8.1 avec Rector | Amélioration performances et stabilité</li>
+          <li>• Optimisation Elasticsearch | Réduction temps de recherche de 3s à 1.8s</li>
+          <li>• Intégration Apple/Google Wallet | API PKPass et notifications push</li>
+          <li>• Architecture event-driven RabbitMQ/Redis | Déploiement Docker/AWS/Kubernetes</li>
         </ul>
       </section>
 
@@ -56,30 +55,30 @@ const OptimizedCVTemplate = () => {
             <h4>Backend</h4>
             <p>PHP 8.x • Symfony 6 • NestJS • Node.js • API REST • GraphQL • Microservices</p>
           </div>
-          
+
           <div className="skill-category">
-            <h4>Databases</h4>
-            <p>PostgreSQL • MySQL • MongoDB • Redis • Elasticsearch • Query Optimization</p>
+            <h4>Frontend</h4>
+            <p>Vue 3 • Vuetify • Shoelace • Pinia • TypeScript • Storybook • Web Components</p>
           </div>
-          
+
+          <div className="skill-category">
+            <h4>Bases de données</h4>
+            <p>PostgreSQL • MySQL • MongoDB • Redis • Elasticsearch</p>
+          </div>
+
           <div className="skill-category">
             <h4>DevOps & Cloud</h4>
-            <p>AWS (EC2, S3, Lambda) • Docker • Kubernetes • GitLab CI/CD • Terraform • Linux</p>
+            <p>Docker • Kubernetes • AWS • GitLab CI/CD • Terraform • Linux</p>
           </div>
-          
+
           <div className="skill-category">
-            <h4>Architecture & Patterns</h4>
-            <p>DDD • SOLID • Design Patterns • CQRS • Event-Driven • Hexagonal Architecture</p>
+            <h4>Architecture & Qualité</h4>
+            <p>DDD • SOLID • Design Patterns • Event-Driven • PHPUnit • Jest • Vitest</p>
           </div>
-          
-          <div className="skill-category">
-            <h4>Testing & Quality</h4>
-            <p>PHPUnit • Jest • TDD • Code Review • SonarQube • Performance Monitoring</p>
-          </div>
-          
+
           <div className="skill-category">
             <h4>Méthodologies</h4>
-            <p>Agile/Scrum • Git Flow • API Documentation • Technical Writing • Mentoring</p>
+            <p>Agile/Scrum • Git Flow • Code Review • Documentation Storybook</p>
           </div>
         </div>
       </section>
@@ -90,35 +89,34 @@ const OptimizedCVTemplate = () => {
         
         <div className="experience-item">
           <div className="exp-header">
-            <h4>Backend Developer | Kernix</h4>
-            <span>2021 - 2025 (4 ans)</span>
+            <h4>Développeur Back-end (CDI) | Kernix</h4>
+            <span>2021 - Présent (4+ ans, dont CDI depuis 2025)</span>
           </div>
           <ul>
-            <li>• Architecte et développe 8+ microservices RESTful (Symfony 6, NestJS) gérant 500K+ requêtes/mois</li>
-            <li>• Contribue activement à la migration PHP 5.6→8.1 avec Rector: +40% performance, -30% coûts infrastructure</li>
-            <li>• Implémente architecture event-driven (RabbitMQ/Redis): -30% latence opérations critiques</li>
-            <li>• Optimise Elasticsearch pour 500K+ documents: temps de recherche 3s→1.8s</li>
-            <li>• Déploie infrastructure AWS/Kubernetes (5-8 conteneurs) avec 99.5% uptime</li>
-            <li>• Développe intégration Apple/Google Wallet: 10K+ passes générés en 3 mois</li>
-            <li>• Participe activement aux code reviews et à la veille technologique de l'équipe</li>
+            <li>• Conçoit un cockpit métier Vue 3 avec design system réutilisable et widgets autonomes</li>
+            <li>• Développe des API REST et microservices avec Symfony 6 et NestJS</li>
+            <li>• Migration PHP 5.6 → 8.1 avec Rector, amélioration performances et stabilité</li>
+            <li>• Architecture event-driven avec RabbitMQ/Redis pour découplage des services</li>
+            <li>• Optimisation Elasticsearch, réduction temps de recherche de 3s à 1.8s</li>
+            <li>• Intégration Apple Wallet et Google Pay, développement API PKPass</li>
+            <li>• Déploiement containerisé sur AWS avec Docker et Kubernetes</li>
+            <li>• Code reviews, documentation Storybook et veille technologique</li>
           </ul>
           <p className="tech-stack">
-            Stack: PHP 8, Symfony 6, NestJS, PostgreSQL, Redis, Elasticsearch, Docker, Kubernetes, AWS, GitLab CI/CD
+            Stack: PHP 8, Symfony 6, Vue 3, NestJS, PostgreSQL, Redis, Elasticsearch, Docker, AWS, GitLab CI/CD, Storybook
           </p>
         </div>
 
         {/* Autres expériences en format condensé */}
         <div className="other-experiences">
           <div className="exp-short">
-            <h4>IT Infrastructure Specialist | SPIE ICS (2020-2021)</h4>
-            <p>• Administration 200+ machines, 15 serveurs Linux/Windows (99.5% uptime)</p>
-            <p>• Automatisation avec Ansible (-70% temps setup)</p>
+            <h4>Technicien Informatique | SPIE ICS (2020-2021)</h4>
+            <p>• Administration du parc informatique, support technique et maintenance systèmes critiques</p>
           </div>
-          
+
           <div className="exp-short">
-            <h4>Data Engineer | LUCERNYS (2018-2019)</h4>
-            <p>• Conception BDD MySQL/PostgreSQL (5M+ enregistrements)</p>
-            <p>• Pipelines ETL Python (100K+ lignes/jour, 99.9% fiabilité)</p>
+            <h4>Data Analyst Télécom | LUCERNYS (2018-2019)</h4>
+            <p>• Analyse de consommations et optimisation de contrats mobiles pour grandes entreprises</p>
           </div>
         </div>
       </section>
@@ -129,12 +127,12 @@ const OptimizedCVTemplate = () => {
         
         <div className="education-item">
           <h4>Master Tech Lead | HETIC</h4>
-          <span>2023 - 2025</span>
+          <span>2023 - 2026 (Obtenu en Novembre 2026)</span>
           <p>Architecture logicielle, DDD, Microservices, Cloud Architecture, Leadership technique</p>
         </div>
-        
+
         <div className="education-item">
-          <h4>Bachelor Web | HETIC</h4>
+          <h4>Bachelor Développeur Web Full-Stack | HETIC</h4>
           <span>2021 - 2023</span>
           <p>Développement Full-Stack, Méthodologies Agiles, DevOps</p>
         </div>
