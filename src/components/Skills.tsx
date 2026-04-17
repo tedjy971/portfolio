@@ -133,9 +133,9 @@ const Skills = () => {
           ))}
         </motion.div>
 
-        {/* Barres de compétences */}
+        {/* Liste des compétences */}
         <motion.div
-          className="grid grid-cols-1 md:grid-cols-2 gap-8"
+          className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6"
           variants={containerVariants}
           initial="hidden"
           animate={inView ? 'visible' : 'hidden'}
@@ -152,68 +152,17 @@ const Skills = () => {
                 transition: { duration: 0.2 },
               }}
             >
-              <div className="flex justify-between items-center mb-2">
-                <div className="flex items-center gap-2">
-                  {skill.logo && (
-                    <div className="w-8 h-8 rounded-md overflow-hidden flex-shrink-0">
-                      <img
-                        src={skill.logo}
-                        alt={`${skill.name} logo`}
-                        className="w-full h-full object-contain"
-                      />
-                    </div>
-                  )}
-                  <h3 className="font-bold text-gray-800 dark:text-white">{skill.name}</h3>
-                </div>
-                <span className="text-sm font-medium text-gray-600 dark:text-gray-300">
-                  {skill.level}%
-                </span>
-              </div>
-
-              <div className="w-full bg-gray-200 dark:bg-gray-600 rounded-full h-2.5">
-                <motion.div
-                  className={`h-2.5 rounded-full ${skill.color}`}
-                  initial={{ width: 0 }}
-                  animate={inView ? { width: `${skill.level}%` } : { width: 0 }}
-                  transition={{
-                    duration: 1,
-                    delay: index * 0.05,
-                    ease: 'easeOut' as const,
-                  }}
-                />
-              </div>
-
-              {/* Indicateur visuel pour représenter la compétence */}
-              <div className="mt-3 flex">
-                {Array.from({ length: 5 }).map((_, i) => {
-                  const isFilled = (skill.level / 100) * 5 > i;
-                  return (
-                    <motion.svg
-                      key={i}
-                      xmlns="http://www.w3.org/2000/svg"
-                      viewBox="0 0 24 24"
-                      fill={isFilled ? 'currentColor' : 'none'}
-                      stroke="currentColor"
-                      className={`w-4 h-4 mr-1 ${
-                        isFilled
-                          ? 'text-blue-500 dark:text-blue-400'
-                          : 'text-gray-300 dark:text-gray-500'
-                      }`}
-                      initial={{ opacity: 0, scale: 0 }}
-                      animate={inView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0 }}
-                      transition={{
-                        duration: 0.3,
-                        delay: 0.5 + index * 0.05 + i * 0.05,
-                      }}
-                    >
-                      <path
-                        fillRule="evenodd"
-                        d="M10.788 3.21c.448-1.077 1.976-1.077 2.424 0l2.082 5.007 5.404.433c1.164.093 1.636 1.545.749 2.305l-4.117 3.527 1.257 5.273c.271 1.136-.964 2.033-1.96 1.425L12 18.354 7.373 21.18c-.996.608-2.231-.29-1.96-1.425l1.257-5.273-4.117-3.527c-.887-.76-.415-2.212.749-2.305l5.404-.433 2.082-5.006z"
-                        clipRule="evenodd"
-                      />
-                    </motion.svg>
-                  );
-                })}
+              <div className="flex items-center gap-2">
+                {skill.logo && (
+                  <div className="w-8 h-8 rounded-md overflow-hidden flex-shrink-0">
+                    <img
+                      src={skill.logo}
+                      alt={`${skill.name} logo`}
+                      className="w-full h-full object-contain"
+                    />
+                  </div>
+                )}
+                <h3 className="font-bold text-gray-800 dark:text-white">{skill.name}</h3>
               </div>
             </motion.div>
           ))}

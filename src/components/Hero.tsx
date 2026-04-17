@@ -127,7 +127,7 @@ const Hero = () => {
               <div className="relative w-full h-full rounded-full border-4 border-white dark:border-gray-800 shadow-xl overflow-hidden">
                 <img
                   src="/assets/profile/profile-bg.svg"
-                  alt="Teddy Gamiette - Tech Lead & Développeur"
+                  alt="Teddy Gamiette - Développeur Back-end"
                   className="w-full h-full object-cover"
                 />
               </div>

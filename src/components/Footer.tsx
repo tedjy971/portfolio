@@ -30,7 +30,7 @@ const Footer = () => {
               Teddy Gamiette
             </h3>
             <p className="text-gray-400 mb-4">
-              Tech Lead & Développeur Back-end spécialisé en PHP, React, Next.js et Symfony.
+              Développeur Back-end spécialisé en PHP, React, Next.js et Symfony.
               Passionné de sport et de domotique.
             </p>
             <div className="flex space-x-4">

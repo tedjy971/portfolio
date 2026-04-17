@@ -213,7 +213,7 @@ const IntroAnimation: React.FC = () => {
   );
 
   // Diviser le titre en lettres individuelles
-  const titleLetters = "TECH LEAD & DÉVELOPPEUR BACK-END"
+  const titleLetters = "DÉVELOPPEUR BACK-END"
     .split("")
     .map((letter, index) =>
       letter === " " ? (

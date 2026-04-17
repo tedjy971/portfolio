@@ -13,14 +13,14 @@ export const personalInfo = {
   website: 'https://teddygamiette.online',
   description:
     "Backend Engineer avec 4 ans d'expertise en architecture API REST et microservices. Spécialisé dans le développement de solutions scalables avec Symfony 6, NestJS et AWS. Track record: migration PHP 5.6→8.1 (50K+ users), optimisation Elasticsearch (-40% latence), intégration wallets mobiles (Apple/Google Pay). Solide expérience du cycle DevOps avec Docker, Kubernetes et CI/CD.",
-  objective: "Recherche poste Backend Engineer/Tech Lead à partir de Novembre 2024. Disponible immédiatement pour un CDI.",
+  objective: "Développeur Back-end en CDI chez Kernix.",
 };
 
 export const educationExperiences = [
   {
     title: 'Master Tech Lead - Management & Architecture Logicielle',
     school: 'HETIC (Grande École du Numérique)',
-    period: '2023 - 2025',
+    period: '2023 - 2026 (Obtenu en Novembre 2026)',
     description:
       "Formation d'excellence en leadership technique et architecture logicielle moderne. Expertise avancée : Domain-Driven Design (DDD), Architecture Microservices, Event Sourcing/CQRS, Design Patterns. Spécialisation Cloud Architecture (AWS/GCP), DevSecOps, et Management d'équipes techniques agiles. Projet de fin d'études : Développement d'une application mobile anti-gaspillage alimentaire avec React Native, NestJS, Elasticsearch et déploiement Kubernetes.",
   },
@@ -49,12 +49,20 @@ export const educationExperiences = [
 
 export const experiences = [
   {
-    title: 'Backend Developer',
+    title: 'Développeur Back-end en CDI',
+    company: 'Kernix',
+    period: 'Actuel',
+    tags: ['Symfony 6', 'NestJS', 'API REST', 'Elasticsearch', 'AWS', 'Docker', 'Kubernetes', 'Redis'],
+    description:
+      "Embauché en CDI après mon alternance. Développement d'applications web robustes avec PHP, Symfony et API REST.",
+  },
+  {
+    title: 'Développeur Back-end en alternance',
     company: 'Kernix',
     period: '2021 - 2025',
     tags: ['Symfony 6', 'NestJS', 'API REST', 'Elasticsearch', 'AWS', 'Docker', 'Kubernetes', 'Redis'],
     description:
-      "• Développe et maintient 8+ microservices RESTful avec Symfony 6 et NestJS, gérant 500K+ requêtes/mois\n• Contribue à la migration PHP 5.6 → 8.1 avec Rector, améliorant les performances de 25% et la stabilité\n• Implémente une architecture event-driven avec RabbitMQ/Redis, réduisant la latence de 30% sur les opérations critiques\n• Optimise les requêtes Elasticsearch pour 300K+ documents, réduisant le temps de recherche de 3s à 1.8s\n• Déploie applications sur infrastructure AWS/Kubernetes (5-8 conteneurs) avec 99.5% de disponibilité\n• Développe l'intégration Apple/Google Wallet, générant 5K+ passes dématérialisés avec API fonctionnelle\n• Participe activement aux code reviews et à la veille technologique de l'équipe",
+      "Alternance en tant que développeur back-end sur des projets web avec PHP, Symfony et API REST. Développement et maintenance de 8+ microservices RESTful, migration PHP 5.6 → 8.1, architecture event-driven avec RabbitMQ/Redis, optimisation Elasticsearch, déploiement AWS/Kubernetes.",
   },
   {
     title: 'Technicien Informatique',
