@@ -556,6 +556,16 @@ export const projects: Project[] = [
     tags: ['React Native', 'NestJS', 'Elasticsearch', 'Kubernetes', 'Docker', 'CI/CD'],
     type: 'academique',
   },
+  {
+    id: 10,
+    title: 'Cockpit Stelogy - Dashboard & Design System Vue.js',
+    description:
+      "Développement d'un cockpit métier complet en Vue 3 avec un design system réutilisable. Widgets autonomes (Custom Elements et Pinia), modules de facturation, production, abonnements et devis. Migration Vuetify → Shoelace (Web Components). Backend NestJS avec API REST. Architecture monorepo avec Storybook, Vitest et multi-theming (dark/light).",
+    image: '/assets/projects/vue.svg',
+    color: 'from-emerald-500 to-teal-700',
+    tags: ['Vue 3', 'TypeScript', 'Vuetify', 'Shoelace', 'Pinia', 'NestJS', 'Storybook', 'Design System'],
+    type: 'entreprise',
+  },
 ];
 
 // Recréation de socialLinks pour compatibilité avec Footer.tsx
