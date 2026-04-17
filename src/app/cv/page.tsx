@@ -17,21 +17,17 @@ import { useRef, useState } from 'react';
 const optimizedPersonalInfo = {
   ...personalInfo,
   title: "Développeur Back-end | PHP/Symfony | Vue.js | API REST & Microservices",
-  description: [
-    "Développeur Back-end avec 4+ ans d'expérience en CDI chez Kernix (agence digitale).",
-    "Expertise PHP 8/Symfony 6, NestJS, Vue 3, API REST et architecture microservices.",
-    "Compétences transverses : design system Vue.js, Elasticsearch, DevOps (Docker, AWS, CI/CD).",
-    "Diplômé Master Tech Lead — HETIC (2025)."
-  ],
-  objective: "🟢 En poste — CDI chez Kernix | Ouvert aux opportunités"
+  description:
+    "Développeur Back-end avec 4+ ans d'expérience chez Kernix (agence digitale), en CDI depuis septembre 2025. Expertise PHP 8/Symfony 6, NestJS, Vue 3, API REST et architecture microservices. Compétences transverses en design system, Elasticsearch et DevOps (Docker, AWS, CI/CD).",
+  objective: "En poste (CDI chez Kernix) - Ouvert aux opportunités"
 };
 
 const keyAchievements = [
-  "Cockpit métier Vue 3 + Design System réutilisable | Migration Vuetify → Shoelace (Web Components)",
-  "Migration PHP 5.6 → 8.1 avec Rector | Amélioration performances et stabilité applicative",
-  "Optimisation Elasticsearch | Réduction temps de recherche de 3s à 1.8s",
-  "Intégration Apple/Google Wallet | API PKPass et notifications push",
-  "Architecture event-driven RabbitMQ/Redis | Déploiement Docker/AWS/Kubernetes"
+  "Cockpit métier Vue 3 + Design System réutilisable — Migration Vuetify vers Shoelace (Web Components)",
+  "Migration PHP 5.6 vers 8.1 avec Rector — Amélioration performances et stabilité applicative",
+  "Optimisation Elasticsearch — Réduction temps de recherche de 3s à 1.8s",
+  "Intégration Apple/Google Wallet — API PKPass et notifications push",
+  "Architecture event-driven RabbitMQ/Redis — Déploiement Docker/AWS/Kubernetes"
 ];
 
 // Import dynamique de html2pdf pour éviter les erreurs côté serveur
@@ -101,11 +97,9 @@ export default function CV() {
           <h2 className={styles.title}>{atsMode ? optimizedPersonalInfo.title : personalInfo.title}</h2>
           {atsMode ? (
             <div className={styles.professionalSummary}>
-              {optimizedPersonalInfo.description.map((paragraph, index) => (
-                <p key={index} className={styles.summaryParagraph}>
-                  {paragraph}
-                </p>
-              ))}
+              <p className={styles.summaryParagraph}>
+                {optimizedPersonalInfo.description}
+              </p>
             </div>
           ) : (
             <p className={styles.description}>
@@ -119,26 +113,53 @@ export default function CV() {
           )}
 
           <div className={styles.contactGrid}>
-            {contactDetails.map((contact, index) => (
-              <a
-                key={index}
-                href={contact.link}
-                className={styles.contactItem}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <span>{contact.icon}</span>
-                <span>{contact.detail}</span>
-              </a>
-            ))}
-            <div className={styles.contactItem}>
-              <span>📍</span>
-              <span>{personalInfo.location}</span>
-            </div>
-            {/* <div className={styles.contactItem}>
-              <span>🌐</span>
-              <span>Portfolio : https://www.teddygamiette.online</span>
-            </div> */}
+            {atsMode ? (
+              <>
+                <div className={styles.contactItem}>
+                  <span>Email:</span>
+                  <a href={`mailto:${personalInfo.email}`}>{personalInfo.email}</a>
+                </div>
+                <div className={styles.contactItem}>
+                  <span>Tél:</span>
+                  <span>{personalInfo.phone}</span>
+                </div>
+                <div className={styles.contactItem}>
+                  <span>Localisation:</span>
+                  <span>{personalInfo.location}</span>
+                </div>
+                <div className={styles.contactItem}>
+                  <span>LinkedIn:</span>
+                  <a href={personalInfo.linkedin} target="_blank" rel="noopener noreferrer">linkedin.com/in/teddy-gamiette</a>
+                </div>
+                <div className={styles.contactItem}>
+                  <span>GitHub:</span>
+                  <a href={personalInfo.github} target="_blank" rel="noopener noreferrer">github.com/tedjy971</a>
+                </div>
+                <div className={styles.contactItem}>
+                  <span>Portfolio:</span>
+                  <a href={personalInfo.website} target="_blank" rel="noopener noreferrer">teddygamiette.online</a>
+                </div>
+              </>
+            ) : (
+              <>
+                {contactDetails.map((contact, index) => (
+                  <a
+                    key={index}
+                    href={contact.link}
+                    className={styles.contactItem}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <span>{contact.icon}</span>
+                    <span>{contact.detail}</span>
+                  </a>
+                ))}
+                <div className={styles.contactItem}>
+                  <span>📍</span>
+                  <span>{personalInfo.location}</span>
+                </div>
+              </>
+            )}
           </div>
         </header>
 
@@ -147,7 +168,7 @@ export default function CV() {
             {/* Section Réalisations Clés - Mode ATS uniquement */}
             {atsMode && (
               <section>
-                <h2 className={styles.sectionTitle}>🏆 RÉALISATIONS CLÉS</h2>
+                <h2 className={styles.sectionTitle}>RÉALISATIONS CLÉS</h2>
                 <ul className={styles.achievementList}>
                   {keyAchievements.map((achievement, index) => (
                     <li key={index} className={styles.achievementItem}>
@@ -191,6 +212,21 @@ export default function CV() {
                 }
                 if (atsMode && experience.company === 'Kernix' && experience.period !== 'Depuis Septembre 2025') {
                   return null;
+                }
+                if (atsMode) {
+                  return (
+                    <div key={index} className={styles.experienceItem}>
+                      <div className={styles.experienceHeader}>
+                        <h3 className={styles.companyTitle}>
+                          {experience.title} | {experience.company}
+                        </h3>
+                        <span className={styles.period}>{experience.period}</span>
+                      </div>
+                      <p className={styles.description}>
+                        {experience.description.split('\n').slice(0, 2).map(line => line.replace(/^• /, '')).join('. ')}.
+                      </p>
+                    </div>
+                  );
                 }
                 return (
                   <div key={index} className={styles.experienceItem}>
@@ -239,25 +275,51 @@ export default function CV() {
               <h2 className={styles.sectionTitle}>
                 {atsMode ? 'FORMATION' : 'Formation'}
               </h2>
-              {educationExperiences.map((education, index) => {
-                const period = education.period === 'En cours' ? '2023 - 2025' : education.period;
-                return (
-                  <div key={index} className={styles.educationItem}>
+              {atsMode ? (
+                <>
+                  <div className={styles.educationItem}>
                     <div className={styles.experienceHeader}>
-                      <h3 className={styles.companyTitle}>{education.title}</h3>
-                      <span className={styles.schoolName}>{education.school}</span>
-                      <span className={styles.period}>{period}</span>
+                      <h3 className={styles.companyTitle}>Master Tech Lead - Management & Architecture Logicielle</h3>
+                      <span className={styles.schoolName}>HETIC</span>
+                      <span className={styles.period}>2023 - 2025 (Obtenu en Septembre 2025)</span>
                     </div>
-                    {atsMode && education.title.includes('Master') ? (
-                      <p className={styles.description}>
-                        Architecture logicielle, DDD, Microservices, Cloud Architecture, Leadership technique
-                      </p>
-                    ) : (
-                      <p className={styles.description}>{education.description}</p>
-                    )}
+                    <p className={styles.description}>
+                      Architecture logicielle, DDD, Microservices, Cloud Architecture (AWS/GCP), DevSecOps
+                    </p>
                   </div>
-                );
-              })}
+                  <div className={styles.educationItem}>
+                    <div className={styles.experienceHeader}>
+                      <h3 className={styles.companyTitle}>Bachelor Développeur Web Full-Stack</h3>
+                      <span className={styles.schoolName}>HETIC</span>
+                      <span className={styles.period}>2021 - 2023</span>
+                    </div>
+                    <p className={styles.description}>
+                      PHP/Symfony, JavaScript/React, API REST, méthodologies Agiles
+                    </p>
+                  </div>
+                  <div className={styles.educationItem}>
+                    <div className={styles.experienceHeader}>
+                      <h3 className={styles.companyTitle}>Licence SGBD & Big Data | BTS SNIR</h3>
+                      <span className={styles.schoolName}>Univ. Evry / Lycée Vilgénis</span>
+                      <span className={styles.period}>2018 - 2019</span>
+                    </div>
+                  </div>
+                </>
+              ) : (
+                educationExperiences.map((education, index) => {
+                  const period = education.period === 'En cours' ? '2023 - 2025' : education.period;
+                  return (
+                    <div key={index} className={styles.educationItem}>
+                      <div className={styles.experienceHeader}>
+                        <h3 className={styles.companyTitle}>{education.title}</h3>
+                        <span className={styles.schoolName}>{education.school}</span>
+                        <span className={styles.period}>{period}</span>
+                      </div>
+                      <p className={styles.description}>{education.description}</p>
+                    </div>
+                  );
+                })
+              )}
               
             </section>
           </main>
@@ -329,9 +391,8 @@ export default function CV() {
               <section>
                 <h2 className={styles.sectionTitle}>COMPÉTENCES TRANSVERSALES</h2>
                 <p className={styles.softSkills}>
-                  Leadership Technique • Mentoring • Communication Stakeholders • 
-                  Problem Solving • Architecture Decision Records • Code Review • 
-                  Documentation Technique • Veille Technologique • Open Source Contribution
+                  Code Review • Documentation Technique • Veille Technologique •
+                  Travail en équipe Agile/Scrum • Autonomie • Communication technique
                 </p>
               </section>
             )}
