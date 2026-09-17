@@ -1,5 +1,3 @@
-import { Analytics } from '@vercel/analytics/react';
-import { SpeedInsights } from '@vercel/speed-insights/next';
 import { Inter } from 'next/font/google';
 import '../styles/globals.css';
 
@@ -10,9 +8,12 @@ const inter = Inter({
 });
 
 export const metadata = {
-  title: 'Teddy Gamiette | Développeur Web',
+  title: 'Teddy Gamiette | Développeur Full-stack',
   description:
-    'Portfolio de Teddy Gamiette,  Développeur Back-end spécialisé en PHP, React, Next.js et Symfony. Passionné de sport et de domotique.',
+    'Portfolio de Teddy Gamiette, développeur full-stack TypeScript spécialisé en Vue.js, NestJS, applications métier et DevOps.',
+  icons: {
+    icon: [{ url: '/favicon.svg', type: 'image/svg+xml' }],
+  },
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
@@ -22,8 +23,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         {/* <SmoothScroll> */}
         {children}
         {/* </SmoothScroll> */}
-        <Analytics />
-        <SpeedInsights />
       </body>
     </html>
   );
