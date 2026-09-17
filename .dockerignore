@@ -1,0 +1,10 @@
+.git
+.next
+node_modules
+out
+.playwright-mcp
+.context-mode
+.serena
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
