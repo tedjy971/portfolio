@@ -2,7 +2,7 @@
 
 import html2canvas from 'html2canvas';
 import { jsPDF } from 'jspdf';
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 
 interface Html2PdfComponentProps {
   content: HTMLElement | null;
@@ -13,12 +13,19 @@ interface Html2PdfComponentProps {
 const Html2PdfComponent = ({ content, filename, onComplete }: Html2PdfComponentProps) => {
   const [progress, setProgress] = useState(0);
   const [status, setStatus] = useState('Préparation du document...');
+  const hasStartedRef = useRef(false);
 
   useEffect(() => {
     if (!content) {
       onComplete();
       return;
     }
+
+    if (hasStartedRef.current) {
+      return;
+    }
+
+    hasStartedRef.current = true;
 
     // Fonction pour exporter le CV en PDF
     const generatePdf = async () => {
@@ -46,7 +53,7 @@ const Html2PdfComponent = ({ content, filename, onComplete }: Html2PdfComponentP
         element.style.top = '-9999px';
         element.style.left = '-9999px';
         element.style.width = '210mm'; // Largeur A4
-        element.style.padding = '10mm';
+        element.style.padding = '0';
         element.style.margin = '0';
         element.style.backgroundColor = 'white';
         element.style.boxSizing = 'border-box';
@@ -69,57 +76,60 @@ const Html2PdfComponent = ({ content, filename, onComplete }: Html2PdfComponentP
           title: filename,
           subject: 'CV Professionnel',
           author: 'Teddy Gamiette',
-          keywords: 'CV, développeur web, backend, frontend, Symfony, Next.js',
+          keywords: 'CV, développeur full-stack, TypeScript, Vue.js, NestJS, DevOps',
           creator: 'Portfolio CV Exporter',
         });
 
-        // Mesurer la hauteur totale du contenu
-        const contentHeight = element.offsetHeight;
-        const contentWidth = element.offsetWidth;
+        const canvas = await html2canvas(element, {
+          scale: 2,
+          windowWidth: 1280,
+          useCORS: true,
+          allowTaint: true,
+          logging: false,
+          backgroundColor: '#ffffff',
+        });
 
-        // Hauteur d'une page A4 en pixels (en tenant compte de l'échelle)
-        const pageHeight = 297 * 3.78; // 297mm * 3.78 pixels/mm (à l'échelle 1)
+        const pageWidthMm = 210;
+        const pageHeightMm = 297;
+        const pageHeightPx = Math.floor((canvas.width * pageHeightMm) / pageWidthMm);
+        const totalPages = Math.ceil(canvas.height / pageHeightPx);
 
-        // Calculer le nombre de pages nécessaires
-        const totalPages = Math.ceil(contentHeight / pageHeight);
-
-        setStatus(`Capture du contenu (1/${totalPages} pages)...`);
-        setProgress(50);
-
-        // Pour chaque page
         for (let i = 0; i < totalPages; i++) {
-          // Positionner l'élément pour capturer la partie visible dans cette page
-          element.style.top = `-${i * pageHeight}px`;
-
-          // Attendre un peu pour que le rendu soit appliqué
-          await new Promise(resolve => setTimeout(resolve, 200));
-
-          // Capturer cette partie du CV
-          setStatus(`Capture du contenu (${i + 1}/${totalPages} pages)...`);
+          setStatus(`Mise en page (${i + 1}/${totalPages})...`);
           setProgress(50 + Math.floor((i / totalPages) * 40));
 
-          const canvas = await html2canvas(element, {
-            scale: 2,
-            useCORS: true,
-            allowTaint: true,
-            logging: false,
-            backgroundColor: '#ffffff',
-            height: Math.min(pageHeight, contentHeight - i * pageHeight), // Hauteur de la partie visible
-            y: i * pageHeight, // Position de départ pour la capture
-          });
+          const sourceY = i * pageHeightPx;
+          const sliceHeight = Math.min(pageHeightPx, canvas.height - sourceY);
+          const pageCanvas = document.createElement('canvas');
+          pageCanvas.width = canvas.width;
+          pageCanvas.height = sliceHeight;
 
-          // Calculer les dimensions pour ajuster à la page A4
-          const imgWidth = 210; // A4 width in mm
-          const imgHeight = (canvas.height * imgWidth) / canvas.width;
+          const context = pageCanvas.getContext('2d');
+          if (!context) {
+            throw new Error('Impossible de préparer la page PDF');
+          }
 
-          // Ajouter une nouvelle page si ce n'est pas la première
+          context.fillStyle = '#ffffff';
+          context.fillRect(0, 0, pageCanvas.width, pageCanvas.height);
+          context.drawImage(
+            canvas,
+            0,
+            sourceY,
+            canvas.width,
+            sliceHeight,
+            0,
+            0,
+            canvas.width,
+            sliceHeight
+          );
+
           if (i > 0) {
             pdf.addPage();
           }
 
-          // Ajouter l'image au PDF
-          const imgData = canvas.toDataURL('image/jpeg', 1.0);
-          pdf.addImage(imgData, 'JPEG', 0, 0, imgWidth, imgHeight);
+          const imageHeightMm = (sliceHeight * pageWidthMm) / canvas.width;
+          const imgData = pageCanvas.toDataURL('image/jpeg', 0.95);
+          pdf.addImage(imgData, 'JPEG', 0, 0, pageWidthMm, imageHeightMm);
         }
 
         // Nettoyer le DOM

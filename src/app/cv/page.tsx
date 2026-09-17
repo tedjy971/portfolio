@@ -1,457 +1,291 @@
 'use client';
 
-import {
-  contactDetails,
-  educationExperiences,
-  experiences,
-  interests,
-  personalInfo,
-  projects,
-  skills,
-} from '@/data/personalData';
+import { personalInfo } from '@/data/personalData';
 import styles from '@/styles/cv.module.css';
 import dynamic from 'next/dynamic';
+import Link from 'next/link';
 import { useRef, useState } from 'react';
 
-// Données optimisées pour ATS
-const optimizedPersonalInfo = {
-  ...personalInfo,
-  title: "Développeur Back-end | PHP/Symfony | Vue.js | API REST & Microservices",
-  description:
-    "Développeur Back-end avec 4+ ans d'expérience chez Kernix (agence digitale), en CDI depuis septembre 2025. Expertise PHP 8/Symfony 6, NestJS, Vue 3, API REST et architecture microservices. Compétences transverses en design system, Elasticsearch et DevOps (Docker, AWS, CI/CD).",
-  objective: "En poste (CDI chez Kernix) - Ouvert aux opportunités"
-};
-
-const keyAchievements = [
-  "Cockpit métier Vue 3 + Design System réutilisable — Migration Vuetify vers Shoelace (Web Components)",
-  "Migration PHP 5.6 vers 8.1 avec Rector — Amélioration performances et stabilité applicative",
-  "Optimisation Elasticsearch — Réduction temps de recherche de 3s à 1.8s",
-  "Intégration Apple/Google Wallet — API PKPass et notifications push",
-  "Architecture event-driven RabbitMQ/Redis — Déploiement Docker/AWS/Kubernetes"
-];
-
-// Import dynamique de html2pdf pour éviter les erreurs côté serveur
 const Html2PdfComponent = dynamic(() => import('./Html2PdfComponent'), {
   ssr: false,
-  loading: () => <p>Chargement de l'exportation PDF...</p>,
 });
 
+const kernixContributions = [
+  {
+    label: 'Développement full-stack',
+    description:
+      'Conception et évolution d’applications métier avec Vue 3, React ou Angular côté interface, et NestJS ou Symfony côté API. Travail sur les parcours utilisateurs, les droits d’accès, le typage des échanges, le cache et les notifications temps réel.',
+  },
+  {
+    label: 'Facturation et intégrations',
+    description:
+      'Évolution d’une plateforme de facturation électronique : abonnements et facturation à l’usage avec Stripe, paiements par carte, SEPA ou virement, synchronisation de webhooks et échanges de factures avec des services partenaires.',
+  },
+  {
+    label: 'Fiabilité et sécurité',
+    description:
+      'Renforcement de services NestJS exposés en production : reprise sur erreurs réseau, gestion de l’authentification concurrente, propagation d’erreurs typées, protection des secrets dans les logs, contrôle CORS, rate limiting et correction de vulnérabilités applicatives.',
+  },
+  {
+    label: 'Données et recherche',
+    description:
+      'Mise en œuvre de recherches Elasticsearch multilingues avec scoring, boost, agrégations et indexation. Optimisation de parcours de recherche côté front avec cache, pagination et restauration d’état.',
+  },
+  {
+    label: 'Modernisation et delivery',
+    description:
+      'Migration et maintien de socles PHP/Symfony historiques, évolution des schémas de données et industrialisation des livraisons avec Docker, GitLab CI/CD, Ansible, Kubernetes et AWS. Ajout de tests unitaires et de scénarios métier Playwright.',
+  },
+];
+
+const additionalExperiences = [
+  {
+    role: 'Technicien informatique',
+    company: 'SPIE ICS',
+    period: '2020 — 2021',
+    description:
+      'Administration d’un parc informatique, support utilisateurs et maintien en condition opérationnelle de systèmes sensibles.',
+  },
+  {
+    role: 'Développeur automatisation',
+    company: 'Amazon',
+    period: '2019',
+    description:
+      'Création de scripts VBA et d’outils d’aide à la décision pour accélérer des opérations logistiques.',
+  },
+  {
+    role: 'Data analyst télécom',
+    company: 'LUCERNYS',
+    period: '2018 — 2019',
+    description:
+      'Analyse de consommations, détection d’anomalies et recommandations d’optimisation de contrats mobiles.',
+  },
+  {
+    role: 'Développeur web stagiaire',
+    company: 'Conseil départemental de Seine-Saint-Denis',
+    period: '2018',
+    description:
+      'Développement d’une application métier PHP/MySQL avec authentification et gestion des droits.',
+  },
+];
+
+const skillGroups = [
+  {
+    label: 'Full-stack',
+    value: 'TypeScript, Vue 3, React, Angular, NestJS, Node.js, Pinia, API REST, Web Components',
+  },
+  {
+    label: 'Back-end',
+    value: 'NestJS, PHP 8, Symfony 6, API Platform, microservices, OAuth 2.0, JWT',
+  },
+  {
+    label: 'Données & intégrations',
+    value:
+      'PostgreSQL, MySQL, MongoDB, Elasticsearch, Redis, RabbitMQ, Stripe, webhooks, API tierces',
+  },
+  {
+    label: 'Qualité & sécurité',
+    value: 'Playwright, Vitest, Jest, PHPUnit, code review, OWASP, tests automatisés',
+  },
+  {
+    label: 'DevOps & Cloud',
+    value: 'Docker, Kubernetes, AWS, GitLab CI/CD, Ansible, Terraform, Linux, GitHub Actions',
+  },
+  {
+    label: 'Architecture',
+    value: 'Event-driven, DDD, SOLID, design patterns, monorepo, ESM, observabilité',
+  },
+];
+
+const education = [
+  {
+    degree: 'Master Tech Lead — Management & architecture logicielle',
+    school: 'HETIC',
+    period: '2023 — 2025',
+    details:
+      'Architecture logicielle, DDD, microservices, cloud, DevSecOps et leadership technique',
+  },
+  {
+    degree: 'Bachelor Développeur web full-stack',
+    school: 'HETIC',
+    period: '2021 — 2023',
+    details: 'Développement full-stack, API, bases de données, qualité et méthodes agiles',
+  },
+  {
+    degree: 'Licence SGBD & Big Data',
+    school: 'Université d’Évry-Val-d’Essonne',
+    period: '2019',
+    details: 'Bases de données relationnelles et NoSQL, optimisation et analyse de données',
+  },
+  {
+    degree: 'BTS Systèmes numériques — Informatique & réseaux',
+    school: 'Lycée Parc de Vilgénis',
+    period: '2018',
+    details: 'Développement logiciel, systèmes, réseaux et sécurité',
+  },
+];
+
 export default function CV() {
-  const [showProjects, setShowProjects] = useState(false);
-  const [isGeneratingPdf, setIsGeneratingPdf] = useState(false);
-  const [atsMode, setAtsMode] = useState(false);
-  const cvRef = useRef<HTMLDivElement>(null);
-
-  // Fonction pour exporter le CV en PDF avec html2pdf
-  const handleExportPdf = () => {
-    if (cvRef.current) {
-      setIsGeneratingPdf(true);
-    }
-  };
-
-  // Fonction pour imprimer le CV (méthode native)
-  const handlePrint = () => {
-    window.print();
-  };
-
-  // Regroupement des compétences par catégorie
-  const skillsByCategory = skills.reduce(
-    (acc, skill) => {
-      if (!acc[skill.category]) {
-        acc[skill.category] = [];
-      }
-      acc[skill.category].push(skill);
-      return acc;
-    },
-    {} as Record<string, typeof skills>
-  );
-
-  const otherAndData = [...(skillsByCategory['other'] || []), ...(skillsByCategory['data'] || [])];
-
-  const skillCategories = {
-    backend: { title: 'Backend', skills: skillsByCategory['backend'] || [] },
-    frontend: { title: 'Frontend', skills: skillsByCategory['frontend'] || [] },
-    mobile: { title: 'Mobile', skills: skillsByCategory['mobile'] || [] },
-    devops: { title: 'DevOps', skills: skillsByCategory['devops'] || [] },
-    other: { title: 'Méthodologies & Outils', skills: otherAndData },
-  };
-
-  // Sélection des projets les plus pertinents (limité à 4)
-  const highlightedProjects = projects.slice(0, 4);
-
-  const professionalExperiences = experiences;
+  const [isGeneratingVisualPdf, setIsGeneratingVisualPdf] = useState(false);
+  const resumeRef = useRef<HTMLElement>(null);
 
   return (
-    <>
-      {isGeneratingPdf && (
+    <div className={styles.pageShell}>
+      {isGeneratingVisualPdf && (
         <Html2PdfComponent
-          content={cvRef.current}
-          filename={`CV_${personalInfo.name.replace(' ', '_')}.pdf`}
-          onComplete={() => setIsGeneratingPdf(false)}
+          content={resumeRef.current}
+          filename={`CV_${personalInfo.name.replace(/\s+/g, '_')}_visuel.pdf`}
+          onComplete={() => setIsGeneratingVisualPdf(false)}
         />
       )}
-      <div ref={cvRef} className={`${styles.container} ${styles.printColorAdjust}`}>
-        {/* En-tête avec informations personnelles */}
-        <header className={styles.header}>
-          <h1 className={styles.name}>{personalInfo.name.toUpperCase()}</h1>
-          <h2 className={styles.title}>{atsMode ? optimizedPersonalInfo.title : personalInfo.title}</h2>
-          {atsMode ? (
-            <div className={styles.professionalSummary}>
-              <p className={styles.summaryParagraph}>
-                {optimizedPersonalInfo.description}
-              </p>
-            </div>
-          ) : (
-            <p className={styles.description}>
-              {personalInfo.description}
-            </p>
-          )}
-          {atsMode && (
-            <div className={styles.availability}>
-              {optimizedPersonalInfo.objective}
-            </div>
-          )}
 
-          <div className={styles.contactGrid}>
-            {atsMode ? (
-              <>
-                <div className={styles.contactItem}>
-                  <span>Email:</span>
-                  <a href={`mailto:${personalInfo.email}`}>{personalInfo.email}</a>
-                </div>
-                <div className={styles.contactItem}>
-                  <span>Tél:</span>
-                  <span>{personalInfo.phone}</span>
-                </div>
-                <div className={styles.contactItem}>
-                  <span>Localisation:</span>
-                  <span>{personalInfo.location}</span>
-                </div>
-                <div className={styles.contactItem}>
-                  <span>LinkedIn:</span>
-                  <a href={personalInfo.linkedin} target="_blank" rel="noopener noreferrer">linkedin.com/in/teddy-gamiette</a>
-                </div>
-                <div className={styles.contactItem}>
-                  <span>GitHub:</span>
-                  <a href={personalInfo.github} target="_blank" rel="noopener noreferrer">github.com/tedjy971</a>
-                </div>
-                <div className={styles.contactItem}>
-                  <span>Portfolio:</span>
-                  <a href={personalInfo.website} target="_blank" rel="noopener noreferrer">teddygamiette.online</a>
-                </div>
-              </>
-            ) : (
-              <>
-                {contactDetails.map((contact, index) => (
-                  <a
-                    key={index}
-                    href={contact.link}
-                    className={styles.contactItem}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    <span>{contact.icon}</span>
-                    <span>{contact.detail}</span>
-                  </a>
-                ))}
-                <div className={styles.contactItem}>
-                  <span>📍</span>
-                  <span>{personalInfo.location}</span>
-                </div>
-              </>
-            )}
+      <nav className={styles.toolbar} aria-label="Actions du CV">
+        <p>Pour candidater, privilégiez le PDF ATS avec texte sélectionnable.</p>
+        <div className={styles.toolbarActions}>
+          <Link className={styles.secondaryAction} href="/">
+            Portfolio
+          </Link>
+          <button
+            className={styles.secondaryAction}
+            type="button"
+            onClick={() => setIsGeneratingVisualPdf(true)}
+          >
+            PDF visuel
+          </button>
+          <button className={styles.primaryAction} type="button" onClick={() => window.print()}>
+            PDF ATS / impression
+          </button>
+        </div>
+      </nav>
+
+      <article ref={resumeRef} className={styles.resume} aria-labelledby="cv-name">
+        <header className={styles.header}>
+          <div className={styles.identity}>
+            <p className={styles.eyebrow}>Curriculum vitæ</p>
+            <h1 id="cv-name" className={styles.name}>
+              {personalInfo.name}
+            </h1>
+            <p className={styles.title}>Développeur Full-stack TypeScript</p>
+            <p className={styles.positioning}>Vue.js · NestJS · Architecture · DevOps</p>
           </div>
+
+          <address className={styles.contactBlock}>
+            <a href={`mailto:${personalInfo.email}`}>{personalInfo.email}</a>
+            <a href={`tel:${personalInfo.phone.replace(/\s/g, '')}`}>{personalInfo.phone}</a>
+            <span>{personalInfo.location}</span>
+            <a href={personalInfo.linkedin}>linkedin.com/in/teddy-gamiette-9a1a9613a</a>
+            <a href={personalInfo.github}>github.com/tedjy971</a>
+            <a href={personalInfo.website}>teddygamiette.online</a>
+          </address>
         </header>
 
-        <div className={atsMode ? styles.singleColumn : styles.twoColumnGrid}>
-          <main>
-            {/* Section Réalisations Clés - Mode ATS uniquement */}
-            {atsMode && (
-              <section>
-                <h2 className={styles.sectionTitle}>RÉALISATIONS CLÉS</h2>
-                <ul className={styles.achievementList}>
-                  {keyAchievements.map((achievement, index) => (
-                    <li key={index} className={styles.achievementItem}>
-                      • {achievement}
-                    </li>
-                  ))}
-                </ul>
-              </section>
-            )}
+        <main className={styles.content}>
+          <section aria-labelledby="profile-title">
+            <h2 id="profile-title">Profil</h2>
+            <p className={styles.lead}>
+              Développeur full-stack TypeScript chez Kernix depuis 2021, j’interviens sur plusieurs
+              applications métier, de l’interface au déploiement. Mon activité actuelle se concentre
+              principalement sur Vue.js et NestJS, avec une expérience solide de la modernisation de
+              plateformes PHP/Symfony. J’apprécie les environnements où il faut comprendre
+              rapidement un métier, fiabiliser l’existant et livrer des solutions maintenables.
+              Diplômé d’un Master Tech Lead, je combine développement produit, architecture, qualité
+              et culture DevOps.
+            </p>
+            <p className={styles.availability}>
+              En CDI chez Kernix · À l’écoute d’un poste full-stack à dominante TypeScript
+            </p>
+          </section>
 
-            {/* Expériences professionnelles */}
-            <section>
-              <h2 className={styles.sectionTitle}>
-                {atsMode ? 'EXPÉRIENCE PROFESSIONNELLE' : 'Expériences professionnelles'}
-              </h2>
-              {professionalExperiences.map((experience, index) => {
-                if (atsMode && experience.company === 'Kernix' && experience.period === 'Depuis Septembre 2025') {
-                  return (
-                    <div key={index} className={styles.experienceItem}>
-                      <div className={styles.experienceHeader}>
-                        <h3 className={styles.companyTitle}>
-                          Développeur Back-end (CDI) | Kernix
-                        </h3>
-                        <span className={styles.period}>2021 - Présent (4+ ans, dont CDI depuis Sept. 2025)</span>
-                      </div>
-                      <ul className={styles.bulletList}>
-                        <li>• Conçoit un cockpit métier Vue 3 avec design system réutilisable et widgets autonomes</li>
-                        <li>• Développe des API REST et microservices avec Symfony 6 et NestJS</li>
-                        <li>• Migration PHP 5.6 → 8.1 avec Rector, amélioration performances et stabilité</li>
-                        <li>• Architecture event-driven avec RabbitMQ/Redis pour découplage des services</li>
-                        <li>• Optimisation Elasticsearch, réduction temps de recherche de 3s à 1.8s</li>
-                        <li>• Intégration Apple Wallet et Google Pay, développement API PKPass</li>
-                        <li>• Déploiement containerisé sur AWS avec Docker et Kubernetes</li>
-                        <li>• Code reviews, documentation Storybook et veille technologique</li>
-                      </ul>
-                      <p className={styles.techStack}>
-                        <strong>Stack:</strong> PHP 8, Symfony 6, Vue 3, NestJS, PostgreSQL, Redis, Elasticsearch, Docker, AWS, GitLab CI/CD, Storybook
-                      </p>
-                    </div>
-                  );
-                }
-                if (atsMode && experience.company === 'Kernix' && experience.period !== 'Depuis Septembre 2025') {
-                  return null;
-                }
-                if (atsMode) {
-                  return (
-                    <div key={index} className={styles.experienceItem}>
-                      <div className={styles.experienceHeader}>
-                        <h3 className={styles.companyTitle}>
-                          {experience.title} | {experience.company}
-                        </h3>
-                        <span className={styles.period}>{experience.period}</span>
-                      </div>
-                      <p className={styles.description}>
-                        {experience.description.split('\n').slice(0, 2).map(line => line.replace(/^• /, '')).join('. ')}.
-                      </p>
-                    </div>
-                  );
-                }
-                return (
-                  <div key={index} className={styles.experienceItem}>
-                    <div className={styles.experienceHeader}>
-                      <h3 className={styles.companyTitle}>
-                        {experience.title} | {experience.company}
-                      </h3>
-                      <span className={styles.period}>{experience.period}</span>
-                    </div>
-                    <div className={styles.description}>
-                      {experience.description.split('\n').map((line, lineIndex) => (
-                        <p key={lineIndex} className={styles.descriptionLine}>
-                          {line}
-                        </p>
-                      ))}
-                    </div>
-                  </div>
-                );
-              })}
-            </section>
+          <section aria-labelledby="experience-title">
+            <h2 id="experience-title">Expérience professionnelle</h2>
 
-            {/* Projets significatifs - Optionnel */}
-            {showProjects && (
-              <section>
-                <h2 className={styles.sectionTitle}>Projets significatifs</h2>
-                <div className={styles.projectGrid}>
-                  {highlightedProjects.map(project => (
-                    <div key={project.id} className={styles.projectItem}>
-                      <h3 className={styles.projectTitle}>{project.title}</h3>
-                      <p className={styles.projectDescription}>{project.description}</p>
-                      <div className={styles.tagList}>
-                        {project.tags.slice(0, 3).map((tag, tagIndex) => (
-                          <span key={tagIndex} className={styles.tag}>
-                            {tag}
-                          </span>
-                        ))}
-                      </div>
-                    </div>
-                  ))}
+            <article className={styles.primaryExperience}>
+              <div className={styles.experienceHeader}>
+                <div>
+                  <h3>Développeur Full-stack · Kernix</h3>
+                  <p className={styles.company}>CDI après quatre années d’alternance</p>
                 </div>
-              </section>
-            )}
+                <p className={styles.period}>2021 — aujourd’hui</p>
+              </div>
 
-            {/* Formation */}
-            <section>
-              <h2 className={styles.sectionTitle}>
-                {atsMode ? 'FORMATION' : 'Formation'}
-              </h2>
-              {atsMode ? (
-                <>
-                  <div className={styles.educationItem}>
-                    <div className={styles.experienceHeader}>
-                      <h3 className={styles.companyTitle}>Master Tech Lead - Management & Architecture Logicielle</h3>
-                      <span className={styles.schoolName}>HETIC</span>
-                      <span className={styles.period}>2023 - 2025 (Obtenu en Septembre 2025)</span>
-                    </div>
-                    <p className={styles.description}>
-                      Architecture logicielle, DDD, Microservices, Cloud Architecture (AWS/GCP), DevSecOps
-                    </p>
-                  </div>
-                  <div className={styles.educationItem}>
-                    <div className={styles.experienceHeader}>
-                      <h3 className={styles.companyTitle}>Bachelor Développeur Web Full-Stack</h3>
-                      <span className={styles.schoolName}>HETIC</span>
-                      <span className={styles.period}>2021 - 2023</span>
-                    </div>
-                    <p className={styles.description}>
-                      PHP/Symfony, JavaScript/React, API REST, méthodologies Agiles
-                    </p>
-                  </div>
-                  <div className={styles.educationItem}>
-                    <div className={styles.experienceHeader}>
-                      <h3 className={styles.companyTitle}>Licence SGBD & Big Data | BTS SNIR</h3>
-                      <span className={styles.schoolName}>Univ. Evry / Lycée Vilgénis</span>
-                      <span className={styles.period}>2018 - 2019</span>
-                    </div>
-                  </div>
-                </>
-              ) : (
-                educationExperiences.map((education, index) => {
-                  const period = education.period === 'En cours' ? '2023 - 2025' : education.period;
-                  return (
-                    <div key={index} className={styles.educationItem}>
-                      <div className={styles.experienceHeader}>
-                        <h3 className={styles.companyTitle}>{education.title}</h3>
-                        <span className={styles.schoolName}>{education.school}</span>
-                        <span className={styles.period}>{period}</span>
-                      </div>
-                      <p className={styles.description}>{education.description}</p>
-                    </div>
-                  );
-                })
-              )}
-              
-            </section>
-          </main>
+              <p className={styles.experienceIntro}>
+                Intervention sur des produits métier aux contraintes variées : évolution
+                fonctionnelle, intégration de services tiers, reprise de legacy, qualité et
+                exploitation.
+              </p>
 
-          <aside>
-            {/* Compétences techniques */}
-            <section>
-              <h2 className={styles.sectionTitle}>
-                {atsMode ? 'COMPÉTENCES TECHNIQUES' : 'Compétences Techniques'}
-              </h2>
-              {atsMode ? (
-                <div className={styles.skillsAts}>
-                  <div className={styles.skillCategoryAts}>
-                    <h4>Backend</h4>
-                    <p>PHP 8.x • Symfony 6 • NestJS • Node.js • API REST • GraphQL • Microservices</p>
+              <div className={styles.contributionList}>
+                {kernixContributions.map(contribution => (
+                  <p key={contribution.label}>
+                    <strong>{contribution.label}.</strong> {contribution.description}
+                  </p>
+                ))}
+              </div>
+
+              <p className={styles.stackLine}>
+                <strong>Environnement principal :</strong> TypeScript, Vue 3, NestJS, Node.js,
+                PHP/Symfony, PostgreSQL, Redis, RabbitMQ, Elasticsearch, Docker, GitLab CI/CD,
+                Kubernetes et AWS.
+              </p>
+            </article>
+
+            <div className={styles.previousExperiences}>
+              {additionalExperiences.map(experience => (
+                <article className={styles.compactExperience} key={experience.company}>
+                  <div className={styles.compactHeader}>
+                    <h3>
+                      {experience.role} · {experience.company}
+                    </h3>
+                    <p className={styles.period}>{experience.period}</p>
                   </div>
-                  <div className={styles.skillCategoryAts}>
-                    <h4>Frontend</h4>
-                    <p>Vue 3 • Vuetify • Shoelace • Pinia • TypeScript • Storybook • Web Components</p>
-                  </div>
-                  <div className={styles.skillCategoryAts}>
-                    <h4>Bases de données</h4>
-                    <p>PostgreSQL • MySQL • MongoDB • Redis • Elasticsearch</p>
-                  </div>
-                  <div className={styles.skillCategoryAts}>
-                    <h4>DevOps & Cloud</h4>
-                    <p>Docker • Kubernetes • AWS • GitLab CI/CD • Terraform • Linux</p>
-                  </div>
-                  <div className={styles.skillCategoryAts}>
-                    <h4>Architecture & Qualité</h4>
-                    <p>DDD • SOLID • Design Patterns • Event-Driven • PHPUnit • Jest • Vitest</p>
-                  </div>
-                  <div className={styles.skillCategoryAts}>
-                    <h4>Méthodologies</h4>
-                    <p>Agile/Scrum • Git Flow • Code Review • Documentation Storybook</p>
-                  </div>
+                  <p>{experience.description}</p>
+                </article>
+              ))}
+            </div>
+          </section>
+
+          <section aria-labelledby="skills-title">
+            <h2 id="skills-title">Compétences</h2>
+            <dl className={styles.skillGrid}>
+              {skillGroups.map(group => (
+                <div className={styles.skillGroup} key={group.label}>
+                  <dt>{group.label}</dt>
+                  <dd>{group.value}</dd>
                 </div>
-              ) : (
-                <div className={styles.skillsGrid}>
-                  {Object.entries(skillCategories).map(
-                    ([key, category]) =>
-                      category.skills.length > 0 && (
-                        <div key={key} className={styles.skillCategory}>
-                          <h3 className={styles.skillCategoryTitle}>{category.title}</h3>
-                          <ul className={styles.skillList}>
-                            {category.skills.map((skill, skillIndex) => (
-                              <li key={skillIndex} className={styles.skillItem}>
-                                <span className={styles.skillName}>
-                                  {skill.name} (
-                                  {skill.level >= 80
-                                    ? 'Avancé'
-                                    : skill.level >= 50
-                                      ? 'Confirmé'
-                                      : 'Intermédiaire'}
-                                  )
-                                </span>
-                              </li>
-                            ))}
-                          </ul>
-                        </div>
-                      )
-                  )}
-                </div>
-              )}
-            </section>
+              ))}
+            </dl>
+          </section>
 
-            {/* Compétences Transversales - Mode ATS */}
-            {atsMode && (
-              <section>
-                <h2 className={styles.sectionTitle}>COMPÉTENCES TRANSVERSALES</h2>
-                <p className={styles.softSkills}>
-                  Code Review • Documentation Technique • Veille Technologique •
-                  Travail en équipe Agile/Scrum • Autonomie • Communication technique
-                </p>
-              </section>
-            )}
-            
-            {/* Langues - Mode ATS */}
-            {atsMode && (
-              <section>
-                <h2 className={styles.sectionTitle}>LANGUES</h2>
-                <p className={styles.languages}>
-                  Français (Natif) • Anglais (Professionnel - Documentation, Stack Overflow, GitHub)
-                </p>
-              </section>
-            )}
+          <section aria-labelledby="education-title">
+            <h2 id="education-title">Formation</h2>
+            <div className={styles.educationList}>
+              {education.map(item => (
+                <article className={styles.education} key={item.degree}>
+                  <div className={styles.educationHeader}>
+                    <h3>{item.degree}</h3>
+                    <p className={styles.period}>{item.period}</p>
+                  </div>
+                  <p className={styles.school}>{item.school}</p>
+                  <p>{item.details}</p>
+                </article>
+              ))}
+            </div>
+          </section>
 
-            {/* Centres d'intérêt - Mode Standard uniquement */}
-            {!atsMode && (
-              <section>
-                <h2 className={styles.sectionTitle}>Centres d'intérêt</h2>
-                <div className={styles.interestList}>
-                  {interests.map((interest, index) => (
-                    <div key={index} className={styles.interestItem}>
-                      <span>{interest.icon}</span>
-                      <span>{interest.title}</span>
-                    </div>
-                  ))}
-                </div>
-              </section>
-            )}
-          </aside>
-        </div>
-
-        {/* Boutons de contrôle (visibles uniquement à l'écran) */}
-        <div className={styles.printButton}>
-          <button onClick={handleExportPdf} className={styles.actionButton}>
-            Télécharger en PDF
-          </button>
-          <button
-            onClick={handlePrint}
-            className={styles.actionButton}
-            style={{ marginRight: '10px' }}
-          >
-            Aperçu impression
-          </button>
-          <button
-            onClick={() => setShowProjects(!showProjects)}
-            className={styles.actionButton}
-            style={{ marginRight: '10px' }}
-          >
-            {showProjects ? 'Masquer les projets' : 'Afficher les projets'}
-          </button>
-          <button
-            onClick={() => setAtsMode(!atsMode)}
-            className={styles.actionButton}
-            style={{ marginRight: '10px', backgroundColor: atsMode ? '#10b981' : '#6b7280' }}
-          >
-            {atsMode ? 'Mode Standard' : 'Mode ATS Optimisé'}
-          </button>
-        </div>
-      </div>
-    </>
+          <section aria-labelledby="additional-title">
+            <h2 id="additional-title">Informations complémentaires</h2>
+            <div className={styles.additionalInfo}>
+              <p>
+                <strong>Langues :</strong> français natif · anglais technique professionnel
+              </p>
+              <p>
+                <strong>Pratiques :</strong> autonomie · apprentissage rapide · résolution de
+                problèmes · communication technique · travail en équipe
+              </p>
+            </div>
+          </section>
+        </main>
+      </article>
+    </div>
   );
 }

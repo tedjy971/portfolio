@@ -1,503 +1,598 @@
-/* CV Module CSS - Optimisé pour impression et ATS */
+@import url('https://fonts.googleapis.com/css2?family=Lexend:wght@500;600;700&family=Source+Sans+3:wght@400;500;600;700&display=swap');
 
-.container {
-  max-width: 210mm; /* Format A4 */
-  margin: 0 auto;
-  padding: 2rem;
-  font-family:
-    'Inter',
-    -apple-system,
-    BlinkMacSystemFont,
-    'Segoe UI',
-    Roboto,
+.pageShell {
+  --cv-primary: #1e3a5f;
+  --cv-on-primary: #ffffff;
+  --cv-secondary: #2563eb;
+  --cv-background: #f8fafc;
+  --cv-foreground: #0f172a;
+  --cv-card: #ffffff;
+  --cv-muted: #e9eef5;
+  --cv-muted-foreground: #475569;
+  --cv-border: #cbd5e1;
+  --cv-ring: #1e3a5f;
+  min-height: 100vh;
+  padding: 32px 20px 64px;
+  color: var(--cv-foreground);
+  background: var(--cv-background);
+  font-family: 'Source Sans 3', sans-serif;
+  font-size: 16px;
+  line-height: 1.55;
+}
+
+.pageShell *,
+.pageShell *::before,
+.pageShell *::after {
+  box-sizing: border-box;
+}
+
+.pageShell a {
+  color: inherit;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+}
+
+.pageShell a:hover {
+  color: var(--cv-secondary);
+}
+
+.pageShell a:focus-visible,
+.pageShell button:focus-visible {
+  outline: 3px solid var(--cv-ring);
+  outline-offset: 3px;
+}
+
+.toolbar {
+  position: sticky;
+  z-index: 10;
+  top: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: min(100%, 210mm);
+  margin: 0 auto 20px;
+  padding: 12px 14px 12px 18px;
+  border: 1px solid var(--cv-border);
+  border-radius: 8px;
+  background: color-mix(in srgb, var(--cv-card) 96%, transparent);
+  backdrop-filter: blur(10px);
+}
+
+.toolbar p {
+  max-width: 270px;
+  margin: 0;
+  color: var(--cv-muted-foreground);
+  font-size: 0.9rem;
+  line-height: 1.35;
+}
+
+.toolbarActions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.primaryAction,
+.secondaryAction {
+  display: inline-flex;
+  min-height: 42px;
+  align-items: center;
+  justify-content: center;
+  border-radius: 6px;
+  padding: 9px 13px;
+  font:
+    600 0.9rem/1 'Source Sans 3',
     sans-serif;
-  color: #333;
-  background-color: white;
-  line-height: 1.5;
+  text-decoration: none;
+  cursor: pointer;
+  transition:
+    background-color 200ms ease,
+    color 200ms ease,
+    border-color 200ms ease;
+}
+
+.primaryAction {
+  border: 1px solid var(--cv-primary);
+  color: var(--cv-on-primary);
+  background: var(--cv-primary);
+}
+
+.primaryAction:hover {
+  color: #ffffff;
+  background: var(--cv-secondary);
+  border-color: var(--cv-secondary);
+}
+
+.secondaryAction {
+  border: 1px solid var(--cv-border);
+  color: var(--cv-primary);
+  background: var(--cv-card);
+}
+
+.secondaryAction:hover {
+  color: var(--cv-primary);
+  border-color: var(--cv-primary);
+  background: var(--cv-muted);
+}
+
+.resume {
+  width: min(100%, 210mm);
+  min-height: 297mm;
+  margin: 0 auto;
+  overflow: hidden;
+  border: 1px solid var(--cv-border);
+  background: var(--cv-card);
 }
 
 .header {
-  margin-bottom: 2rem;
-  border-bottom: 2px solid #2563eb;
-  padding-bottom: 1rem;
+  display: grid;
+  grid-template-columns: minmax(0, 1.5fr) minmax(230px, 0.8fr);
+  gap: 48px;
+  padding: 48px 56px 40px;
+  color: var(--cv-on-primary);
+  background: var(--cv-primary);
+}
+
+.eyebrow {
+  margin: 0 0 12px;
+  color: #cbd5e1;
+  font:
+    600 0.72rem/1 'Lexend',
+    sans-serif;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
 }
 
 .name {
-  font-size: 2.5rem;
-  font-weight: 700;
-  color: #1e3a8a;
-  margin-bottom: 0.5rem;
+  margin: 0;
+  font:
+    700 clamp(2.25rem, 6vw, 3.45rem) / 1 'Lexend',
+    sans-serif;
+  letter-spacing: -0.045em;
 }
 
 .title {
-  font-size: 1.5rem;
-  font-weight: 500;
-  color: #4b5563;
-  margin-bottom: 1rem;
+  margin: 18px 0 0;
+  font:
+    600 1.18rem/1.3 'Lexend',
+    sans-serif;
 }
 
-.description {
+.positioning {
+  margin: 8px 0 0;
+  color: #cbd5e1;
+  font-size: 0.94rem;
+}
+
+.contactBlock {
+  display: flex;
+  flex-direction: column;
+  align-self: end;
+  gap: 8px;
+  padding-left: 24px;
+  border-left: 1px solid rgb(255 255 255 / 35%);
+  font-size: 0.83rem;
+  font-style: normal;
+  overflow-wrap: anywhere;
+}
+
+.contactBlock a {
+  text-decoration: none;
+}
+
+.contactBlock a:hover {
+  color: #ffffff;
+  text-decoration: underline;
+}
+
+.content {
+  padding: 18px 56px 50px;
+}
+
+.content > section {
+  padding: 32px 0;
+  border-bottom: 1px solid var(--cv-border);
+}
+
+.content > section:last-child {
+  padding-bottom: 0;
+  border-bottom: 0;
+}
+
+.content h2 {
+  margin: 0 0 22px;
+  color: var(--cv-primary);
+  font:
+    600 1rem/1.25 'Lexend',
+    sans-serif;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.lead {
+  max-width: 76ch;
+  margin: 0;
+  color: var(--cv-foreground);
   font-size: 1rem;
-  line-height: 1.6;
-  margin-bottom: 1rem;
-  color: #374151;
+  line-height: 1.7;
 }
 
 .availability {
-  font-size: 1rem;
-  font-weight: 600;
-  color: #059669;
-  margin-bottom: 1rem;
-  padding: 0.75rem;
-  background-color: #ecfdf5;
-  border-left: 4px solid #059669;
-  border-radius: 0.375rem;
+  display: inline-block;
+  margin: 18px 0 0;
+  padding: 8px 12px;
+  color: var(--cv-primary);
+  background: var(--cv-muted);
+  font-size: 0.88rem;
+  font-weight: 700;
 }
 
-.professionalSummary {
-  margin-bottom: 1.5rem;
-}
-
-.summaryParagraph {
-  font-size: 1rem;
-  line-height: 1.6;
-  margin-bottom: 0.75rem;
-  color: #374151;
-  text-align: justify;
-}
-
-.summaryParagraph:last-child {
-  margin-bottom: 0;
-}
-
-/* Amélioration de l'affichage des descriptions en mode standard */
-.experienceItem .description {
-  margin-top: 0.75rem;
-}
-
-.experienceItem .descriptionLine {
-  padding-left: 0;
-  color: #4b5563;
-  font-size: 0.95rem;
-}
-
-.objective {
-  font-size: 1.1rem;
-  font-weight: 500;
-  color: #1e3a8a;
-  margin-bottom: 1rem;
-  padding: 0.5rem;
-  background-color: #eef2ff;
-  border-left: 4px solid #2563eb;
-}
-
-.contactGrid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 0.75rem;
-  margin-top: 1rem;
-}
-
-.contactItem {
+.experienceHeader,
+.compactHeader,
+.educationHeader {
   display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  font-size: 0.9rem;
-}
-
-.contactIcon {
-  width: 1.25rem;
-  height: 1.25rem;
-  color: #2563eb;
-}
-
-.summary {
-  margin-bottom: 2rem;
-  font-size: 1rem;
-  line-height: 1.6;
-}
-
-.sectionTitle {
-  font-size: 1.25rem;
-  font-weight: 600;
-  color: #1e3a8a;
-  margin-top: 2rem;
-  margin-bottom: 1.5rem;
-  border-bottom: 2px solid #e5e7eb;
-  padding-bottom: 0.75rem;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-}
-
-.twoColumnGrid {
-  display: grid;
-  grid-template-columns: 2fr 1fr;
-  gap: 2rem;
-}
-
-/* Mode ATS - Mise en page monocolonne optimisée pour les ATS */
-.singleColumn {
-  display: block;
-  max-width: 100%;
-}
-
-.singleColumn main {
-  margin-bottom: 2.5rem;
-}
-
-.singleColumn aside {
-  margin-top: 0;
-}
-
-.singleColumn section {
-  margin-bottom: 2rem;
-}
-
-.singleColumn .sectionTitle {
-  margin-top: 2.5rem;
-  margin-bottom: 1.5rem;
-}
-
-.experienceItem {
-  margin-bottom: 2rem;
-  break-inside: avoid;
-  padding-bottom: 1rem;
-  border-bottom: 1px solid #f3f4f6;
-}
-
-.experienceItem:last-child {
-  border-bottom: none;
-  margin-bottom: 1.5rem;
-}
-
-.experienceHeader {
-  display: flex;
-  justify-content: space-between;
   align-items: baseline;
-  margin-bottom: 0.5rem;
+  justify-content: space-between;
+  gap: 20px;
 }
 
-.companyTitle {
-  font-weight: 600;
-  font-size: 1.1rem;
-  color: #1f2937;
+.primaryExperience h3,
+.compactExperience h3,
+.education h3 {
+  margin: 0;
+  color: var(--cv-foreground);
+  font:
+    600 0.96rem/1.35 'Lexend',
+    sans-serif;
+}
+
+.company,
+.school {
+  margin: 5px 0 0;
+  color: var(--cv-secondary);
+  font-size: 0.88rem;
+  font-weight: 700;
 }
 
 .period {
-  font-style: italic;
-  color: #6b7280;
-  font-size: 0.9rem;
-}
-
-.description {
-  margin-top: 0.5rem;
-  font-size: 0.95rem;
-}
-
-.descriptionLine {
-  font-size: 0.95rem;
-  line-height: 1.6;
-  margin-bottom: 0.6rem;
-  color: #374151;
-}
-
-.descriptionLine:last-child {
-  margin-bottom: 0;
-}
-
-.skillsGrid {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 1.5rem;
-}
-
-.skillCategoryTitle {
+  flex: 0 0 auto;
+  margin: 0;
+  color: var(--cv-muted-foreground);
+  font-size: 0.84rem;
   font-weight: 600;
-  color: #374151;
-  margin-bottom: 0.75rem;
+  white-space: nowrap;
 }
 
-.skillList {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-
-.skillItem {
-  display: flex;
-  align-items: center;
-  margin-bottom: 0.5rem;
-  gap: 1rem;
-}
-
-/* Styles spécifiques pour le mode ATS */
-.achievementList {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-
-.achievementItem {
-  font-size: 0.95rem;
+.experienceIntro {
+  max-width: 76ch;
+  margin: 18px 0 0;
+  color: var(--cv-muted-foreground);
+  font-size: 0.92rem;
   line-height: 1.6;
-  margin-bottom: 0.8rem;
-  color: #374151;
-  padding-left: 0.5rem;
 }
 
-.bulletList {
-  list-style: none;
-  padding: 0;
-  margin: 0.5rem 0;
-}
-
-.bulletList li {
-  font-size: 0.95rem;
-  line-height: 1.6;
-  margin-bottom: 0.6rem;
-  color: #374151;
-  padding-left: 0.5rem;
-}
-
-.techStack {
-  font-size: 0.9rem;
-  color: #6b7280;
-  margin-top: 0.75rem;
-  padding: 0.5rem;
-  background-color: #f9fafb;
-  border-radius: 0.375rem;
-}
-
-.skillsAts {
+.contributionList {
   display: grid;
-  grid-template-columns: 1fr;
-  gap: 1rem;
+  gap: 14px;
+  margin-top: 22px;
 }
 
-.skillCategoryAts {
-  margin-bottom: 1rem;
-}
-
-.skillCategoryAts h4 {
-  font-weight: 600;
-  color: #1f2937;
-  margin-bottom: 0.5rem;
-  font-size: 1rem;
-}
-
-.skillCategoryAts p {
-  font-size: 0.9rem;
-  color: #374151;
+.contributionList p {
+  margin: 0;
+  color: var(--cv-foreground);
+  font-size: 0.91rem;
   line-height: 1.6;
-  margin: 0;
-  text-align: left;
 }
 
-.certificationList {
-  list-style: none;
-  padding: 0;
-  margin: 0;
+.contributionList strong {
+  color: var(--cv-primary);
 }
 
-.certificationList li {
-  font-size: 0.95rem;
+.stackLine {
+  margin: 22px 0 0;
+  padding: 11px 13px;
+  color: var(--cv-muted-foreground);
+  background: var(--cv-background);
+  font-size: 0.84rem;
   line-height: 1.5;
-  margin-bottom: 0.5rem;
-  color: #374151;
 }
 
-.softSkills {
-  font-size: 0.95rem;
-  color: #374151;
-  line-height: 1.7;
+.stackLine strong {
+  color: var(--cv-primary);
+}
+
+.previousExperiences {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 24px 30px;
+  margin-top: 30px;
+  padding-top: 28px;
+  border-top: 1px solid var(--cv-border);
+}
+
+.compactExperience,
+.education,
+.skillGroup {
+  break-inside: avoid;
+}
+
+.compactExperience h3,
+.education h3 {
+  font-size: 0.85rem;
+}
+
+.compactExperience > p,
+.education > p:last-child {
+  margin: 9px 0 0;
+  color: var(--cv-muted-foreground);
+  font-size: 0.85rem;
+  line-height: 1.5;
+}
+
+.skillGrid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 22px 30px;
   margin: 0;
-  text-align: justify;
 }
 
-.languages {
-  font-size: 0.95rem;
-  color: #374151;
-  line-height: 1.6;
+.skillGroup dt {
+  margin: 0 0 6px;
+  color: var(--cv-primary);
+  font:
+    700 0.82rem/1.25 'Lexend',
+    sans-serif;
+  text-transform: uppercase;
+}
+
+.skillGroup dd {
   margin: 0;
-  text-align: left;
+  color: var(--cv-muted-foreground);
+  font-size: 0.88rem;
+  line-height: 1.5;
 }
 
-/* Style pour les compétences en mode ATS */
-.skillName {
+.educationList {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 24px 30px;
+}
+
+.education .school {
+  font-size: 0.82rem;
+}
+
+.additionalInfo {
+  display: grid;
+  gap: 8px;
+}
+
+.additionalInfo p {
+  margin: 0;
+  color: var(--cv-muted-foreground);
   font-size: 0.9rem;
-  color: #374151;
+  line-height: 1.5;
 }
 
-.skillLevelBarContainer {
-  width: 100%;
-  height: 8px;
-  background-color: #e5e7eb;
-  border-radius: 4px;
-  overflow: hidden;
+.additionalInfo strong {
+  color: var(--cv-primary);
 }
 
-.skillLevelBar {
-  height: 100%;
-  background-color: #2563eb;
-  border-radius: 4px;
-}
-
-.projectItem {
-  margin-bottom: 1.5rem;
-}
-
-.tagList {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.5rem;
-  margin-top: 0.5rem;
-}
-
-.tag {
-  background-color: #f3f4f6;
-  padding: 0.25rem 0.5rem;
-  border-radius: 0.25rem;
-  font-size: 0.75rem;
-  color: #4b5563;
-}
-
-.educationItem {
-  margin-bottom: 1rem;
-}
-
-.interestList {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 1rem;
-  margin-bottom: 1.5rem;
-}
-
-.interestItem {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  font-size: 0.9rem;
-}
-
-.printButton {
-  position: fixed;
-  bottom: 2rem;
-  right: 2rem;
-  display: flex;
-  flex-direction: row;
-  gap: 0.5rem;
-}
-
-.actionButton {
-  background-color: #2563eb;
-  color: white;
-  border: none;
-  border-radius: 0.5rem;
-  padding: 0.75rem 1.5rem;
-  font-weight: 500;
-  cursor: pointer;
-  box-shadow:
-    0 4px 6px -1px rgba(0, 0, 0, 0.1),
-    0 2px 4px -1px rgba(0, 0, 0, 0.06);
-  transition: all 0.2s;
-}
-
-.actionButton:hover {
-  background-color: #1d4ed8;
-  transform: translateY(-2px);
-}
-
-.actionButton:active {
-  transform: translateY(0);
-}
-
-/* Optimisations pour l'impression */
-@media print {
-  .container {
-    padding: 0;
-    max-width: 100%;
+@media (max-width: 760px) {
+  .pageShell {
+    padding: 12px 0 40px;
   }
 
-  .printButton {
+  .toolbar {
+    position: static;
+    width: calc(100% - 24px);
+    align-items: stretch;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .toolbar p {
+    max-width: none;
+    font-size: 1rem;
+    line-height: 1.5;
+  }
+
+  .toolbarActions {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+
+  .resume {
+    width: 100%;
+    min-height: 0;
+    border-right: 0;
+    border-left: 0;
+  }
+
+  .header {
+    grid-template-columns: 1fr;
+    gap: 28px;
+    padding: 40px 28px;
+  }
+
+  .contactBlock {
+    align-self: auto;
+    gap: 10px;
+    padding-top: 20px;
+    padding-left: 0;
+    border-top: 1px solid rgb(255 255 255 / 35%);
+    border-left: 0;
+    font-size: 0.95rem;
+  }
+
+  .content {
+    padding: 8px 28px 42px;
+  }
+
+  .content > section {
+    padding: 32px 0;
+  }
+
+  .content h2 {
+    margin-bottom: 22px;
+    font-size: 1.05rem;
+  }
+
+  .lead,
+  .experienceIntro,
+  .contributionList p,
+  .compactExperience > p,
+  .skillGroup dd,
+  .education > p:last-child,
+  .additionalInfo p {
+    font-size: 1rem;
+    line-height: 1.62;
+  }
+
+  .experienceHeader,
+  .compactHeader,
+  .educationHeader {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 5px;
+  }
+
+  .period {
+    font-size: 0.92rem;
+  }
+
+  .previousExperiences,
+  .skillGrid,
+  .educationList {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .pageShell *,
+  .pageShell *::before,
+  .pageShell *::after {
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+@page {
+  size: A4 portrait;
+  margin: 12mm;
+}
+
+@media print {
+  .pageShell {
+    min-height: 0;
+    padding: 0;
+    color: #0f172a;
+    background: #ffffff;
+    font-size: 9pt;
+    print-color-adjust: exact;
+  }
+
+  .toolbar {
     display: none;
   }
 
-  .twoColumnGrid {
-    grid-template-columns: 3fr 1fr;
+  .resume {
+    width: auto;
+    min-height: 0;
+    overflow: visible;
+    border: 0;
   }
 
-  /* Optimisations spécifiques pour le mode ATS en impression */
-  .singleColumn .achievementList,
-  .singleColumn .bulletList,
-  .singleColumn .certificationList {
-    page-break-inside: avoid;
+  .header {
+    grid-template-columns: minmax(0, 1.55fr) minmax(54mm, 0.8fr);
+    gap: 9mm;
+    padding: 9mm 9mm 8mm;
   }
 
-  .singleColumn .techStack {
-    background-color: #f9fafb !important;
-    -webkit-print-color-adjust: exact !important;
-    color-adjust: exact !important;
+  .name {
+    font-size: 27pt;
   }
 
-  .singleColumn .availability {
-    background-color: #ecfdf5 !important;
-    -webkit-print-color-adjust: exact !important;
-    color-adjust: exact !important;
+  .title {
+    margin-top: 3mm;
+    font-size: 11pt;
   }
 
-  /* Forcer l'impression des couleurs et des backgrounds */
-  .printColorAdjust {
-    -webkit-print-color-adjust: exact !important;
-    color-adjust: exact !important;
-    print-color-adjust: exact !important;
+  .positioning,
+  .contactBlock {
+    font-size: 7.6pt;
   }
 
-  /* Éviter les sauts de page au milieu des sections importantes */
-  .experienceItem,
-  .projectItem,
-  .educationItem,
-  .skillCategoryAts {
-    page-break-inside: avoid;
+  .content {
+    padding: 2mm 9mm 7mm;
   }
 
-  /* Forcer les sauts de page où c'est logique */
-  .sectionTitle {
-    page-break-before: auto;
+  .content > section {
+    padding: 5mm 0;
   }
 
-  /* Supprimer les URLs imprimés à côté des liens */
-  .container a::after {
-    content: none !important;
-  }
-}
-
-/* Responsive design pour les écrans plus petits */
-@media screen and (max-width: 768px) {
-  .twoColumnGrid {
-    grid-template-columns: 1fr;
+  .content h2 {
+    margin-bottom: 3.5mm;
+    font-size: 8.5pt;
   }
 
-  .contactGrid {
-    grid-template-columns: 1fr 1fr;
+  .lead {
+    font-size: 8.5pt;
+    line-height: 1.45;
   }
 
-  .skillsGrid {
-    grid-template-columns: 1fr;
+  .availability {
+    margin-top: 3mm;
+    padding: 1.5mm 2mm;
+    font-size: 7.6pt;
   }
 
-  .skillsAts {
-    grid-template-columns: 1fr;
+  .primaryExperience,
+  .compactExperience,
+  .skillGroup,
+  .education {
+    break-inside: avoid;
   }
 
-  .printButton {
-    position: fixed;
-    bottom: 1rem;
-    right: 1rem;
-    flex-direction: column;
+  .primaryExperience h3,
+  .compactExperience h3,
+  .education h3 {
+    font-size: 8pt;
   }
 
-  .actionButton {
-    padding: 0.5rem 1rem;
-    font-size: 0.875rem;
+  .experienceIntro,
+  .contributionList p,
+  .compactExperience > p,
+  .skillGroup dd,
+  .education > p:last-child,
+  .additionalInfo p {
+    font-size: 7.5pt;
+    line-height: 1.42;
+  }
+
+  .contributionList {
+    gap: 2.2mm;
+    margin-top: 3.5mm;
+  }
+
+  .stackLine {
+    margin-top: 3.5mm;
+    padding: 1.8mm 2mm;
+    font-size: 7.2pt;
+  }
+
+  .previousExperiences {
+    gap: 3mm 5mm;
+    margin-top: 4mm;
+    padding-top: 4mm;
+  }
+
+  .skillGrid,
+  .educationList {
+    gap: 3mm 5mm;
+  }
+
+  .pageShell a {
+    text-decoration: none;
   }
 }
