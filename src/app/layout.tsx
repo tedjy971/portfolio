@@ -8,11 +8,15 @@ const inter = Inter({
 });
 
 export const metadata = {
+  metadataBase: new URL('https://tedjy.fr'),
   title: 'Teddy Gamiette | Développeur Full-stack',
   description:
     'Portfolio de Teddy Gamiette, développeur full-stack TypeScript spécialisé en Vue.js, NestJS, applications métier et DevOps.',
   icons: {
     icon: [{ url: '/favicon.svg', type: 'image/svg+xml' }],
+  },
+  alternates: {
+    canonical: '/',
   },
 };
 

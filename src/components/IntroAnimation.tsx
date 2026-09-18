@@ -12,8 +12,6 @@ const IntroAnimation: React.FC = () => {
   const nameCharsRef = useRef<HTMLSpanElement[]>([]);
   const titleCharsRef = useRef<HTMLSpanElement[]>([]);
   const specialtiesRef = useRef<HTMLDivElement>(null);
-  const typingTextRef = useRef<HTMLSpanElement | null>(null);
-  const cursorRef = useRef<HTMLSpanElement | null>(null);
   const separatorLineRef = useRef<HTMLDivElement | null>(null);
   const ctaRef = useRef<HTMLButtonElement>(null);
   const [isMobile, setIsMobile] = useState(false);

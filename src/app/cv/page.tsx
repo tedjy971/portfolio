@@ -2,6 +2,7 @@
 
 import { personalInfo } from '@/data/personalData';
 import styles from '@/styles/cv.module.css';
+import { DownloadSimple, FilePdf, House } from '@phosphor-icons/react';
 import dynamic from 'next/dynamic';
 import Link from 'next/link';
 import { useRef, useState } from 'react';
@@ -143,6 +144,7 @@ export default function CV() {
         <p>Pour candidater, privilégiez le PDF ATS avec texte sélectionnable.</p>
         <div className={styles.toolbarActions}>
           <Link className={styles.secondaryAction} href="/">
+            <House aria-hidden="true" size={18} weight="regular" />
             Portfolio
           </Link>
           <button
@@ -150,9 +152,11 @@ export default function CV() {
             type="button"
             onClick={() => setIsGeneratingVisualPdf(true)}
           >
+            <FilePdf aria-hidden="true" size={18} weight="regular" />
             PDF visuel
           </button>
           <button className={styles.primaryAction} type="button" onClick={() => window.print()}>
+            <DownloadSimple aria-hidden="true" size={18} weight="regular" />
             PDF ATS / impression
           </button>
         </div>
@@ -175,7 +179,7 @@ export default function CV() {
             <span>{personalInfo.location}</span>
             <a href={personalInfo.linkedin}>linkedin.com/in/teddy-gamiette-9a1a9613a</a>
             <a href={personalInfo.github}>github.com/tedjy971</a>
-            <a href={personalInfo.website}>teddygamiette.online</a>
+            <a href={personalInfo.website}>tedjy.fr</a>
           </address>
         </header>
 

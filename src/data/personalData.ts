@@ -2,18 +2,18 @@ import { Key, ReactNode } from 'react';
 
 export const personalInfo = {
   name: 'Teddy Gamiette',
-  title: 'Développeur Back-end | PHP/Symfony | Vue.js | API REST & Microservices',
-  role: 'Développeur Back-end',
+  title: 'Développeur Full-stack TypeScript | Vue.js | NestJS | DevOps',
+  role: 'Développeur Full-stack',
   company: 'Kernix',
   email: 'gamiette.teddy@gmail.com',
   phone: '+33 7 81 95 04 36',
   location: 'Palaiseau, Île-de-France',
   github: 'https://github.com/tedjy971',
   linkedin: 'https://www.linkedin.com/in/teddy-gamiette-9a1a9613a/',
-  website: 'https://teddygamiette.online',
+  website: 'https://tedjy.fr',
   description:
-    "Développeur Back-end avec 4+ ans d'expérience chez Kernix, spécialisé en PHP/Symfony, API REST et architecture microservices. Compétences transverses en Vue.js (design system, dashboards) et DevOps (Docker, AWS, CI/CD). Diplômé Master Tech Lead (HETIC, 2025).",
-  objective: "Développeur Back-end en CDI chez Kernix.",
+    'Développeur full-stack TypeScript chez Kernix depuis 2021, spécialisé en Vue.js, NestJS, applications métier et DevOps. Expérience solide de PHP/Symfony, des API, de la qualité et du delivery.',
+  objective: 'En CDI chez Kernix, à l’écoute d’opportunités full-stack à dominante TypeScript.',
 };
 
 export const educationExperiences = [
@@ -29,21 +29,21 @@ export const educationExperiences = [
     school: 'HETIC (Grande École du Numérique)',
     period: '2021 - 2023',
     description:
-      'Formation intensive en alternance alliée à 4 ans d\'expérience professionnelle chez Kernix. Maîtrise complète du développement web moderne : PHP/Symfony, JavaScript/React, API REST, bases de données. Apprentissage par la pratique avec projets réels en entreprise et méthodologies agiles (Scrum). Formation qui allie théorie acadmique et expérience opérationnelle immédiate.',
+      "Formation intensive en alternance alliée à 4 ans d'expérience professionnelle chez Kernix. Maîtrise complète du développement web moderne : PHP/Symfony, JavaScript/React, API REST, bases de données. Apprentissage par la pratique avec projets réels en entreprise et méthodologies agiles (Scrum). Formation qui allie théorie acadmique et expérience opérationnelle immédiate.",
   },
   {
     title: 'Licence SGBD & Big Data',
-    school: 'Université d\'Evry-Val d\'Essonne',
+    school: "Université d'Evry-Val d'Essonne",
     period: '2019',
     description:
-      "Spécialisation universitaire en architecture de bases de données et Big Data. Maîtrise des SGBD relationnels et NoSQL, optimisation de requêtes, modélisation de données complexes. Compétences en analyse statistique et visualisation de données massives. Foundation solide qui a directement contribué à mon expertise Elasticsearch et optimisation de performances en entreprise.",
+      'Spécialisation universitaire en architecture de bases de données et Big Data. Maîtrise des SGBD relationnels et NoSQL, optimisation de requêtes, modélisation de données complexes. Compétences en analyse statistique et visualisation de données massives. Foundation solide qui a directement contribué à mon expertise Elasticsearch et optimisation de performances en entreprise.',
   },
   {
     title: 'BTS SNIR - Systèmes Numériques & Réseaux',
     school: 'Lycée Parc de Vilgénis (Massy)',
     period: '2018',
     description:
-      'Formation technique de niveau Bac+2 couvrant le développement logiciel et l\'infrastructure réseau. Programmation orientée objet (C++, Java), administration systèmes Linux/Windows, architecture réseaux et sécurité. Base technique solide qui a facilité ma transition vers le développement web et ma compréhension des enjeux DevOps/infrastructure.',
+      "Formation technique de niveau Bac+2 couvrant le développement logiciel et l'infrastructure réseau. Programmation orientée objet (C++, Java), administration systèmes Linux/Windows, architecture réseaux et sécurité. Base technique solide qui a facilité ma transition vers le développement web et ma compréhension des enjeux DevOps/infrastructure.",
   },
 ];
 
@@ -52,7 +52,16 @@ export const experiences = [
     title: 'Développeur Back-end en CDI',
     company: 'Kernix',
     period: 'Depuis Septembre 2025',
-    tags: ['Symfony 6', 'Vue 3', 'NestJS', 'API REST', 'Design System', 'Storybook', 'Docker', 'AWS'],
+    tags: [
+      'Symfony 6',
+      'Vue 3',
+      'NestJS',
+      'API REST',
+      'Design System',
+      'Storybook',
+      'Docker',
+      'AWS',
+    ],
     description:
       "• Développe des API REST et microservices avec Symfony 6 et NestJS\n• Conçoit un cockpit métier Vue 3 avec design system réutilisable (Vuetify → Shoelace)\n• Développe des widgets autonomes (Custom Elements, Pinia) pour intégration multi-applications\n• Maintient la documentation composants avec Storybook et tests Vitest\n• Participe aux code reviews, veille technologique et décisions d'architecture",
   },
@@ -60,7 +69,16 @@ export const experiences = [
     title: 'Développeur Back-end en alternance',
     company: 'Kernix',
     period: '2021 - 2025',
-    tags: ['Symfony 6', 'NestJS', 'API REST', 'Elasticsearch', 'AWS', 'Docker', 'Kubernetes', 'Redis'],
+    tags: [
+      'Symfony 6',
+      'NestJS',
+      'API REST',
+      'Elasticsearch',
+      'AWS',
+      'Docker',
+      'Kubernetes',
+      'Redis',
+    ],
     description:
       "• Développe et maintient des microservices RESTful avec Symfony 6 et NestJS\n• Participe à la migration PHP 5.6 → 8.1 avec Rector, améliorant performances et stabilité\n• Implémente une architecture event-driven avec RabbitMQ/Redis\n• Optimise les requêtes Elasticsearch, réduisant le temps de recherche de 3s à 1.8s\n• Déploie des applications conteneurisées sur AWS avec Docker et Kubernetes\n• Développe l'intégration Apple/Google Wallet (API PKPass, notifications push)",
   },
@@ -77,7 +95,7 @@ export const experiences = [
       'User Support',
     ],
     description:
-      '• Gère l\'infrastructure informatique complète d\'un commissariat de police\n• Administre le parc informatique (postes de travail, serveurs, équipements réseau)\n• Assure le support technique et la maintenance des systèmes critiques\n• Garantit la continuité de service des applications métiers sensibles\n• Met en place des procédures de sauvegarde et de sécurité informatique',
+      "• Gère l'infrastructure informatique complète d'un commissariat de police\n• Administre le parc informatique (postes de travail, serveurs, équipements réseau)\n• Assure le support technique et la maintenance des systèmes critiques\n• Garantit la continuité de service des applications métiers sensibles\n• Met en place des procédures de sauvegarde et de sécurité informatique",
   },
   {
     title: 'Automation Developer',
@@ -91,7 +109,14 @@ export const experiences = [
     title: 'Data Analyst - Télécom',
     company: 'LUCERNYS',
     period: '2018-2019',
-    tags: ['Data Analysis', 'Excel', 'Reporting', 'Telecom', 'Contract Management', 'Business Intelligence'],
+    tags: [
+      'Data Analysis',
+      'Excel',
+      'Reporting',
+      'Telecom',
+      'Contract Management',
+      'Business Intelligence',
+    ],
     description:
       "• Analyse les consommations téléphoniques de grandes entreprises et optimise leurs contrats mobiles\n• Rédige des compilations de données détaillées comparant usage réel vs forfaits souscrits\n• Identifie les anomalies de facturation et opportunités d'économies pour les clients\n• Produit des rapports d'analyse permettant aux entreprises d'optimiser leurs coûts télécom\n• Gère les données de consommation de flottes mobiles multi-opérateurs",
   },
@@ -511,7 +536,7 @@ export const projects: Project[] = [
     id: 5,
     title: 'Real-time Backend Platform - 25K+ DAU',
     description:
-      "Architecture serverless avec Firebase supportant 25K+ utilisateurs actifs quotidiens. Implémentation de synchronisation temps réel avec Firestore, authentification multi-provider, Cloud Functions. Solution scalable et performante.",
+      'Architecture serverless avec Firebase supportant 25K+ utilisateurs actifs quotidiens. Implémentation de synchronisation temps réel avec Firestore, authentification multi-provider, Cloud Functions. Solution scalable et performante.',
     image: '/assets/projects/Firebase 1 Logo.svg',
     tags: ['Firebase', 'Cloud Functions', 'Firestore', 'FCM', 'Serverless', 'Real-time'],
     color: 'from-orange-500 to-red-600',
@@ -555,9 +580,9 @@ export const projects: Project[] = [
   },
   {
     id: 9,
-    title: 'Anti-Waste Recipe App - Projet Fin d\'Études',
+    title: "Anti-Waste Recipe App - Projet Fin d'Études",
     description:
-      "Application mobile de lutte contre le gaspillage alimentaire. Suggestions intelligentes de recettes basées sur les ingrédients à date de péremption proche. Architecture microservices avec recherche avancée Elasticsearch et déploiement containerisé.",
+      'Application mobile de lutte contre le gaspillage alimentaire. Suggestions intelligentes de recettes basées sur les ingrédients à date de péremption proche. Architecture microservices avec recherche avancée Elasticsearch et déploiement containerisé.',
     image: '/assets/projects/react-native.svg',
     color: 'from-green-400 to-emerald-600',
     tags: ['React Native', 'NestJS', 'Elasticsearch', 'Kubernetes', 'Docker', 'CI/CD'],
@@ -570,7 +595,16 @@ export const projects: Project[] = [
       "Développement d'un cockpit métier complet en Vue 3 avec un design system réutilisable. Widgets autonomes (Custom Elements et Pinia), modules de facturation, production, abonnements et devis. Migration Vuetify → Shoelace (Web Components). Backend NestJS avec API REST. Architecture monorepo avec Storybook, Vitest et multi-theming (dark/light).",
     image: '/assets/projects/vue.svg',
     color: 'from-emerald-500 to-teal-700',
-    tags: ['Vue 3', 'TypeScript', 'Vuetify', 'Shoelace', 'Pinia', 'NestJS', 'Storybook', 'Design System'],
+    tags: [
+      'Vue 3',
+      'TypeScript',
+      'Vuetify',
+      'Shoelace',
+      'Pinia',
+      'NestJS',
+      'Storybook',
+      'Design System',
+    ],
     type: 'entreprise',
   },
 ];
@@ -623,7 +657,7 @@ export const contactDetails = [
   {
     icon: '🌐',
     title: 'Portfolio',
-    detail: 'teddygamiette.online',
+    detail: 'tedjy.fr',
     link: personalInfo.website,
   },
 ];

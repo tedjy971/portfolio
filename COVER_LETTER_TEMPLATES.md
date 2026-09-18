@@ -8,10 +8,10 @@ Objet: Backend Engineer - Ref: [REF_OFFRE]
 Madame, Monsieur,
 
 [HOOK PERSONNALISÉ - Mentionnez un fait récent sur l'entreprise]
-Votre récente levée de fonds de [X]M€ / expansion vers [pays] / lancement de [feature] 
+Votre récente levée de fonds de [X]M€ / expansion vers [pays] / lancement de [feature]
 témoigne de l'ambition de [ENTREPRISE] de révolutionner [SECTEUR].
 
-En tant que Backend Engineer avec 4 ans d'expertise en architecture scalable, 
+En tant que Backend Engineer avec 4 ans d'expertise en architecture scalable,
 je suis convaincu de pouvoir contribuer significativement à vos défis techniques actuels.
 
 MES RÉALISATIONS ALIGNÉES AVEC VOS BESOINS:
@@ -30,8 +30,8 @@ POURQUOI [ENTREPRISE]:
 • La culture engineering-first et l'autonomie des équipes correspondent à ma philosophie de travail
 • L'opportunité d'impact direct sur des millions d'utilisateurs est exactement ce que je recherche
 
-Disponible immédiatement pour un entretien, je serais ravi de discuter comment mon expertise 
-en architecture backend et ma passion pour les défis techniques peuvent contribuer 
+Disponible immédiatement pour un entretien, je serais ravi de discuter comment mon expertise
+en architecture backend et ma passion pour les défis techniques peuvent contribuer
 à la croissance de [ENTREPRISE].
 
 Cordialement,
@@ -47,10 +47,10 @@ Objet: Candidature - Développeur Backend Senior - Direction IT
 
 Madame, Monsieur,
 
-La transformation digitale de [ENTREPRISE] et votre investissement de [X]M€ dans la modernisation 
+La transformation digitale de [ENTREPRISE] et votre investissement de [X]M€ dans la modernisation
 de vos systèmes IT représentent exactement le type de challenge technique que je recherche.
 
-Fort de 4 années d'expérience en développement backend et actuellement en fin de Master Tech Lead 
+Fort de 4 années d'expérience en développement backend et actuellement en fin de Master Tech Lead
 à HETIC, je souhaite mettre mon expertise au service de vos projets de transformation.
 
 COMPÉTENCES CLÉS POUR VOS ENJEUX:
@@ -72,10 +72,10 @@ VALEUR AJOUTÉE:
 • Capacité à travailler avec équipes pluridisciplinaires
 • Documentation technique rigoureuse et transfert de compétences
 
-Mon parcours en alternance m'a permis de combiner excellence académique et pragmatisme terrain, 
+Mon parcours en alternance m'a permis de combiner excellence académique et pragmatisme terrain,
 une approche particulièrement adaptée aux enjeux de transformation de [ENTREPRISE].
 
-Je serais honoré de contribuer à vos projets stratégiques et disponible pour échanger 
+Je serais honoré de contribuer à vos projets stratégiques et disponible pour échanger
 sur la manière dont mon profil peut répondre à vos besoins.
 
 Respectueusement,
@@ -92,8 +92,8 @@ Objet: Backend Engineer - Prêt à scaler votre MVP
 Bonjour [NOM_FONDATEUR],
 
 [ACCROCHE DIRECTE]
-J'ai vu que vous venez de closer votre seed de [X]M€ avec [investisseur]. 
-Votre vision de [description courte du produit] est exactement le type de projet 
+J'ai vu que vous venez de closer votre seed de [X]M€ avec [investisseur].
+Votre vision de [description courte du produit] est exactement le type de projet
 qui me motive.
 
 JE PEUX VOUS AIDER À:
@@ -108,19 +108,19 @@ MON PROFIL "STARTUP-FIT":
 • Croissance mindset: Master Tech Lead en cours + veille tech constante
 
 POURQUOI MAINTENANT:
-Après 4 ans en alternance, je cherche une structure où m'investir à 200%. 
-Votre projet à ce stade critique (post-seed, pre-Serie A) est l'opportunité parfaite 
+Après 4 ans en alternance, je cherche une structure où m'investir à 200%.
+Votre projet à ce stade critique (post-seed, pre-Serie A) est l'opportunité parfaite
 pour avoir un impact maximal.
 
 NEXT STEPS:
-Coffee chat cette semaine? Je peux vous montrer comment j'ai aidé à scaler 
+Coffee chat cette semaine? Je peux vous montrer comment j'ai aidé à scaler
 des projets similaires et discuter de votre roadmap technique.
 
 À très vite,
 Teddy
 
-P.S: J'ai checké votre stack sur StackShare - l'architecture serverless 
-avec Symfony est un excellent choix. J'ai justement un boilerplate open-source 
+P.S: J'ai checké votre stack sur StackShare - l'architecture serverless
+avec Symfony est un excellent choix. J'ai justement un boilerplate open-source
 qui pourrait vous intéresser: github.com/tedjy971/boilerplate-symfony-serverless-bref
 ```
 
@@ -148,8 +148,8 @@ REMOTE READINESS:
 • Time zones: Flexible, can adapt to team's core hours
 • Communication: Fluent in English, active on Slack/Discord
 
-Available for a video call anytime this week. 
-Portfolio with live projects: teddygamiette.online
+Available for a video call anytime this week.
+Portfolio with live projects: tedjy.fr
 
 Best,
 Teddy Gamiette
@@ -160,6 +160,7 @@ Teddy Gamiette
 ## 🎯 RÈGLES D'OR POUR LA PERSONNALISATION
 
 ### MUST-DO:
+
 1. **Recherche 15 min minimum** sur l'entreprise
 2. **Mentionnez UN élément spécifique** (actualité, produit, valeur)
 3. **Matchez 80% des mots-clés** de l'offre
@@ -167,6 +168,7 @@ Teddy Gamiette
 5. **Subject line précis** avec référence si applicable
 
 ### NEVER-DO:
+
 1. ❌ "Je me permets de vous écrire"
 2. ❌ "Veuillez trouver ci-joint"
 3. ❌ Paragraphes de plus de 4 lignes
@@ -178,16 +180,19 @@ Teddy Gamiette
 ## 📧 EXEMPLES DE SUBJECTS LINES QUI CONVERTISSENT
 
 ### Pour ATS:
+
 - "Backend Engineer - Symfony Expert - REF: [123456]"
 - "Application: Senior Developer PHP - 4 Years Experience"
 - "RE: Backend Position - Immediate Availability"
 
 ### Pour Startups:
+
 - "Ready to scale your backend from 10K to 1M users"
 - "Ex-Kernix engineer interested in your Series A challenges"
 - "Your Symfony stack + My expertise = Perfect match"
 
 ### Pour Networking:
+
 - "[Nom Commun] suggested I reach out - Backend Engineer"
 - "Following your talk at [Event] - Backend opportunity?"
 - "Inspired by your blog post on [Topic] - Let's connect"
@@ -248,16 +253,19 @@ P.S: Comme discuté, voici le lien vers mon projet open-source: [LIEN]
 ## 💡 BONUS: GÉNÉRATEUR DE PHRASES D'ACCROCHE
 
 ### Si l'entreprise a fait l'actualité:
+
 - "Votre [levée de fonds/acquisition/lancement] de [MOIS] confirme que..."
 - "La récente annonce de votre [ÉVÉNEMENT] m'a convaincu que..."
 - "J'ai suivi avec intérêt votre [ACTUALITÉ] et..."
 
 ### Si vous avez une connexion:
+
 - "[NOM] m'a vivement recommandé de vous contacter..."
 - "Suite à ma discussion avec [NOM] lors de [ÉVÉNEMENT]..."
 - "Après avoir échangé avec [NOM] de votre équipe..."
 
 ### Si vous connaissez leur tech:
+
 - "Votre article sur [BLOG TECH] concernant [SUJET] résonne particulièrement..."
 - "J'ai remarqué dans votre stack que vous utilisez [TECH]..."
 - "Votre approche de [PROBLÈME TECHNIQUE] avec [SOLUTION] est exactement..."
