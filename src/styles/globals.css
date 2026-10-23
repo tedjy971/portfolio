@@ -3,28 +3,31 @@
 @tailwind utilities;
 
 :root {
-  --foreground-rgb: 0, 0, 0;
-  --background-rgb: 255, 255, 255;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-rgb: 30, 30, 35;
-  }
+  --foreground-rgb: 2, 6, 23;
+  --background-rgb: 248, 250, 252;
 }
 
 html {
-  scroll-behavior: smooth;
+  scroll-behavior: auto;
 }
 
 body {
   color: rgb(var(--foreground-rgb));
   background: rgb(var(--background-rgb));
   overflow-x: hidden;
-  overscroll-behavior-y: none; /* Évite le rebond sur certains navigateurs */
+  overscroll-behavior-y: auto;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+/* Les animations sont volontairement neutralisées pour supprimer tout
+   scintillement et garder une lecture stable, notamment sur mobile. */
+*,
+*::before,
+*::after {
+  animation: none !important;
+  scroll-behavior: auto !important;
+  transition: none !important;
 }
 
 .bg-size-200 {
@@ -115,7 +118,7 @@ body {
 
 .tech-slider:before,
 .tech-slider:after {
-  content: "";
+  content: '';
   position: absolute;
   top: 0;
   width: 100px;
@@ -125,11 +128,7 @@ body {
 
 .tech-slider:before {
   left: 0;
-  background: linear-gradient(
-    to right,
-    rgb(var(--background-rgb)),
-    transparent
-  );
+  background: linear-gradient(to right, rgb(var(--background-rgb)), transparent);
 }
 
 .tech-slider:after {
@@ -193,7 +192,7 @@ body {
 }
 
 .swiper-pagination-bullet-active {
-  background: #3B82F6; /* Bleu primaire */
+  background: #3b82f6; /* Bleu primaire */
 }
 
 .dark .swiper-pagination-bullet {
@@ -201,12 +200,12 @@ body {
 }
 
 .dark .swiper-pagination-bullet-active {
-  background: #3B82F6;
+  background: #3b82f6;
 }
 
 .swiper-button-next,
 .swiper-button-prev {
-  color: #3B82F6;
+  color: #3b82f6;
   background-color: rgba(255, 255, 255, 0.3);
   width: 40px;
   height: 40px;

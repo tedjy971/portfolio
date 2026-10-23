@@ -1,5 +1,3 @@
-import { Analytics } from '@vercel/analytics/react';
-import { SpeedInsights } from '@vercel/speed-insights/next';
 import { IBM_Plex_Sans, Inter, JetBrains_Mono } from 'next/font/google';
 import '../styles/globals.css';
 
@@ -23,9 +21,16 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 export const metadata = {
+  metadataBase: new URL('https://tedjy.fr'),
   title: 'Teddy Gamiette | Développeur Full-stack orienté Back-end',
   description:
-    'Portfolio de Teddy Gamiette, développeur full-stack orienté back-end : PHP/Symfony 7, NestJS, Vue 3, API REST, microservices et IA/LLM.',
+    'Portfolio de Teddy Gamiette, développeur full-stack orienté back-end : PHP/Symfony 7, TypeScript/NestJS, Vue 3, API REST, microservices et IA/LLM.',
+  icons: {
+    icon: [{ url: '/favicon.svg', type: 'image/svg+xml' }],
+  },
+  alternates: {
+    canonical: '/',
+  },
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
@@ -35,8 +40,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         {/* <SmoothScroll> */}
         {children}
         {/* </SmoothScroll> */}
-        <Analytics />
-        <SpeedInsights />
       </body>
     </html>
   );

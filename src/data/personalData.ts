@@ -10,7 +10,7 @@ export const personalInfo = {
   location: 'Palaiseau, Île-de-France',
   github: 'https://github.com/tedjy971',
   linkedin: 'https://www.linkedin.com/in/teddy-gamiette-9a1a9613a/',
-  website: 'https://teddygamiette.online',
+  website: 'https://tedjy.fr',
   description:
     "Développeur Full-stack orienté Back-end avec 5 ans d'expérience (2021 – 2026), spécialisé en PHP 8/Symfony, API REST et architecture microservices (DDD, CQRS, event-driven). Utilise l'IA au quotidien (Claude Code, Cursor, agents, MCP). Back-end sur deux stacks (PHP/Symfony et TypeScript/NestJS), front Vue 3, DevOps (Docker, AWS, CI/CD). Master Tech Lead HETIC.",
   objective: "Recherche un poste de Développeur Full-stack orienté Back-end (CDI) — disponible rapidement.",
@@ -614,7 +614,7 @@ export const contactDetails = [
   {
     icon: '🌐',
     title: 'Portfolio',
-    detail: 'teddygamiette.online',
+    detail: 'tedjy.fr',
     link: personalInfo.website,
   },
 ];

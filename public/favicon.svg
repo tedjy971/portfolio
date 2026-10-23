@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Teddy Gamiette">
+  <rect width="64" height="64" rx="14" fill="#18181b" />
+  <path d="M14 14h36v9H36.5v27h-9V23H14z" fill="#2563eb" />
+  <path d="M27.5 23h9v27h-9z" fill="#ffffff" />
+</svg>
