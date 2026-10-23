@@ -29,7 +29,7 @@ export const educationExperiences = [
     school: 'HETIC (Grande École du Numérique)',
     period: '2021 - 2023',
     description:
-      'Formation intensive en alternance alliée à 4 ans d\'expérience professionnelle chez Kernix. Maîtrise complète du développement web moderne : PHP/Symfony, JavaScript/React, API REST, bases de données. Apprentissage par la pratique avec projets réels en entreprise et méthodologies agiles (Scrum). Formation qui allie théorie académique et expérience opérationnelle immédiate.',
+      'Formation suivie en parallèle de mon poste chez Kernix. Maîtrise complète du développement web moderne : PHP/Symfony, JavaScript/React, API REST, bases de données. Apprentissage par la pratique avec projets réels en entreprise et méthodologies agiles (Scrum). Formation qui allie théorie académique et expérience opérationnelle immédiate.',
   },
   {
     title: 'Licence SGBD & Big Data',
@@ -49,7 +49,7 @@ export const educationExperiences = [
 
 export const experiences = [
   {
-    title: 'Développeur Full-stack orienté Back-end (alternance puis CDI)',
+    title: 'Développeur Full-stack orienté Back-end',
     company: 'Kernix',
     period: '2021 - Présent',
     tags: ['Symfony 7', 'NestJS', 'TypeScript', 'Vue 3', 'API REST', 'TypeORM', 'Elasticsearch', 'Docker', 'AWS', 'IA/LLM'],

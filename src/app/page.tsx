@@ -231,8 +231,7 @@ export default function Home() {
               </motion.p>
               <p className="mt-5 max-w-[60ch] text-base sm:text-lg leading-relaxed">
                 J&apos;écris des API et des microservices qui tiennent en production, en PHP/Symfony et
-                NestJS, et je sais livrer le front Vue qui va avec. Cinq ans chez Kernix, de
-                l&apos;alternance au CDI.
+                NestJS, et je sais livrer le front Vue qui va avec. Cinq ans chez Kernix.
               </p>
               <div className="mt-9 flex flex-wrap items-center gap-3">
                 <a href="#contact" className={btnPrimary}>

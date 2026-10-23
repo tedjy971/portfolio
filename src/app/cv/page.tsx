@@ -217,7 +217,7 @@ export default function CV() {
               <div className={styles.experienceHeader}>
                 <div>
                   <h3>Développeur Full-stack · Kernix</h3>
-                  <p className={styles.company}>CDI après quatre années d’alternance</p>
+                  <p className={styles.company}>CDI</p>
                 </div>
                 <p className={styles.period}>2021 — aujourd’hui</p>
               </div>
