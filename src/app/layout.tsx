@@ -1,4 +1,5 @@
 import { IBM_Plex_Sans, Inter, JetBrains_Mono } from 'next/font/google';
+import { Analytics } from '@vercel/analytics/next';
 import '../styles/globals.css';
 
 const inter = Inter({
@@ -40,6 +41,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         {/* <SmoothScroll> */}
         {children}
         {/* </SmoothScroll> */}
+        <Analytics />
       </body>
     </html>
   );
