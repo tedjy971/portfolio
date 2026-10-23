@@ -497,7 +497,7 @@
 
 @page {
   size: A4 portrait;
-  margin: 12mm;
+  margin: 0;
 }
 
 @media print {
@@ -519,6 +519,9 @@
     min-height: 0;
     overflow: visible;
     border: 0;
+    padding: 10mm 0;
+    -webkit-box-decoration-break: clone;
+    box-decoration-break: clone;
   }
 
   .header {

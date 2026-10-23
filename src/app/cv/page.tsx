@@ -217,7 +217,6 @@ export default function CV() {
               <div className={styles.experienceHeader}>
                 <div>
                   <h3>Développeur Full-stack · Kernix</h3>
-                  <p className={styles.company}>CDI</p>
                 </div>
                 <p className={styles.period}>2021 — aujourd’hui</p>
               </div>
@@ -237,8 +236,8 @@ export default function CV() {
               </div>
 
               <p className={styles.stackLine}>
-                <strong>Environnement principal :</strong> TypeScript, Vue 3, NestJS, Node.js,
-                PHP/Symfony, PostgreSQL, Redis, RabbitMQ, Elasticsearch, Docker, GitLab CI/CD,
+                <strong>Environnement principal :</strong> PHP/Symfony, TypeScript, NestJS, Vue 3,
+                Node.js, PostgreSQL, Redis, RabbitMQ, Elasticsearch, Docker, GitLab CI/CD,
                 Kubernetes et AWS.
               </p>
             </article>
