@@ -2,7 +2,7 @@ import { Key, ReactNode } from 'react';
 
 export const personalInfo = {
   name: 'Teddy Gamiette',
-  title: 'Développeur Back-end | PHP/Symfony | Vue.js | API REST & Microservices',
+  title: 'Développeur Full-stack orienté Back-end | PHP/Symfony · NestJS · Vue | IA/LLM',
   role: 'Développeur Back-end',
   company: 'Kernix',
   email: 'gamiette.teddy@gmail.com',
@@ -12,15 +12,15 @@ export const personalInfo = {
   linkedin: 'https://www.linkedin.com/in/teddy-gamiette-9a1a9613a/',
   website: 'https://teddygamiette.online',
   description:
-    "Développeur Back-end avec 4+ ans d'expérience chez Kernix, spécialisé en PHP/Symfony, API REST et architecture microservices. Compétences transverses en Vue.js (design system, dashboards) et DevOps (Docker, AWS, CI/CD). Diplômé Master Tech Lead (HETIC, 2025).",
-  objective: "Développeur Back-end en CDI chez Kernix.",
+    "Développeur Full-stack orienté Back-end avec 5 ans d'expérience (2021 – 2026), spécialisé en PHP 8/Symfony, API REST et architecture microservices (DDD, CQRS, event-driven). Utilise l'IA au quotidien (Claude Code, Cursor, agents, MCP). Compétences transverses en Vue 3, Flutter et DevOps (Docker, AWS, CI/CD). Master Tech Lead HETIC.",
+  objective: "Recherche un poste de Développeur Full-stack orienté Back-end (CDI) — disponible rapidement.",
 };
 
 export const educationExperiences = [
   {
     title: 'Master Tech Lead - Management & Architecture Logicielle',
     school: 'HETIC (Grande École du Numérique)',
-    period: '2023 - 2025 (Obtenu en Septembre 2025)',
+    period: 'Diplômé',
     description:
       "Formation d'excellence en leadership technique et architecture logicielle moderne. Expertise avancée : Domain-Driven Design (DDD), Architecture Microservices, Event Sourcing/CQRS, Design Patterns. Spécialisation Cloud Architecture (AWS/GCP), DevSecOps, et Management d'équipes techniques agiles. Projet de fin d'études : Développement d'une application mobile anti-gaspillage alimentaire avec React Native, NestJS, Elasticsearch et déploiement Kubernetes.",
   },
@@ -29,7 +29,7 @@ export const educationExperiences = [
     school: 'HETIC (Grande École du Numérique)',
     period: '2021 - 2023',
     description:
-      'Formation intensive en alternance alliée à 4 ans d\'expérience professionnelle chez Kernix. Maîtrise complète du développement web moderne : PHP/Symfony, JavaScript/React, API REST, bases de données. Apprentissage par la pratique avec projets réels en entreprise et méthodologies agiles (Scrum). Formation qui allie théorie acadmique et expérience opérationnelle immédiate.',
+      'Formation intensive en alternance alliée à 4 ans d\'expérience professionnelle chez Kernix. Maîtrise complète du développement web moderne : PHP/Symfony, JavaScript/React, API REST, bases de données. Apprentissage par la pratique avec projets réels en entreprise et méthodologies agiles (Scrum). Formation qui allie théorie académique et expérience opérationnelle immédiate.',
   },
   {
     title: 'Licence SGBD & Big Data',
@@ -49,20 +49,12 @@ export const educationExperiences = [
 
 export const experiences = [
   {
-    title: 'Développeur Back-end en CDI',
+    title: 'Développeur Full-stack orienté Back-end (alternance puis CDI)',
     company: 'Kernix',
-    period: 'Depuis Septembre 2025',
-    tags: ['Symfony 6', 'Vue 3', 'NestJS', 'API REST', 'Design System', 'Storybook', 'Docker', 'AWS'],
+    period: '2021 - Présent',
+    tags: ['Symfony 7', 'NestJS', 'Vue 3', 'API REST', 'Elasticsearch', 'Docker', 'AWS', 'Kubernetes', 'IA/LLM'],
     description:
-      "• Développe des API REST et microservices avec Symfony 6 et NestJS\n• Conçoit un cockpit métier Vue 3 avec design system réutilisable (Vuetify → Shoelace)\n• Développe des widgets autonomes (Custom Elements, Pinia) pour intégration multi-applications\n• Maintient la documentation composants avec Storybook et tests Vitest\n• Participe aux code reviews, veille technologique et décisions d'architecture",
-  },
-  {
-    title: 'Développeur Back-end en alternance',
-    company: 'Kernix',
-    period: '2021 - 2025',
-    tags: ['Symfony 6', 'NestJS', 'API REST', 'Elasticsearch', 'AWS', 'Docker', 'Kubernetes', 'Redis'],
-    description:
-      "• Développe et maintient des microservices RESTful avec Symfony 6 et NestJS\n• Participe à la migration PHP 5.6 → 8.1 avec Rector, améliorant performances et stabilité\n• Implémente une architecture event-driven avec RabbitMQ/Redis\n• Optimise les requêtes Elasticsearch, réduisant le temps de recherche de 3s à 1.8s\n• Déploie des applications conteneurisées sur AWS avec Docker et Kubernetes\n• Développe l'intégration Apple/Google Wallet (API PKPass, notifications push)",
+      "• Développe des API REST et microservices avec Symfony 7 et NestJS (DDD, CQRS)\n• Réalise la migration PHP 5.6 → 8.1 avec Rector, améliorant performances et stabilité\n• Conçoit un cockpit métier Vue 3 avec design system réutilisable (Vuetify → Shoelace) et widgets autonomes (Custom Elements, Pinia)\n• Implémente une architecture event-driven avec RabbitMQ/Redis\n• Optimise les requêtes Elasticsearch, réduisant le temps de recherche de 3s à 1.8s\n• Développe l'intégration Apple/Google Wallet (API PKPass, notifications push)\n• Déploie des applications conteneurisées sur AWS avec Docker et Kubernetes\n• Utilise l'IA au quotidien en entreprise : Claude Code, Cursor, Claude Design, agents et serveurs MCP\n• Écrit les tests (PHPUnit, Vitest), documente avec Storybook, participe aux code reviews et décisions d'architecture",
   },
   {
     title: 'Technicien Informatique',
@@ -98,7 +90,7 @@ export const experiences = [
   {
     title: 'Développeur Web Stagiaire',
     company: 'Conseil Départemental de Seine-Saint-Denis',
-    period: 'Mai 2018 - Juin 2018',
+    period: '2018',
     tags: ['PHP 7', 'MySQL', 'MVC Architecture', 'jQuery', 'Bootstrap', 'Git'],
     description:
       "• Développe from scratch une application web de gestion de projets en PHP/MVC\n• Conçoit l'architecture complète : base de données, backend et interface utilisateur\n• Implémente un système d'authentification et de gestion des droits utilisateurs\n• Livre une solution fonctionnelle répondant aux besoins métiers du service\n• Première expérience complète en développement web full-stack",
@@ -136,7 +128,7 @@ export const skills = [
     logo: '/assets/skills/php.svg',
   },
   {
-    name: 'Symfony 6',
+    name: 'Symfony 7',
     level: 95,
     category: 'backend',
     color: 'bg-blue-600',
@@ -438,6 +430,49 @@ export const skills = [
     color: 'bg-indigo-800',
     logo: '/assets/skills/patterns.svg',
   },
+  // IA & Mobile
+  {
+    name: 'IA / LLM (Claude, OpenAI)',
+    level: 80,
+    category: 'backend',
+    color: 'bg-violet-600',
+    logo: '/assets/skills/api.svg',
+  },
+  {
+    name: 'Agents IA & MCP',
+    level: 75,
+    category: 'backend',
+    color: 'bg-violet-700',
+    logo: '/assets/skills/microservices.svg',
+  },
+  {
+    name: 'Flutter / Dart',
+    level: 65,
+    category: 'frontend',
+    color: 'bg-sky-500',
+    logo: '/assets/skills/patterns.svg',
+  },
+  {
+    name: 'CQRS',
+    level: 75,
+    category: 'backend',
+    color: 'bg-indigo-600',
+    logo: '/assets/skills/ddd.svg',
+  },
+  {
+    name: 'PHPStan',
+    level: 80,
+    category: 'backend',
+    color: 'bg-green-700',
+    logo: '/assets/skills/phpunit.svg',
+  },
+  {
+    name: 'Vitest',
+    level: 75,
+    category: 'frontend',
+    color: 'bg-green-600',
+    logo: '/assets/skills/jest.svg',
+  },
   // Security
   {
     name: 'OAuth 2.0/JWT',
@@ -469,12 +504,12 @@ export interface Project {
 export const projects: Project[] = [
   {
     id: 1,
-    title: 'Migration PHP Enterprise - 50K+ Utilisateurs',
+    title: 'Migration PHP 5.6 → 8.1 avec Rector',
     description:
-      "Lead technique sur la migration critique PHP 5.6 → 8.1 d'une plateforme SaaS. Résultat: +40% performances, -30% coûts infrastructure, zéro downtime. Refactoring de 500K+ lignes de code avec Rector, mise en place de pipelines CI/CD automatisés.",
+      "Réalisation de la migration PHP 5.6 → 8.1 d'une application client : refactoring automatisé avec Rector, mise à niveau Symfony, pipelines CI/CD GitLab et tests de non-régression PHPUnit. Gains de performance et de stabilité.",
     image: '/assets/projects/Symfony SVG Icon.svg',
     color: 'from-blue-500 to-blue-700',
-    tags: ['PHP 8.1', 'Symfony 6', 'Rector', 'GitLab CI/CD', 'Docker', 'Zero-Downtime'],
+    tags: ['PHP 8.1', 'Symfony 7', 'Rector', 'GitLab CI/CD', 'Docker', 'PHPUnit'],
     type: 'entreprise',
   },
   {
@@ -505,16 +540,6 @@ export const projects: Project[] = [
     image: '/assets/projects/Wallet Glyph Blue/dd8f3fa9-d7e0-46e3-b6dd-dbd028761207.jpg',
     tags: ['Apple Wallet', 'Google Pay', 'API REST', 'Node.js', 'Integration', 'PKPass'],
     color: 'from-green-500 to-green-700',
-    type: 'entreprise',
-  },
-  {
-    id: 5,
-    title: 'Real-time Backend Platform - 25K+ DAU',
-    description:
-      "Architecture serverless avec Firebase supportant 25K+ utilisateurs actifs quotidiens. Implémentation de synchronisation temps réel avec Firestore, authentification multi-provider, Cloud Functions. Solution scalable et performante.",
-    image: '/assets/projects/Firebase 1 Logo.svg',
-    tags: ['Firebase', 'Cloud Functions', 'Firestore', 'FCM', 'Serverless', 'Real-time'],
-    color: 'from-orange-500 to-red-600',
     type: 'entreprise',
   },
   {

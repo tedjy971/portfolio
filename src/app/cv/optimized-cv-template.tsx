@@ -19,7 +19,7 @@ const OptimizedCVTemplate = () => {
 
         {/* Statut */}
         <div className="availability">
-          🟢 En poste — CDI chez Kernix | Ouvert aux opportunités
+          🟢 Disponible rapidement — Recherche un CDI Full-stack orienté Back-end
         </div>
       </header>
 
@@ -27,10 +27,10 @@ const OptimizedCVTemplate = () => {
       <section className="professional-summary">
         <h3>PROFIL PROFESSIONNEL</h3>
         <p>
-          Développeur Back-end avec 4+ ans d'expérience chez Kernix (agence digitale).
-          Spécialisé en PHP 8/Symfony 6, API REST et architecture microservices.
+          Développeur Full-stack orienté Back-end avec 5 ans d'expérience chez Kernix (agence digitale).
+          Spécialisé en PHP 8/Symfony 7, API REST et architecture microservices.
           Compétences transverses en Vue 3 (design system, dashboards) et DevOps (Docker, AWS, CI/CD).
-          Diplômé Master Tech Lead — HETIC (2025).
+          Diplômé Master Tech Lead — HETIC.
         </p>
       </section>
 
@@ -39,7 +39,7 @@ const OptimizedCVTemplate = () => {
         <h3>🏆 RÉALISATIONS CLÉS</h3>
         <ul>
           <li>• Cockpit métier Vue 3 + Design System réutilisable | Migration Vuetify → Shoelace</li>
-          <li>• Migration PHP 5.6 → 8.1 avec Rector | Amélioration performances et stabilité</li>
+          <li>• Réalise la migration PHP 5.6 → 8.1 avec Rector | Amélioration performances et stabilité</li>
           <li>• Optimisation Elasticsearch | Réduction temps de recherche de 3s à 1.8s</li>
           <li>• Intégration Apple/Google Wallet | API PKPass et notifications push</li>
           <li>• Architecture event-driven RabbitMQ/Redis | Déploiement Docker/AWS/Kubernetes</li>
@@ -53,7 +53,7 @@ const OptimizedCVTemplate = () => {
         <div className="skills-grid">
           <div className="skill-category">
             <h4>Backend</h4>
-            <p>PHP 8.x • Symfony 6 • NestJS • Node.js • API REST • GraphQL • Microservices</p>
+            <p>PHP 8.x • Symfony 7 • NestJS • Node.js • API REST • GraphQL • Microservices</p>
           </div>
 
           <div className="skill-category">
@@ -89,13 +89,13 @@ const OptimizedCVTemplate = () => {
         
         <div className="experience-item">
           <div className="exp-header">
-            <h4>Développeur Back-end (CDI) | Kernix</h4>
-            <span>2021 - Présent (4+ ans, dont CDI depuis Sept. 2025)</span>
+            <h4>Développeur Full-stack orienté Back-end (alternance puis CDI) | Kernix</h4>
+            <span>2021 - Présent (5 ans : alternance puis CDI)</span>
           </div>
           <ul>
             <li>• Conçoit un cockpit métier Vue 3 avec design system réutilisable et widgets autonomes</li>
-            <li>• Développe des API REST et microservices avec Symfony 6 et NestJS</li>
-            <li>• Migration PHP 5.6 → 8.1 avec Rector, amélioration performances et stabilité</li>
+            <li>• Développe des API REST et microservices avec Symfony 7 et NestJS</li>
+            <li>• Réalise la migration PHP 5.6 → 8.1 avec Rector, amélioration performances et stabilité</li>
             <li>• Architecture event-driven avec RabbitMQ/Redis pour découplage des services</li>
             <li>• Optimisation Elasticsearch, réduction temps de recherche de 3s à 1.8s</li>
             <li>• Intégration Apple Wallet et Google Pay, développement API PKPass</li>
@@ -103,7 +103,7 @@ const OptimizedCVTemplate = () => {
             <li>• Code reviews, documentation Storybook et veille technologique</li>
           </ul>
           <p className="tech-stack">
-            Stack: PHP 8, Symfony 6, Vue 3, NestJS, PostgreSQL, Redis, Elasticsearch, Docker, AWS, GitLab CI/CD, Storybook
+            Stack: PHP 8, Symfony 7, Vue 3, NestJS, PostgreSQL, Redis, Elasticsearch, Docker, AWS, GitLab CI/CD, Storybook
           </p>
         </div>
 
@@ -127,7 +127,7 @@ const OptimizedCVTemplate = () => {
         
         <div className="education-item">
           <h4>Master Tech Lead | HETIC</h4>
-          <span>2023 - 2025 (Obtenu en Septembre 2025)</span>
+          <span>Diplômé</span>
           <p>Architecture logicielle, DDD, Microservices, Cloud Architecture, Leadership technique</p>
         </div>
 

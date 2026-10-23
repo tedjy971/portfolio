@@ -16,10 +16,10 @@ import { useRef, useState } from 'react';
 // Données optimisées pour ATS
 const optimizedPersonalInfo = {
   ...personalInfo,
-  title: "Développeur Back-end | PHP/Symfony | Vue.js | API REST & Microservices",
+  title: "Développeur Full-stack orienté Back-end | PHP/Symfony · NestJS · Vue | IA/LLM",
   description:
-    "Développeur Back-end avec 4+ ans d'expérience chez Kernix (agence digitale), en CDI depuis septembre 2025. Expertise PHP 8/Symfony 6, NestJS, Vue 3, API REST et architecture microservices. Compétences transverses en design system, Elasticsearch et DevOps (Docker, AWS, CI/CD).",
-  objective: "En poste (CDI chez Kernix) - Ouvert aux opportunités"
+    "Développeur Full-stack orienté Back-end avec 5 ans d'expérience (2021 – 2026), spécialisé en PHP 8/Symfony, API REST et architecture microservices (DDD, CQRS, event-driven). Utilise l'IA au quotidien (Claude Code, Cursor, agents, MCP). Compétences transverses en Vue 3, Flutter et DevOps (Docker, AWS, CI/CD). Master Tech Lead HETIC.",
+  objective: "Recherche un poste de Développeur Full-stack orienté Back-end (CDI) - Disponible rapidement"
 };
 
 const keyAchievements = [
@@ -39,7 +39,7 @@ const Html2PdfComponent = dynamic(() => import('./Html2PdfComponent'), {
 export default function CV() {
   const [showProjects, setShowProjects] = useState(false);
   const [isGeneratingPdf, setIsGeneratingPdf] = useState(false);
-  const [atsMode, setAtsMode] = useState(false);
+  const [atsMode, setAtsMode] = useState(true);
   const cvRef = useRef<HTMLDivElement>(null);
 
   // Fonction pour exporter le CV en PDF avec html2pdf
@@ -185,19 +185,20 @@ export default function CV() {
                 {atsMode ? 'EXPÉRIENCE PROFESSIONNELLE' : 'Expériences professionnelles'}
               </h2>
               {professionalExperiences.map((experience, index) => {
-                if (atsMode && experience.company === 'Kernix' && experience.period === 'Depuis Septembre 2025') {
+                if (atsMode && experience.company === 'Kernix' && experience.period === '2021 - Présent') {
                   return (
                     <div key={index} className={styles.experienceItem}>
                       <div className={styles.experienceHeader}>
                         <h3 className={styles.companyTitle}>
-                          Développeur Back-end (CDI) | Kernix
+                          Développeur Full-stack orienté Back-end (alternance puis CDI) | Kernix
                         </h3>
-                        <span className={styles.period}>2021 - Présent (4+ ans, dont CDI depuis Sept. 2025)</span>
+                        <span className={styles.period}>2021 - Présent (5 ans : alternance puis CDI)</span>
                       </div>
                       <ul className={styles.bulletList}>
                         <li>• Conçoit un cockpit métier Vue 3 avec design system réutilisable et widgets autonomes</li>
-                        <li>• Développe des API REST et microservices avec Symfony 6 et NestJS</li>
-                        <li>• Migration PHP 5.6 → 8.1 avec Rector, amélioration performances et stabilité</li>
+                        <li>• Développe des API REST et microservices avec Symfony 7 et NestJS (DDD, CQRS)</li>
+                        <li>• Utilise l'IA au quotidien en entreprise : Claude Code, Cursor, Claude Design, agents et serveurs MCP</li>
+                        <li>• Réalise la migration PHP 5.6 → 8.1 avec Rector, amélioration performances et stabilité</li>
                         <li>• Architecture event-driven avec RabbitMQ/Redis pour découplage des services</li>
                         <li>• Optimisation Elasticsearch, réduction temps de recherche de 3s à 1.8s</li>
                         <li>• Intégration Apple Wallet et Google Pay, développement API PKPass</li>
@@ -205,12 +206,12 @@ export default function CV() {
                         <li>• Code reviews, documentation Storybook et veille technologique</li>
                       </ul>
                       <p className={styles.techStack}>
-                        <strong>Stack:</strong> PHP 8, Symfony 6, Vue 3, NestJS, PostgreSQL, Redis, Elasticsearch, Docker, AWS, GitLab CI/CD, Storybook
+                        <strong>Stack:</strong> PHP 8, Symfony 7, Vue 3, NestJS, PostgreSQL, Redis, Elasticsearch, Docker, AWS, GitLab CI/CD, Storybook
                       </p>
                     </div>
                   );
                 }
-                if (atsMode && experience.company === 'Kernix' && experience.period !== 'Depuis Septembre 2025') {
+                if (atsMode && experience.company === 'Kernix' && experience.period !== '2021 - Présent') {
                   return null;
                 }
                 if (atsMode) {
@@ -281,10 +282,10 @@ export default function CV() {
                     <div className={styles.experienceHeader}>
                       <h3 className={styles.companyTitle}>Master Tech Lead - Management & Architecture Logicielle</h3>
                       <span className={styles.schoolName}>HETIC</span>
-                      <span className={styles.period}>2023 - 2025 (Obtenu en Septembre 2025)</span>
+                      <span className={styles.period}>Diplômé</span>
                     </div>
                     <p className={styles.description}>
-                      Architecture logicielle, DDD, Microservices, Cloud Architecture (AWS/GCP), DevSecOps
+                      Architecture logicielle, DDD, CQRS, Microservices, Cloud Architecture (AWS/GCP), DevSecOps
                     </p>
                   </div>
                   <div className={styles.educationItem}>
@@ -334,11 +335,15 @@ export default function CV() {
                 <div className={styles.skillsAts}>
                   <div className={styles.skillCategoryAts}>
                     <h4>Backend</h4>
-                    <p>PHP 8.x • Symfony 6 • NestJS • Node.js • API REST • GraphQL • Microservices</p>
+                    <p>PHP 8.x • Symfony 7 • API Platform • NestJS • Node.js • API REST • GraphQL • Microservices</p>
                   </div>
                   <div className={styles.skillCategoryAts}>
                     <h4>Frontend</h4>
-                    <p>Vue 3 • Vuetify • Shoelace • Pinia • TypeScript • Storybook • Web Components</p>
+                    <p>Vue 3 • Pinia • TypeScript • Storybook • Web Components • Flutter/Dart</p>
+                  </div>
+                  <div className={styles.skillCategoryAts}>
+                    <h4>IA & LLM</h4>
+                    <p>Intégration LLM (Claude, OpenAI) • Agents IA • MCP • Prompt engineering • Claude Code • Cursor • Claude Design</p>
                   </div>
                   <div className={styles.skillCategoryAts}>
                     <h4>Bases de données</h4>
@@ -350,7 +355,7 @@ export default function CV() {
                   </div>
                   <div className={styles.skillCategoryAts}>
                     <h4>Architecture & Qualité</h4>
-                    <p>DDD • SOLID • Design Patterns • Event-Driven • PHPUnit • Jest • Vitest</p>
+                    <p>DDD • CQRS • SOLID • Design Patterns • Event-Driven • TDD • PHPUnit • PHPStan • Jest • Vitest</p>
                   </div>
                   <div className={styles.skillCategoryAts}>
                     <h4>Méthodologies</h4>
