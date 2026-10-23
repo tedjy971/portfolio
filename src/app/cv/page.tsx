@@ -18,11 +18,12 @@ const optimizedPersonalInfo = {
   ...personalInfo,
   title: "Développeur Full-stack orienté Back-end | PHP/Symfony · NestJS · Vue | IA/LLM",
   description:
-    "Développeur Full-stack orienté Back-end avec 5 ans d'expérience (2021 – 2026), spécialisé en PHP 8/Symfony, API REST et architecture microservices (DDD, CQRS, event-driven). Utilise l'IA au quotidien (Claude Code, Cursor, agents, MCP). Compétences transverses en Vue 3, Flutter et DevOps (Docker, AWS, CI/CD). Master Tech Lead HETIC.",
+    "Développeur Full-stack orienté Back-end avec 5 ans d'expérience (2021 – 2026), spécialisé en PHP 8/Symfony, API REST et architecture microservices (DDD, CQRS, event-driven). Utilise l'IA au quotidien (Claude Code, Cursor, agents, MCP). Back-end sur deux stacks (PHP/Symfony et TypeScript/NestJS), front Vue 3, DevOps (Docker, AWS, CI/CD). Master Tech Lead HETIC.",
   objective: "Recherche un poste de Développeur Full-stack orienté Back-end (CDI) - Disponible rapidement"
 };
 
 const keyAchievements = [
+  "Migration Java/Spring Boot vers NestJS 11 + Vue 3 — monorepo pnpm/Turbo, types partagés, contributeur principal",
   "Cockpit métier Vue 3 + Design System réutilisable — Migration Vuetify vers Shoelace (Web Components)",
   "Migration PHP 5.6 vers 8.1 avec Rector — Amélioration performances et stabilité applicative",
   "Optimisation Elasticsearch — Réduction temps de recherche de 3s à 1.8s",
@@ -195,6 +196,7 @@ export default function CV() {
                         <span className={styles.period}>2021 - Présent (5 ans : alternance puis CDI)</span>
                       </div>
                       <ul className={styles.bulletList}>
+                        <li>• Réalise la migration d'une application de facturation Java/Spring Boot vers NestJS 11 + Vue 3 (monorepo pnpm/Turbo, types partagés, TypeORM SQL Server/MariaDB, intégrations SAP) — contributeur principal</li>
                         <li>• Conçoit un cockpit métier Vue 3 avec design system réutilisable et widgets autonomes</li>
                         <li>• Développe des API REST et microservices avec Symfony 7 et NestJS (DDD, CQRS)</li>
                         <li>• Utilise l'IA au quotidien en entreprise : Claude Code, Cursor, Claude Design, agents et serveurs MCP</li>
@@ -335,11 +337,11 @@ export default function CV() {
                 <div className={styles.skillsAts}>
                   <div className={styles.skillCategoryAts}>
                     <h4>Backend</h4>
-                    <p>PHP 8.x • Symfony 7 • API Platform • NestJS • Node.js • API REST • GraphQL • Microservices</p>
+                    <p>PHP 8.x • Symfony 7 • API Platform • NestJS • Node.js • API REST • Microservices • TypeORM • Swagger/OpenAPI</p>
                   </div>
                   <div className={styles.skillCategoryAts}>
                     <h4>Frontend</h4>
-                    <p>Vue 3 • Pinia • TypeScript • Storybook • Web Components • Flutter/Dart</p>
+                    <p>Vue 3 • Pinia • TypeScript • Storybook • Web Components</p>
                   </div>
                   <div className={styles.skillCategoryAts}>
                     <h4>IA & LLM</h4>
@@ -347,11 +349,11 @@ export default function CV() {
                   </div>
                   <div className={styles.skillCategoryAts}>
                     <h4>Bases de données</h4>
-                    <p>PostgreSQL • MySQL • MongoDB • Redis • Elasticsearch</p>
+                    <p>PostgreSQL • MySQL • SQL Server • Redis • Elasticsearch</p>
                   </div>
                   <div className={styles.skillCategoryAts}>
                     <h4>DevOps & Cloud</h4>
-                    <p>Docker • Kubernetes • AWS • GitLab CI/CD • Terraform • Linux</p>
+                    <p>Docker • Kubernetes • AWS • GitLab CI/CD • Monorepo pnpm/Turbo • Linux</p>
                   </div>
                   <div className={styles.skillCategoryAts}>
                     <h4>Architecture & Qualité</h4>

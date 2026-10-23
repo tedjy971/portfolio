@@ -12,7 +12,7 @@ export const personalInfo = {
   linkedin: 'https://www.linkedin.com/in/teddy-gamiette-9a1a9613a/',
   website: 'https://teddygamiette.online',
   description:
-    "Développeur Full-stack orienté Back-end avec 5 ans d'expérience (2021 – 2026), spécialisé en PHP 8/Symfony, API REST et architecture microservices (DDD, CQRS, event-driven). Utilise l'IA au quotidien (Claude Code, Cursor, agents, MCP). Compétences transverses en Vue 3, Flutter et DevOps (Docker, AWS, CI/CD). Master Tech Lead HETIC.",
+    "Développeur Full-stack orienté Back-end avec 5 ans d'expérience (2021 – 2026), spécialisé en PHP 8/Symfony, API REST et architecture microservices (DDD, CQRS, event-driven). Utilise l'IA au quotidien (Claude Code, Cursor, agents, MCP). Back-end sur deux stacks (PHP/Symfony et TypeScript/NestJS), front Vue 3, DevOps (Docker, AWS, CI/CD). Master Tech Lead HETIC.",
   objective: "Recherche un poste de Développeur Full-stack orienté Back-end (CDI) — disponible rapidement.",
 };
 
@@ -52,9 +52,9 @@ export const experiences = [
     title: 'Développeur Full-stack orienté Back-end (alternance puis CDI)',
     company: 'Kernix',
     period: '2021 - Présent',
-    tags: ['Symfony 7', 'NestJS', 'Vue 3', 'API REST', 'Elasticsearch', 'Docker', 'AWS', 'Kubernetes', 'IA/LLM'],
+    tags: ['Symfony 7', 'NestJS', 'TypeScript', 'Vue 3', 'API REST', 'TypeORM', 'Elasticsearch', 'Docker', 'AWS', 'IA/LLM'],
     description:
-      "• Développe des API REST et microservices avec Symfony 7 et NestJS (DDD, CQRS)\n• Réalise la migration PHP 5.6 → 8.1 avec Rector, améliorant performances et stabilité\n• Conçoit un cockpit métier Vue 3 avec design system réutilisable (Vuetify → Shoelace) et widgets autonomes (Custom Elements, Pinia)\n• Implémente une architecture event-driven avec RabbitMQ/Redis\n• Optimise les requêtes Elasticsearch, réduisant le temps de recherche de 3s à 1.8s\n• Développe l'intégration Apple/Google Wallet (API PKPass, notifications push)\n• Déploie des applications conteneurisées sur AWS avec Docker et Kubernetes\n• Utilise l'IA au quotidien en entreprise : Claude Code, Cursor, Claude Design, agents et serveurs MCP\n• Écrit les tests (PHPUnit, Vitest), documente avec Storybook, participe aux code reviews et décisions d'architecture",
+      "• Développe des API REST et microservices avec Symfony 7 et NestJS (DDD, CQRS)\n• Réalise la migration PHP 5.6 → 8.1 avec Rector, améliorant performances et stabilité\n• Réalise la migration d'une application de facturation Java/Spring Boot vers NestJS 11 + Vue 3 (monorepo pnpm/Turbo, types partagés, TypeORM SQL Server/MariaDB, intégrations SAP) — contributeur principal\n• Conçoit un cockpit métier Vue 3 avec design system réutilisable (Vuetify → Shoelace) et widgets autonomes (Custom Elements, Pinia)\n• Implémente une architecture event-driven avec RabbitMQ/Redis\n• Optimise les requêtes Elasticsearch, réduisant le temps de recherche de 3s à 1.8s\n• Développe l'intégration Apple/Google Wallet (API PKPass, notifications push)\n• Déploie des applications conteneurisées sur AWS avec Docker et Kubernetes\n• Utilise l'IA au quotidien en entreprise : Claude Code, Cursor, Claude Design, agents et serveurs MCP\n• Écrit les tests (PHPUnit, Vitest), documente avec Storybook, participe aux code reviews et décisions d'architecture",
   },
   {
     title: 'Technicien Informatique',
@@ -169,27 +169,6 @@ export const skills = [
     color: 'bg-blue-800',
     logo: '/assets/skills/mysql.svg',
   },
-  {
-    name: 'MongoDB',
-    level: 75,
-    category: 'backend',
-    color: 'bg-green-700',
-    logo: '/assets/skills/mongodb.svg',
-  },
-  {
-    name: 'GraphQL',
-    level: 70,
-    category: 'backend',
-    color: 'bg-pink-600',
-    logo: '/assets/skills/graphql.svg',
-  },
-  {
-    name: 'gRPC',
-    level: 65,
-    category: 'backend',
-    color: 'bg-teal-600',
-    logo: '/assets/skills/grpc-logo.svg',
-  },
 
   // Frontend
   {
@@ -277,13 +256,6 @@ export const skills = [
     category: 'devops',
     color: 'bg-purple-700',
     logo: '/assets/skills/git.svg',
-  },
-  {
-    name: 'Terraform',
-    level: 70,
-    category: 'devops',
-    color: 'bg-purple-800',
-    logo: '/assets/skills/terraform.svg',
   },
   {
     name: 'GitHub Actions',
@@ -379,13 +351,6 @@ export const skills = [
     color: 'bg-orange-600',
     logo: '/assets/skills/rabbitmq.svg',
   },
-  {
-    name: 'Kafka',
-    level: 70,
-    category: 'backend',
-    color: 'bg-gray-800',
-    logo: '/assets/skills/kafka.svg',
-  },
   // Testing & Quality
   {
     name: 'PHPUnit',
@@ -444,13 +409,6 @@ export const skills = [
     category: 'backend',
     color: 'bg-violet-700',
     logo: '/assets/skills/microservices.svg',
-  },
-  {
-    name: 'Flutter / Dart',
-    level: 65,
-    category: 'frontend',
-    color: 'bg-sky-500',
-    logo: '/assets/skills/patterns.svg',
   },
   {
     name: 'CQRS',
@@ -567,18 +525,6 @@ export const projects: Project[] = [
     type: 'personnel',
   },
   {
-    id: 8,
-    title: 'Ray Tracing en C++',
-    description:
-      'Implémentation d’un moteur de rendu d’images par lancer de rayons (Ray Tracing) en C++. Ce projet explore les algorithmes de rendu photoréaliste, la gestion de la lumière, des ombres et des réflexions.',
-    image: '/assets/projects/c.svg',
-    tags: ['C++', 'Ray Tracing', 'Infographie', 'Algorithmique'],
-    githubLink: 'https://github.com/tedjy971/RayTracing',
-    color: 'from-gray-600 to-gray-800',
-
-    type: 'personnel',
-  },
-  {
     id: 9,
     title: 'Anti-Waste Recipe App - Projet Fin d\'Études',
     description:
@@ -597,6 +543,26 @@ export const projects: Project[] = [
     color: 'from-emerald-500 to-teal-700',
     tags: ['Vue 3', 'TypeScript', 'Vuetify', 'Shoelace', 'Pinia', 'NestJS', 'Storybook', 'Design System'],
     type: 'entreprise',
+  },
+  {
+    id: 11,
+    title: 'Migration Java → NestJS - Plateforme de facturation',
+    description:
+      "Refonte d'un système de facturation d'un groupe international de l'énergie : migration Java/Spring Boot vers NestJS 11 et Vue 3. Monorepo pnpm/Turbo avec types et DTO partagés front/back, TypeORM sur SQL Server et MariaDB, intégrations SAP, cycle complet des factures (création, signature, envoi, export). Contributeur principal (~60 % des commits).",
+    image: '/assets/projects/NestJS (1).svg',
+    color: 'from-red-500 to-rose-700',
+    tags: ['NestJS 11', 'Vue 3', 'TypeScript', 'TypeORM', 'SQL Server', 'pnpm/Turbo', 'Swagger'],
+    type: 'entreprise',
+  },
+  {
+    id: 12,
+    title: 'Coachemy - App mobile de coaching sportif',
+    description:
+      "Produit complet conçu et développé seul : app mobile coach/sportif avec abonnement Premium. API PHP (Laravel 12, FrankenPHP, PostgreSQL, Redis), app Flutter (Riverpod), CI mobile Codemagic, déploiement Docker/Coolify et publication sur les stores.",
+    image: '/assets/projects/react-native.svg',
+    color: 'from-emerald-500 to-green-700',
+    tags: ['PHP', 'Laravel 12', 'PostgreSQL', 'Redis', 'Flutter', 'Docker'],
+    type: 'personnel',
   },
 ];
 

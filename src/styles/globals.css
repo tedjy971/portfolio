@@ -227,3 +227,16 @@ body {
 .project-slider {
   overflow: visible;
 }
+
+/* Home: themed browser surfaces */
+.home ::selection {
+  background: rgba(52, 211, 153, 0.35);
+  color: #f1f6f3;
+}
+.home {
+  caret-color: #34d399;
+}
+html:has(.home) {
+  scrollbar-color: #24352e #0a0f0d;
+  background: #0a0f0d;
+}
