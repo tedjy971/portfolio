@@ -15,7 +15,12 @@ const kernixContributions = [
   {
     label: 'Migration Java vers NestJS',
     description:
-      'Contributeur principal (~60 % des commits) de la refonte d’une plateforme de facturation d’un groupe international de l’énergie : migration Java/Spring Boot vers NestJS 11 et Vue 3, monorepo pnpm/Turbo avec types partagés, TypeORM sur SQL Server et MariaDB, intégrations SAP, cycle complet des factures.',
+      'Contributeur principal (~60 % des commits, équipe de 3 développeurs) de la refonte d’une plateforme de facturation d’un groupe international de l’énergie : migration Java/Spring Boot vers NestJS 11 et Vue 3, monorepo pnpm/Turbo avec types partagés, TypeORM sur SQL Server et MariaDB, intégrations SAP, cycle complet de plus de 1 000 factures.',
+  },
+  {
+    label: 'Serveur MCP',
+    description:
+      'Mise en place d’un serveur MCP (Model Context Protocol) permettant aux clients d’interagir avec l’application directement depuis leur LLM.',
   },
   {
     label: 'Développement full-stack',
@@ -25,7 +30,7 @@ const kernixContributions = [
   {
     label: 'Facturation et intégrations',
     description:
-      'Évolution d’une plateforme de facturation électronique : abonnements et facturation à l’usage avec Stripe, paiements par carte, SEPA ou virement, synchronisation de webhooks et échanges de factures avec des services partenaires.',
+      'Évolution d’une plateforme de facturation électronique (~100 clients en 2026) : abonnements et facturation à l’usage avec Stripe, paiements par carte, SEPA ou virement, synchronisation de webhooks et échanges de factures avec des services partenaires.',
   },
   {
     label: 'Fiabilité et sécurité',
@@ -35,12 +40,12 @@ const kernixContributions = [
   {
     label: 'Données et recherche',
     description:
-      'Mise en œuvre de recherches Elasticsearch multilingues avec scoring, boost, agrégations et indexation. Optimisation de parcours de recherche côté front avec cache, pagination et restauration d’état.',
+      'Musée du Louvre : montée de version Elasticsearch et mise en place du moteur de recherche. Recherches Elasticsearch multilingues avec scoring, boost, agrégations et indexation. Optimisation de parcours de recherche côté front avec cache, pagination et restauration d’état.',
   },
   {
     label: 'Modernisation et delivery',
     description:
-      'Migration et maintien de socles PHP/Symfony historiques, évolution des schémas de données et industrialisation des livraisons avec Docker, GitLab CI/CD, Ansible, Kubernetes et AWS. Ajout de tests unitaires et de scénarios métier Playwright.',
+      'Migration PHP 5.6 vers 8.1 en 3 mois de KWO, le framework interne de Kernix sur lequel repose notamment l’ERP de DB Cargo France ; maintien de socles PHP/Symfony historiques, évolution des schémas de données et industrialisation des livraisons avec Docker, GitLab CI/CD, Ansible, Kubernetes et AWS. Ajout de tests unitaires et de scénarios métier Playwright.',
   },
 ];
 
@@ -82,7 +87,8 @@ const skillGroups = [
   },
   {
     label: 'Back-end',
-    value: 'PHP 8, Symfony 7, API Platform, NestJS 11, TypeORM, microservices, CQRS, OAuth 2.0, JWT',
+    value:
+      'PHP 8, Symfony 7, API Platform, NestJS 11, TypeORM, microservices, CQRS, OAuth 2.0, JWT',
   },
   {
     label: 'Données & intégrations',
@@ -99,7 +105,7 @@ const skillGroups = [
   },
   {
     label: 'IA & LLM',
-    value: 'Claude Code, Cursor, Claude Design, agents IA, serveurs MCP, intégration d’API LLM',
+    value: 'Serveur MCP en production, agents IA de développement (Claude Code)',
   },
   {
     label: 'Architecture',
@@ -111,14 +117,14 @@ const education = [
   {
     degree: 'Master Tech Lead — Management & architecture logicielle',
     school: 'HETIC',
-    period: 'Diplômé',
+    period: '2023 — 2025 · Alternance',
     details:
       'Architecture logicielle, DDD, microservices, cloud, DevSecOps et leadership technique',
   },
   {
     degree: 'Bachelor Développeur web full-stack',
     school: 'HETIC',
-    period: '2021 — 2023',
+    period: '2021 — 2023 · Alternance',
     details: 'Développement full-stack, API, bases de données, qualité et méthodes agiles',
   },
   {
@@ -178,7 +184,7 @@ export default function CV() {
             <h1 id="cv-name" className={styles.name}>
               {personalInfo.name}
             </h1>
-            <p className={styles.title}>Développeur Full-stack orienté Back-end</p>
+            <p className={styles.title}>Développeur Back-end PHP/Symfony & NestJS</p>
             <p className={styles.positioning}>PHP/Symfony · TypeScript/NestJS · Vue 3 · IA</p>
           </div>
 
@@ -197,13 +203,13 @@ export default function CV() {
             <h2 id="profile-title">Profil</h2>
             <p className={styles.lead}>
               Développeur full-stack orienté back-end chez Kernix depuis 2021, j’interviens sur
-              plusieurs applications métier, de l’API au déploiement. Je maîtrise deux stacks
-              back-end, PHP/Symfony et TypeScript/NestJS, et je livre le front Vue 3 qui va avec.
-              J’ai mené des migrations de legacy (PHP 5.6 → 8.1, Java → NestJS) et j’utilise l’IA au
-              quotidien dans mon travail. J’apprécie les environnements où il faut comprendre
-              rapidement un métier, fiabiliser l’existant et livrer des solutions maintenables.
-              Diplômé d’un Master Tech Lead, je combine développement produit, architecture, qualité
-              et culture DevOps.
+              plusieurs applications métier, de l’API au déploiement. En production sur deux stacks
+              back-end, PHP/Symfony et TypeScript/NestJS, je livre aussi le front Vue 3 qui va avec.
+              J’ai mené des migrations de legacy (PHP 5.6 → 8.1, Java → NestJS) et mis en place un
+              serveur MCP pour que les clients pilotent l’application depuis leur LLM. J’apprécie
+              les environnements où il faut comprendre rapidement un métier, fiabiliser l’existant
+              et livrer des solutions maintenables. Diplômé d’un Master Tech Lead, je combine
+              développement produit, architecture, qualité et culture DevOps.
             </p>
             <p className={styles.availability}>
               Disponible rapidement · Recherche un CDI full-stack orienté back-end
@@ -216,15 +222,17 @@ export default function CV() {
             <article className={styles.primaryExperience}>
               <div className={styles.experienceHeader}>
                 <div>
-                  <h3>Développeur Full-stack · Kernix</h3>
+                  <h3>Développeur Full-stack — Kernix</h3>
                 </div>
-                <p className={styles.period}>2021 — aujourd’hui</p>
+                <p className={styles.period}>
+                  2021 — aujourd’hui · Alternance 2021–2025, CDI depuis septembre 2025
+                </p>
               </div>
 
               <p className={styles.experienceIntro}>
-                Intervention sur des produits métier aux contraintes variées : évolution
-                fonctionnelle, intégration de services tiers, reprise de legacy, qualité et
-                exploitation.
+                Intervention sur 12 projets clients, dont le Musée du Louvre et DB Cargo France, aux
+                contraintes variées : évolution fonctionnelle, intégration de services tiers,
+                reprise de legacy, qualité et exploitation.
               </p>
 
               <div className={styles.contributionList}>
@@ -244,29 +252,25 @@ export default function CV() {
 
             <div className={styles.previousExperiences}>
               {additionalExperiences.map(experience => (
-                <article className={styles.compactExperience} key={experience.company}>
-                  <div className={styles.compactHeader}>
-                    <h3>
-                      {experience.role} · {experience.company}
-                    </h3>
-                    <p className={styles.period}>{experience.period}</p>
-                  </div>
-                  <p>{experience.description}</p>
-                </article>
+                <p className={styles.compactExperience} key={experience.company}>
+                  <strong>
+                    {experience.role} — {experience.company}
+                  </strong>{' '}
+                  ({experience.period}) : {experience.description}
+                </p>
               ))}
             </div>
           </section>
 
           <section aria-labelledby="skills-title">
             <h2 id="skills-title">Compétences</h2>
-            <dl className={styles.skillGrid}>
+            <div className={styles.skillGrid}>
               {skillGroups.map(group => (
-                <div className={styles.skillGroup} key={group.label}>
-                  <dt>{group.label}</dt>
-                  <dd>{group.value}</dd>
-                </div>
+                <p className={styles.skillGroup} key={group.label}>
+                  <strong>{group.label} :</strong> {group.value}
+                </p>
               ))}
-            </dl>
+            </div>
           </section>
 
           <section aria-labelledby="education-title">
@@ -289,11 +293,8 @@ export default function CV() {
             <h2 id="additional-title">Informations complémentaires</h2>
             <div className={styles.additionalInfo}>
               <p>
-                <strong>Langues :</strong> français natif · anglais technique professionnel
-              </p>
-              <p>
-                <strong>Pratiques :</strong> autonomie · apprentissage rapide · résolution de
-                problèmes · communication technique · travail en équipe
+                <strong>Langues :</strong> français natif · anglais professionnel (documentation et
+                échanges écrits techniques)
               </p>
             </div>
           </section>
