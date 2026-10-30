@@ -117,14 +117,14 @@ const education = [
   {
     degree: 'Master Tech Lead — Management & architecture logicielle',
     school: 'HETIC',
-    period: '2023 — 2025 · Alternance',
+    period: 'Diplômé',
     details:
       'Architecture logicielle, DDD, microservices, cloud, DevSecOps et leadership technique',
   },
   {
     degree: 'Bachelor Développeur web full-stack',
     school: 'HETIC',
-    period: '2021 — 2023 · Alternance',
+    period: 'Diplômé',
     details: 'Développement full-stack, API, bases de données, qualité et méthodes agiles',
   },
   {
@@ -224,9 +224,7 @@ export default function CV() {
                 <div>
                   <h3>Développeur Full-stack — Kernix</h3>
                 </div>
-                <p className={styles.period}>
-                  2021 — aujourd’hui · Alternance 2021–2025, CDI depuis septembre 2025
-                </p>
+                <p className={styles.period}>2021 — aujourd’hui</p>
               </div>
 
               <p className={styles.experienceIntro}>
