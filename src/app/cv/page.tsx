@@ -86,9 +86,13 @@ const skillGroups = [
     value: 'TypeScript, Vue 3, React, Angular, NestJS, Node.js, Pinia, API REST, Web Components',
   },
   {
+    label: 'Mobile',
+    value: 'Flutter, Dart, Riverpod, Codemagic, publication App Store et Google Play',
+  },
+  {
     label: 'Back-end',
     value:
-      'PHP 8, Symfony 7, API Platform, NestJS 11, TypeORM, microservices, CQRS, OAuth 2.0, JWT',
+      'PHP 8, Symfony 7, Laravel 12, API Platform, NestJS 11, TypeORM, microservices, CQRS, OAuth 2.0, JWT',
   },
   {
     label: 'Données & intégrations',
@@ -258,6 +262,21 @@ export default function CV() {
                 </p>
               ))}
             </div>
+          </section>
+
+          <section aria-labelledby="project-title">
+            <h2 id="project-title">Projet personnel</h2>
+            <article className={styles.primaryExperience}>
+              <div className={styles.experienceHeader}>
+                <h3>Coachemy — application mobile de coaching sportif</h3>
+              </div>
+              <p className={styles.experienceIntro}>
+                Produit complet conçu et développé seul, publié sur l’App Store et Google Play :
+                application coach/sportif avec abonnement Premium. API PHP Laravel 12 (FrankenPHP,
+                PostgreSQL, Redis), application Flutter (Riverpod), CI mobile Codemagic, déploiement
+                Docker/Coolify.
+              </p>
+            </article>
           </section>
 
           <section aria-labelledby="skills-title">

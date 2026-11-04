@@ -219,7 +219,7 @@
 }
 
 .lead {
-  max-width: 76ch;
+  max-width: none;
   margin: 0;
   color: var(--cv-foreground);
   font-size: 1rem;
@@ -275,7 +275,7 @@
 }
 
 .experienceIntro {
-  max-width: 76ch;
+  max-width: none;
   margin: 18px 0 0;
   color: var(--cv-muted-foreground);
   font-size: 0.92rem;
@@ -581,6 +581,9 @@
     font-size: 8pt;
   }
 
+  .period,
+  p.skillGroup,
+  p.compactExperience,
   .experienceIntro,
   .contributionList p,
   .compactExperience > p,
@@ -629,4 +632,13 @@ p.compactExperience {
 p.skillGroup strong,
 p.compactExperience strong {
   color: var(--cv-foreground);
+}
+
+@media print {
+  p.skillGroup,
+  p.compactExperience,
+  .education .school {
+    font-size: 7.5pt;
+    line-height: 1.42;
+  }
 }
