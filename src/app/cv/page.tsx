@@ -25,12 +25,12 @@ const kernixContributions = [
   {
     label: 'Facturation électronique',
     description:
-      'Évolution d’une plateforme de facturation électronique conforme EN 16931 (~100 clients en 2026) : connexion à une plateforme de dématérialisation partenaire (PDP), abonnements, facturation à l’usage et au siège avec Stripe, paiements par carte, SEPA ou virement, synchronisation de webhooks. Front Vue 3 avec Auth0 et MFA, composants documentés dans Storybook, tests e2e.',
+      'Évolution d’une plateforme SaaS B2B de facturation électronique conforme EN 16931 (~100 clients en 2026) : connexion à une plateforme de dématérialisation partenaire (PDP), abonnements, facturation à l’usage et au siège avec Stripe, paiements par carte, SEPA ou virement, synchronisation de webhooks. Front Vue 3 avec Auth0 et MFA, composants documentés dans Storybook, tests e2e.',
   },
   {
     label: 'Cockpit client (télécom B2B)',
     description:
-      'Principal contributeur du front d’un cockpit de suivi client (facturation, abonnements, devis) : Vue 3 / TypeScript, widgets en custom elements intégrables dans d’autres applications, AG Grid, ECharts, authentification Keycloak, i18n, tests Vitest et Playwright, image Docker/nginx.',
+      'Principal contributeur du front d’un cockpit SaaS B2B de suivi client (facturation, abonnements, devis) : Vue 3 / TypeScript, widgets en custom elements intégrables dans d’autres applications, AG Grid, ECharts, authentification Keycloak, i18n, tests Vitest et Playwright, image Docker/nginx.',
   },
   {
     label: 'Symfony, Angular et ERP',
