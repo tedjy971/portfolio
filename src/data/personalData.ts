@@ -13,7 +13,8 @@ export const personalInfo = {
   website: 'https://tedjy.fr',
   description:
     "Développeur Full-stack orienté Back-end avec 5 ans d'expérience (2021 – 2026), spécialisé en PHP 8/Symfony, API REST et architecture microservices (DDD, CQRS, event-driven). Utilise l'IA au quotidien (Claude Code, Cursor, agents, MCP). Back-end sur deux stacks (PHP/Symfony et TypeScript/NestJS), front Vue 3, DevOps (Docker, AWS, CI/CD). Master Tech Lead HETIC.",
-  objective: "Recherche un poste de Développeur Full-stack orienté Back-end (CDI) — disponible rapidement.",
+  objective:
+    'Recherche un poste de Développeur Full-stack orienté Back-end (CDI) — disponible rapidement.',
 };
 
 export const educationExperiences = [
@@ -33,17 +34,17 @@ export const educationExperiences = [
   },
   {
     title: 'Licence SGBD & Big Data',
-    school: 'Université d\'Evry-Val d\'Essonne',
+    school: "Université d'Evry-Val d'Essonne",
     period: '2019',
     description:
-      "Spécialisation universitaire en architecture de bases de données et Big Data. Maîtrise des SGBD relationnels et NoSQL, optimisation de requêtes, modélisation de données complexes. Compétences en analyse statistique et visualisation de données massives. Foundation solide qui a directement contribué à mon expertise Elasticsearch et optimisation de performances en entreprise.",
+      'Spécialisation universitaire en architecture de bases de données et Big Data. Maîtrise des SGBD relationnels et NoSQL, optimisation de requêtes, modélisation de données complexes. Compétences en analyse statistique et visualisation de données massives. Foundation solide qui a directement contribué à mon expertise Elasticsearch et optimisation de performances en entreprise.',
   },
   {
     title: 'BTS SNIR - Systèmes Numériques & Réseaux',
     school: 'Lycée Parc de Vilgénis (Massy)',
     period: '2018',
     description:
-      'Formation technique de niveau Bac+2 couvrant le développement logiciel et l\'infrastructure réseau. Programmation orientée objet (C++, Java), administration systèmes Linux/Windows, architecture réseaux et sécurité. Base technique solide qui a facilité ma transition vers le développement web et ma compréhension des enjeux DevOps/infrastructure.',
+      "Formation technique de niveau Bac+2 couvrant le développement logiciel et l'infrastructure réseau. Programmation orientée objet (C++, Java), administration systèmes Linux/Windows, architecture réseaux et sécurité. Base technique solide qui a facilité ma transition vers le développement web et ma compréhension des enjeux DevOps/infrastructure.",
   },
 ];
 
@@ -52,7 +53,18 @@ export const experiences = [
     title: 'Développeur Full-stack orienté Back-end',
     company: 'Kernix',
     period: '2021 - Présent',
-    tags: ['Symfony 7', 'NestJS', 'TypeScript', 'Vue 3', 'API REST', 'TypeORM', 'Elasticsearch', 'Docker', 'AWS', 'IA/LLM'],
+    tags: [
+      'Symfony 7',
+      'NestJS',
+      'TypeScript',
+      'Vue 3',
+      'API REST',
+      'TypeORM',
+      'Elasticsearch',
+      'Docker',
+      'AWS',
+      'IA/LLM',
+    ],
     description:
       "• Développe des API REST et microservices avec Symfony 7 et NestJS (DDD, CQRS)\n• Réalise la migration PHP 5.6 → 8.1 avec Rector, améliorant performances et stabilité\n• Réalise la migration d'une application de facturation Java/Spring Boot vers NestJS 11 + Vue 3 (monorepo pnpm/Turbo, types partagés, TypeORM SQL Server/MariaDB, intégrations SAP) — contributeur principal\n• Conçoit un cockpit métier Vue 3 avec design system réutilisable (Vuetify → Shoelace) et widgets autonomes (Custom Elements, Pinia)\n• Implémente une architecture event-driven avec RabbitMQ/Redis\n• Optimise les requêtes Elasticsearch, réduisant le temps de recherche de 3s à 1.8s\n• Développe l'intégration Apple/Google Wallet (API PKPass, notifications push)\n• Déploie des applications conteneurisées sur AWS avec Docker et Kubernetes\n• Utilise l'IA au quotidien en entreprise : Claude Code, Cursor, Claude Design, agents et serveurs MCP\n• Écrit les tests (PHPUnit, Vitest), documente avec Storybook, participe aux code reviews et décisions d'architecture",
   },
@@ -69,7 +81,7 @@ export const experiences = [
       'User Support',
     ],
     description:
-      '• Gère l\'infrastructure informatique complète d\'un commissariat de police\n• Administre le parc informatique (postes de travail, serveurs, équipements réseau)\n• Assure le support technique et la maintenance des systèmes critiques\n• Garantit la continuité de service des applications métiers sensibles\n• Met en place des procédures de sauvegarde et de sécurité informatique',
+      "• Gère l'infrastructure informatique complète d'un commissariat de police\n• Administre le parc informatique (postes de travail, serveurs, équipements réseau)\n• Assure le support technique et la maintenance des systèmes critiques\n• Garantit la continuité de service des applications métiers sensibles\n• Met en place des procédures de sauvegarde et de sécurité informatique",
   },
   {
     title: 'Automation Developer',
@@ -83,7 +95,14 @@ export const experiences = [
     title: 'Data Analyst - Télécom',
     company: 'LUCERNYS',
     period: '2018-2019',
-    tags: ['Data Analysis', 'Excel', 'Reporting', 'Telecom', 'Contract Management', 'Business Intelligence'],
+    tags: [
+      'Data Analysis',
+      'Excel',
+      'Reporting',
+      'Telecom',
+      'Contract Management',
+      'Business Intelligence',
+    ],
     description:
       "• Analyse les consommations téléphoniques de grandes entreprises et optimise leurs contrats mobiles\n• Rédige des compilations de données détaillées comparant usage réel vs forfaits souscrits\n• Identifie les anomalies de facturation et opportunités d'économies pour les clients\n• Produit des rapports d'analyse permettant aux entreprises d'optimiser leurs coûts télécom\n• Gère les données de consommation de flottes mobiles multi-opérateurs",
   },
@@ -526,9 +545,9 @@ export const projects: Project[] = [
   },
   {
     id: 9,
-    title: 'Anti-Waste Recipe App - Projet Fin d\'Études',
+    title: "Anti-Waste Recipe App - Projet Fin d'Études",
     description:
-      "Application mobile de lutte contre le gaspillage alimentaire. Suggestions intelligentes de recettes basées sur les ingrédients à date de péremption proche. Architecture microservices avec recherche avancée Elasticsearch et déploiement containerisé.",
+      'Application mobile de lutte contre le gaspillage alimentaire. Suggestions intelligentes de recettes basées sur les ingrédients à date de péremption proche. Architecture microservices avec recherche avancée Elasticsearch et déploiement containerisé.',
     image: '/assets/projects/react-native.svg',
     color: 'from-green-400 to-emerald-600',
     tags: ['React Native', 'NestJS', 'Elasticsearch', 'Kubernetes', 'Docker', 'CI/CD'],
@@ -541,7 +560,16 @@ export const projects: Project[] = [
       "Développement d'un cockpit métier complet en Vue 3 avec un design system réutilisable. Widgets autonomes (Custom Elements et Pinia), modules de facturation, production, abonnements et devis. Migration Vuetify → Shoelace (Web Components). Backend NestJS avec API REST. Architecture monorepo avec Storybook, Vitest et multi-theming (dark/light).",
     image: '/assets/projects/vue.svg',
     color: 'from-emerald-500 to-teal-700',
-    tags: ['Vue 3', 'TypeScript', 'Vuetify', 'Shoelace', 'Pinia', 'NestJS', 'Storybook', 'Design System'],
+    tags: [
+      'Vue 3',
+      'TypeScript',
+      'Vuetify',
+      'Shoelace',
+      'Pinia',
+      'NestJS',
+      'Storybook',
+      'Design System',
+    ],
     type: 'entreprise',
   },
   {
@@ -558,10 +586,20 @@ export const projects: Project[] = [
     id: 12,
     title: 'Coachemy - App mobile de coaching sportif',
     description:
-      "Produit complet conçu et développé seul : app mobile coach/sportif avec abonnement Premium. API PHP (Laravel 12, FrankenPHP, PostgreSQL, Redis), app Flutter (Riverpod), CI mobile Codemagic, déploiement Docker/Coolify et publication sur les stores.",
+      'Produit complet conçu et développé seul : app mobile coach/sportif avec abonnement Premium. API PHP (Laravel 12, FrankenPHP, PostgreSQL, Redis), app Flutter (Riverpod), CI mobile Codemagic, déploiement Docker/Coolify et publication sur les stores.',
     image: '/assets/projects/react-native.svg',
     color: 'from-emerald-500 to-green-700',
     tags: ['PHP', 'Laravel 12', 'PostgreSQL', 'Redis', 'Flutter', 'Docker'],
+    type: 'personnel',
+  },
+  {
+    id: 13,
+    title: 'Fringale - Restaurants vus sur TikTok et Instagram',
+    description:
+      'Application mobile qui retrouve sur une carte les restaurants vus sur TikTok et Instagram. Monorepo pnpm : app Expo / React Native, landing Next.js, Supabase (Postgres, PostGIS, 20 tables, 43 policies RLS couvertes par 146 assertions pgTAP, Edge Functions), extraction des restaurants par IA (Claude), worker Node.js / Docker / ffmpeg, modèle freemium.',
+    image: '/assets/projects/react-native.svg',
+    color: 'from-orange-500 to-red-600',
+    tags: ['React Native', 'Expo', 'Supabase', 'PostGIS', 'Next.js', 'IA'],
     type: 'personnel',
   },
 ];

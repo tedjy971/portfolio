@@ -15,7 +15,7 @@ const kernixContributions = [
   {
     label: 'Migration Java vers NestJS',
     description:
-      'Contributeur principal (~60 % des commits, équipe de 3 développeurs) de la refonte d’une plateforme de facturation d’un groupe international de l’énergie : migration Java/Spring Boot vers NestJS 11 et Vue 3, monorepo pnpm/Turbo avec types partagés, TypeORM sur SQL Server et MariaDB, intégrations SAP, cycle complet de plus de 1 000 factures.',
+      'Contributeur principal (~60 % des commits, équipe de 3 développeurs) de la refonte d’une plateforme de facturation d’un groupe international de l’énergie : migration Java/Spring Boot vers NestJS 11 et Vue 3, monorepo pnpm/Turbo avec types partagés, TypeORM sur SQL Server et MariaDB, intégrations SAP, authentification Microsoft Entra, back-office AdminJS, circuit de signature, distribution et export des factures, cycle complet de plus de 1 000 factures.',
   },
   {
     label: 'Serveur MCP',
@@ -23,14 +23,24 @@ const kernixContributions = [
       'Mise en place d’un serveur MCP (Model Context Protocol) permettant aux clients d’interagir avec l’application directement depuis leur LLM.',
   },
   {
-    label: 'Développement full-stack',
+    label: 'Facturation électronique',
     description:
-      'Conception et évolution d’applications métier avec Vue 3, React ou Angular côté interface, et NestJS ou Symfony côté API. Travail sur les parcours utilisateurs, les droits d’accès, le typage des échanges, le cache et les notifications temps réel.',
+      'Évolution d’une plateforme de facturation électronique conforme EN 16931 (~100 clients en 2026) : connexion à une plateforme de dématérialisation partenaire (PDP), abonnements, facturation à l’usage et au siège avec Stripe, paiements par carte, SEPA ou virement, synchronisation de webhooks. Front Vue 3 avec Auth0 et MFA, composants documentés dans Storybook, tests e2e.',
   },
   {
-    label: 'Facturation et intégrations',
+    label: 'Cockpit client (télécom B2B)',
     description:
-      'Évolution d’une plateforme de facturation électronique (~100 clients en 2026) : abonnements et facturation à l’usage avec Stripe, paiements par carte, SEPA ou virement, synchronisation de webhooks et échanges de factures avec des services partenaires.',
+      'Principal contributeur du front d’un cockpit de suivi client (facturation, abonnements, devis) : Vue 3 / TypeScript, widgets en custom elements intégrables dans d’autres applications, AG Grid, ECharts, authentification Keycloak, i18n, tests Vitest et Playwright, image Docker/nginx.',
+  },
+  {
+    label: 'Symfony, Angular et ERP',
+    description:
+      'Application Symfony 7.1 avec double authentification (2FA) ; maintenance d’une application Symfony 3.2 et préparation de sa migration vers Symfony 7.4 ; API NestJS 10 et front Angular 19 pour un opérateur de vélos en libre-service ; connexion d’une application KWO à Microsoft Dynamics 365 Business Central.',
+  },
+  {
+    label: 'Reprise d’une plateforme existante',
+    description:
+      'Maintenance d’une plateforme de mise en relation avec des managers de transition développée par d’autres équipes : front Next.js 14 (App Router, Redux Toolkit, TanStack Query), back Symfony 6.4 / API Platform / Elasticsearch, mises en production.',
   },
   {
     label: 'Fiabilité et sécurité',
@@ -45,7 +55,7 @@ const kernixContributions = [
   {
     label: 'Modernisation et delivery',
     description:
-      'Migration PHP 5.6 vers 8.1 en 3 mois de KWO, le framework interne de Kernix sur lequel repose notamment l’ERP de DB Cargo France ; maintien de socles PHP/Symfony historiques, évolution des schémas de données et industrialisation des livraisons avec Docker, GitLab CI/CD, Ansible, Kubernetes et AWS. Ajout de tests unitaires et de scénarios métier Playwright.',
+      'Migration PHP 5.6 vers 8.1 en 3 mois de KWO, le framework interne de Kernix sur lequel repose notamment l’ERP de DB Cargo France ; maintien de socles PHP/Symfony historiques, évolution des schémas de données et industrialisation des livraisons avec Docker, GitLab CI/CD, Ansible, Kubernetes et AWS ; suivi des erreurs en production avec Sentry. Ajout de tests unitaires et de scénarios métier Playwright.',
   },
 ];
 
@@ -83,21 +93,23 @@ const additionalExperiences = [
 const skillGroups = [
   {
     label: 'Full-stack',
-    value: 'TypeScript, Vue 3, React, Angular, NestJS, Node.js, Pinia, API REST, Web Components',
+    value:
+      'TypeScript, Vue 3, React, Next.js, Angular 19, NestJS, Node.js, Pinia, Redux Toolkit, TanStack Query, AG Grid, Storybook, API REST, Web Components',
   },
   {
     label: 'Mobile',
-    value: 'Flutter, Dart, Riverpod, Codemagic, publication App Store et Google Play',
+    value:
+      'Flutter, Dart, Riverpod, Expo / React Native, Codemagic, publication App Store et Google Play',
   },
   {
     label: 'Back-end',
     value:
-      'PHP 8, Symfony 7, Laravel 12, API Platform, NestJS 11, TypeORM, microservices, CQRS, OAuth 2.0, JWT',
+      'PHP 8, Symfony 7, Laravel 12, API Platform, NestJS 11, TypeORM, microservices, CQRS, OAuth 2.0, JWT, Keycloak, Auth0, Microsoft Entra, 2FA',
   },
   {
     label: 'Données & intégrations',
     value:
-      'PostgreSQL, MySQL, SQL Server, Elasticsearch, Redis, RabbitMQ, Stripe, webhooks, API tierces',
+      'PostgreSQL, PostGIS, Supabase, MySQL, SQL Server, Elasticsearch, Redis, RabbitMQ, Stripe, facturation électronique EN 16931, Business Central, webhooks',
   },
   {
     label: 'Qualité & sécurité',
@@ -105,7 +117,7 @@ const skillGroups = [
   },
   {
     label: 'DevOps & Cloud',
-    value: 'Docker, Kubernetes, AWS, GitLab CI/CD, Ansible, Linux, GitHub Actions',
+    value: 'Docker, Kubernetes, AWS, GitLab CI/CD, Ansible, Sentry, Linux, GitHub Actions',
   },
   {
     label: 'IA & LLM',
@@ -265,7 +277,18 @@ export default function CV() {
           </section>
 
           <section aria-labelledby="project-title">
-            <h2 id="project-title">Projet personnel</h2>
+            <h2 id="project-title">Projets personnels</h2>
+            <article className={styles.primaryExperience}>
+              <div className={styles.experienceHeader}>
+                <h3>Fringale — restaurants vus sur TikTok et Instagram</h3>
+              </div>
+              <p className={styles.experienceIntro}>
+                Application mobile qui retrouve sur une carte les restaurants vus sur les réseaux.
+                Monorepo pnpm : Expo / React Native, landing Next.js, Supabase (Postgres, PostGIS,
+                43 policies RLS couvertes par 146 assertions pgTAP, Edge Functions), extraction des
+                restaurants par IA (Claude), worker Node.js / Docker / ffmpeg.
+              </p>
+            </article>
             <article className={styles.primaryExperience}>
               <div className={styles.experienceHeader}>
                 <h3>Coachemy — application mobile de coaching sportif</h3>

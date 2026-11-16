@@ -549,7 +549,7 @@
   }
 
   .content > section {
-    padding: 5mm 0;
+    padding: 3.5mm 0;
   }
 
   .content h2 {
@@ -568,7 +568,7 @@
     font-size: 7.6pt;
   }
 
-  .primaryExperience,
+  .contributionList p,
   .compactExperience,
   .skillGroup,
   .education {
